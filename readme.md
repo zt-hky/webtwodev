@@ -1,4 +1,6 @@
-# Đồ án Lập trình Web 2 - GVLT: Đỗ Nguyên Kha
+# Đồ án Lập trình Web 2 - NHÓM: Web2Developer
+
+Đồ án được sự hướng dẫn của giảng viên lý thuyết Đỗ Nguyên Kha - Lớp 16CK3
 
 ## Giới thiệu thành viên
 
