@@ -9,6 +9,6 @@
 
 ## Mô tả đồ án
 
-**Website đặtt vé phim**
+**Website đặt vé phim**
 
 ## Nội dung thực hiện
