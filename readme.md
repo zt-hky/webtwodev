@@ -5,8 +5,8 @@
 ## Giới thiệu thành viên
 
 - Nguyễn Hồng Kỳ (MSSV 1660296)
-- Nguyễn Trần Trúc My (MSSV unknown)
-- Đinh Hồng Ngộc (MSSV unknown)
+- Nguyễn Trần Trúc My (MSSV 1660352)
+- Đinh Hồng Ngọc (MSSV 1660383)
 - Nguyễn Hữu Khánh (MSSV 1660262)
 
 ## Mô tả đồ án
