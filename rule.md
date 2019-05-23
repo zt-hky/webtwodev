@@ -1,6 +1,6 @@
 # Rule
 
-**Note:** Có cái gì hay nhớ note lại link trong [tutorial.md](tutorial.md) để các bạn khác cùng xem
+**Note:** Có cái gì hay nhớ note lại link trong [reference.md](reference.md) để các bạn khác cùng xem
 
 ## Các ràng buộc trong giao diện
 

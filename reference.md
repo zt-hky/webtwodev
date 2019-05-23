@@ -2,7 +2,7 @@
 
 ## ReactJs
 
-- [tutorial point](https://www.tutorialspoint.com/reactjs)
+- Hướng dẫn ReactJS [tutorial point](https://www.tutorialspoint.com/reactjs)
 
 ## Các Extension VSC:
 
