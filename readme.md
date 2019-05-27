@@ -19,4 +19,12 @@
 
 - [v1](https://dbdiagram.io/d/5cd70067f7c5bb70c72ff6e1?fbclid=IwAR0MpCjBfU4AGLCk2JAaibTEI-DNxxBkTPWEGmAKh83Dm7ivcUUVhMLSUZ8)
 
+## Database Host Test:
 
+````json
+"username" : "rmhnmbob",
+"password" : "l1kLR5ycNv32_eP0YsjH2YqUbfy_My5Z",
+"database" : "rmhnmbob",
+"host"     : "john.db.elephantsql.com",
+"dialect"  : "postgres
+````
