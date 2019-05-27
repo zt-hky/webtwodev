@@ -10,7 +10,6 @@
 
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
+## Template
 
-## Models 
-
-- [Model Loader](https://github.com/didinj/node-express-postgresql-sequelize/blob/master/models/index.js)
+- [Designrevision](https://designrevision.com/)
