@@ -9,3 +9,8 @@
 ## Các Extension VSC:
 
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+
+
+## Models 
+
+- [Model Loader](https://github.com/didinj/node-express-postgresql-sequelize/blob/master/models/index.js)
