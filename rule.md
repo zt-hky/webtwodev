@@ -15,6 +15,8 @@
 
 ## Clean code
 
+- Use ES8 in javascript
+
 ## Comment
 
 ## Write API & Call API

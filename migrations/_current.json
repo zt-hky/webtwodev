@@ -1,0 +1,13 @@
+{
+    "tables": {
+        "Cities": {
+            "tableName": "Cities",
+            "indexes": []
+        },
+        "ThreatreSets": {
+            "tableName": "ThreatreSets",
+            "indexes": []
+        }
+    },
+    "revision": 1
+}

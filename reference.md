@@ -9,3 +9,7 @@
 ## Các Extension VSC:
 
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+
+## Template
+
+- [Designrevision](https://designrevision.com/)
