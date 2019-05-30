@@ -1,0 +1,284 @@
+@import '../master/user-master.scss';
+
+
+
+
+.poster{
+    
+   &_content{
+       img{
+           width: 100%;
+           height: auto;
+       }
+   }
+}
+
+.active{
+    visibility:visible !important;
+    opacity: 1 !important;
+
+}    
+.HightLightFilm{
+    margin-bottom: 3rem;
+    h2{
+        text-shadow: 0 0 8PX #0D0C0C;
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: bold;
+        color: red;
+        font-family: 'Rammetto_One';
+    }
+    
+        h3{
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-left: 4%;
+            border-bottom:1px solid black;
+            margin-bottom: 2rem;
+        }
+    
+}
+.ListFilm{
+    padding: 0 1.4srem;
+    width: 90%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: auto;
+    margin:0 auto;
+    &_Item{
+        position: relative;
+        cursor: pointer;
+        img{
+           width: 100%;
+            height: 80%;
+        }
+      
+       top:0;
+        width: 22%;
+        margin:0 auto;
+        height:  35vw;
+        
+      
+        text-align: center;
+        &:hover > &_Button{
+            display: block;
+        }
+        &:hover > img{
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+
+        &_Info{
+            h4{
+                font-weight: bold;
+                font-size: 1.2vw;
+            }
+            font-weight: bold;
+            font-size: 1.2vw;
+            left: 0;
+            text-align: start;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &_Button{
+            display: none;
+            left: 0;
+            z-index: 2;
+            button{
+                transition: 0.3s;
+                border-radius: 5px;
+                color: white;
+                border: 0;
+                background-color: #B50505;
+                
+                    &:hover{
+                        background-color: rgb(117, 5, 5);
+                    }
+                    &:active{
+                        color: #B50505;
+                        background-color: rgb(73, 73, 73);
+                        border: 0;
+                    }
+
+                    
+                
+            }
+         
+            right: 0;
+            bottom: 20%;
+         
+            position: relative;
+        }
+      
+    }
+   
+
+}
+
+.Film{
+    margin-top: 1.6rem ;
+}
+
+.Pagination{
+
+  
+      
+      @font-face {
+        font-family: 'Edmondsans';
+        src: url('http://designitcodeit.com/live/huP64P3jnA76/fonts/edmondsans-bold-webfont.eot');
+        src: url('http://designitcodeit.com/live/huP64P3jnA76/fonts/edmondsans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+             url('http://designitcodeit.com/live/huP64P3jnA76/fonts/edmondsans-bold-webfont.woff') format('woff'),
+             url('http://designitcodeit.com/live/huP64P3jnA76/fonts/edmondsans-bold-webfont.ttf') format('truetype'),
+             url('http://designitcodeit.com/live/huP64P3jnA76/fonts/edmondsans-bold-webfont.svg#EdmondsansBoldRegular') format('svg');
+        font-weight: bold;
+        font-style: normal;
+      }
+      >ul{
+        display: inline-block;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        .disabled a,.disabled:hover a{
+            color: #333; cursor: default;
+        }
+        >li{
+            border-right:10px solid transparent;
+            border-bottom-width: 17px;
+            border-top-width: 17px;
+            border-style: solid;
+           
+            transform:rotate(360deg);
+            border-left: 0;
+            height: 0;
+            float: left;
+            margin-right: 3px;
+            position: relative;
+
+            border-top-color: #282828;
+            border-bottom-color: #282828;
+            &:before{
+                border-left-color: #282828;
+                border-right-color: #282828;
+            }
+           
+
+            >a{
+                color: #888;
+                font-family: "Edmondsans";
+                font-size: 15px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            .active a{
+               color: #ccc; 
+            }
+          
+            &:hover a{
+                color: #c9282d;
+            }
+            &:before{
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+                border-top-color: transparent;
+                border-width: 17px 10px 17px 0;
+                border-style: solid;
+                position: absolute;
+                content: '';
+                left: -10px;
+                height: 0px;
+                top: -17px;
+                width: 0px;
+            }
+
+            >a{
+                -webkit-transition: all .2s linear;
+                -moz-transition: all .2s linear;
+                transition: all .2s linear;
+
+                line-height: 36px;
+                margin-top: -17px;
+                display: block;
+                height: 34px;
+                width: 30px;
+            }
+        }
+        .active:before,.active::after,.active ~ li:before{
+            border-left-color: #282828;
+            border-right-color: #282828;
+        }
+        .active:after,.active:before{
+            border-bottom-color: transparent;
+            border-top-color: transparent;
+            border-width: 17px 10px 17px 0;
+            border-style: solid;
+            position: absolute;
+            content: '';
+            height: 0px;
+            width: 0px;
+            top: -17px;
+            left: -10px;
+        }
+        .active:after{
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            border-width: 17px 0 17px 10px;
+            left: 100%;
+        }
+
+
+        .active ~ li:before{
+            border-bottom-color: transparent;
+            border-top-color: transparent;
+            border-width: 17px 0 17px 10px;
+            right: -10px;
+            left: auto;
+        }
+        .active ~li{
+            border-left:10px solid transparent;
+            border-right: 0;
+        }
+        .active{
+            border-right: 0;
+            border-left: 0;
+        }
+       
+
+        .prev{
+            -webkit-border-radius: 20px 0 0 20px;
+            -moz-border-radius: 20px 0 0 20px;
+            border-radius: 20px 0 0 20px;
+        }
+        .next{
+            -webkit-border-radius: 0 20px 20px 0;
+            -moz-border-radius: 0 20px 20px 0;
+            border-radius: 0 20px 20px 0;
+            border-right: 0;
+        }
+        .prev a, .next a{
+            text-indent: -4px;
+            line-height: 38px;
+            font-size: 30px;
+        }
+        .prev a {
+            text-indent: 4px; 
+        }
+        .prev:before,.next:before{
+            content: none;
+        }
+       
+      }
+     
+      text-align: center; 
+    
+    
+    
+}
+
+       
+ 
+    

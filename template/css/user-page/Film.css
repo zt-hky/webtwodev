@@ -340,17 +340,20 @@ main {
           opacity: 0.7; }
         .Content .Present_Film_Detail:hover {
           cursor: pointer; }
-        .Content .Present_Film_Detail:hover > .Content .Present_Film_Detail_Item {
-          display: block; }
+        .Content .Present_Film_Detail:hover > section {
+          display: block;
+          transition: 0.8s; }
         .Content .Present_Film_Detail img {
           height: 100%;
           width: 14rem; }
         .Content .Present_Film_Detail_Item {
+          width: 100%;
+          text-align: center;
           z-index: 2;
           display: none;
-          width: 100%;
           position: absolute;
           bottom: 2vw;
+          padding: 0 auto;
           margin: 0 auto; }
           .Content .Present_Film_Detail_Item button {
             transition: 0.3s;

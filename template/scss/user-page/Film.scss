@@ -318,21 +318,24 @@ main {
                 &:hover{
                     cursor: pointer;
                 }
-                &:hover > &_Item{
-                    display: block;
+                &:hover > section{
+                  display: block;
+                  transition: 0.8s;
                 }
                 img{
-               
+           
                     height: 100%;
                     width: 14rem;
                 }
                
                 &_Item{
-                    z-index: 2;
-                     display: none;
                     width: 100%;
+                    text-align: center;
+                    z-index: 2;
+                    display: none;
                     position: absolute;
                     bottom: 2vw;
+                    padding: 0 auto;
                     margin: 0 auto;
                     button{
                         transition: 0.3s;
