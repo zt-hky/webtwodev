@@ -18,9 +18,6 @@ export default class Carousel extends React.Component {
             li_elements = carousel_items = "";
         }
 
-        console.log(li_elements);
-
-
         return (
             <header>
                 <div className="carousel slide poster" data-ride="carousel">
