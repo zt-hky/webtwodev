@@ -1,0 +1,81 @@
+
+.Current {
+	margin-top: 2.4rem;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.Current_Img {
+	position: relative;
+	width: 35%;
+}
+
+.Current_Img img {
+	width: 100%;
+	height: 100%;
+}
+
+.Current_Info {
+	padding-left: 2.5rem;
+	display: flex;
+	width: 65%;
+	flex-direction: column;
+}
+
+.Current_Info h1 {
+	font-weight: bold;
+	text-align: center;
+}
+
+.Current_Info_Detail {
+	font-size: 1.2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.Current_Info_Detail b {
+	color: #797c7c;
+}
+
+.Current_Info_Detail_Voting {
+	display: flex;
+	flex-direction: row;
+}
+
+.Current_Info_Detail_Voting p {
+	align-self: center;
+	margin: 0;
+}
+
+.Current_Info_Detail_Voting>section {
+	padding-left: 1.5rem;
+}
+
+.Current_Info_Detail_Voting>section>i {
+	font-size: 30px;
+	color: #ccc;
+}
+
+.Current_Info_Detail_Voting>section>i:hover {
+	cursor: pointer;
+	font-size: 30px;
+	color: #f5dd06;
+}
+
+.Current_Info_Des {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.Current_Info_Des h3 {
+	width: 10rem;
+}
+
+.Current_Info_Des p {
+	margin: 0;
+	padding-left: 0.5rem;
+}

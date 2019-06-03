@@ -12,16 +12,16 @@ export default class NavMaster extends React.Component {
                 <nav className="navbar navbar-expand-sm  nav_master_nav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link" href="https:\\fb.com">Trang chủ</a>
+                            <a className="nav-link" href="/">Trang chủ</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="https:\\fb.com">Đăng nhập</a>
+                            <a className="nav-link" href="/dang-nhap">Đăng nhập</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="https:\\fb.com">Đăng ký</a>
+                            <a className="nav-link" href="/dang-ky">Đăng ký</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="https:\\fb.com">Liên hệ</a>
+                            <a className="nav-link" href="/lien-he">Liên hệ</a>
                         </li>
                     </ul>
                 </nav>
