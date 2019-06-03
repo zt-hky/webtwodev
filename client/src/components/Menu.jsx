@@ -1,29 +1,30 @@
 import React from 'react'
 import './Menu.css'
 
-
 export default class Menu extends React.Component {
     render() {
-        var menuItemElements = []
-        if (this.props.items) {
-            menuItemElements = this.props.items.map((mainItem, index1) =>
-                <li className="nav-item dropdown" key={index1}>
-                    <a className="nav-link dropdown-toggle" href={mainItem.main.href} id="navbardrop" data-toggle="dropdown">{mainItem.main.title}</a>
-                    <div className="dropdown-menu">
-                        {mainItem.subItems.map((subItem, index2) =>
-                            <a key={index2} href={subItem.href} className="dropdown-item"><i>{subItem.title}</i></a>)
-                        }
-                    </div>
-                </li>
-            );
-        } else {
-            menuItemElements = true;
-        }
-
         return (
             <nav className="navbar navbar-expand-sm nav_menu">
                 <ul className="navbar-nav">
-                    {menuItemElements}
+                    <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" href="https:\\fb.com" id="navbardrop" data-toggle="dropdown">PHIM</a>
+                        <div className="dropdown-menu">
+                            <a href className="dropdown-item"><i> PHIM ĐANG CHIẾU</i></a>
+                            <a href className="dropdown-item"><i> PHIM SẮP CHIẾU</i></a>
+                        </div>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="https:\\fb.com">RẠP/GIÁ VÉ</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="https:\\fb.com">MUA VÉ</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="https:\\fb.com">THÀNH VIÊN</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="https:\\fb.com">SỰ KIỆN</a>
+                    </li>
                 </ul>
             </nav>
 
