@@ -1,0 +1,24 @@
+
+.Content .Theater_Calendar_Addr {
+	display: flex;
+	flex-direction: row;
+}
+
+.Content .Theater_Calendar_Addr * {
+	width: 40%;
+}
+
+.Content .Theater_Calendar_Addr * select {
+	cursor: pointer;
+	font-size: 1.2rem;
+	width: 80%;
+	height: 2rem;
+	padding-left: 0.5rem;
+	color: #535352;
+	border: 1px solid #d3d3d3;
+}
+
+.Content .Theater_Calendar_Addr * select-option {
+	cursor: pointer;
+	transition: 1s linear;
+}
