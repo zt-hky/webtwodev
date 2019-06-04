@@ -2,7 +2,6 @@ import React from 'react'
 import './MovieInfo.css'
 
 export default class MovieInfo extends React.Component {
-
     render() {
         return (
             <aside className="Main_Info">
