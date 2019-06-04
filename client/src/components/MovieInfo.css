@@ -1,0 +1,130 @@
+.Main_Info {
+	align-self: flex-start;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.Main_Info img {
+	margin: 0 auto;
+	display: block;
+	width: 80%;
+}
+
+.Main_Info_Detail {
+	margin-top: 1.4rem;
+	position: relative;
+	height: 17rem;
+}
+
+.Main_Info_Detail h3 {
+	top: 0;
+	background-color: #f5a81b;
+	border: 2px solid #868585;
+	box-shadow: 2px 3px 8px #727272;
+	position: absolute;
+	text-align: center;
+	z-index: 1;
+	height: 15%;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.Main_Info_Detail>section {
+	height: 85%;
+	position: absolute;
+	background-color: #f6f7f9;
+	top: 7.5%;
+	max-width: 100%;
+}
+
+.Main_Info_Detail>section ul {
+	margin-top: 7.5%;
+	margin-bottom: 7.5%;
+	list-style-type: none;
+	padding: 0;
+}
+
+.Main_Info_Detail>section ul>li {
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 1.1rem;
+	text-overflow: ellipsis;
+	padding: 0.4rem 1rem;
+	border-bottom: 2px solid #d3d2d2;
+}
+
+.Main_Info_Detail>section ul>li:last-child {
+	border-bottom: none;
+}
+
+.Main_Info_Detail button {
+	position: absolute;
+	right: 0;
+	color: white;
+	bottom: 0;
+	border: none;
+	height: 15%;
+	border-radius: 4px;
+	background-color: #2791e7;
+}
+
+.Main_Info_Detail button:hover {
+	background-color: #085391;
+	transition: 0.3s;
+}
+
+
+.Main_Booking_Info-All {
+	margin-top: 3rem;
+}
+
+.Main_Booking_Info-All h4 {
+	text-align: center;
+	width: 6rem;
+	background-color: #ff941a;
+	border: 3px solid #FE0B0B;
+	border-radius: 6px;
+}
+
+.Main_Booking_Info-All table,
+.Main_Booking_Info-All th,
+.Main_Booking_Info-All tr {
+	border: 2px solid black;
+}
+
+.Main_Booking_Info-All>table {
+	width: 100%;
+}
+
+.Main_Booking_Info-All>table>thead>tr {
+	height: 2.5rem;
+}
+
+.Main_Booking_Info-All>table>thead>tr>td {
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.Main_Booking_Info-All>table>thead>tr>td:last-child {
+	font-weight: bold;
+}
+
+.Main_Booking_Info-All>table>tbody>tr {
+	height: 4.5rem;
+}
+
+.Main_Booking_Info-All>table>tbody>tr td {
+	text-align: center;
+}
+
+.Main_Booking_Info-All>table>tbody>tr td>input {
+	width: 4.5rem;
+}
+
+.Main_Booking_Info-All-Menu {
+	background-color: #A95304;
+	color: white;
+}
