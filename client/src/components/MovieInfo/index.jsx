@@ -5,7 +5,7 @@ export default class MovieInfo extends React.Component {
     render() {
         return (
             <aside className="Main_Info">
-                <img src={require("../img/seat_film.svg")} alt />
+                <img src={require("../../img/seat_film.svg")} alt />
                 <section className="Main_Info_Detail">
                     <h3>ALADIN</h3>
                     <section>

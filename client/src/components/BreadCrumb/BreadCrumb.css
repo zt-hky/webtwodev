@@ -25,10 +25,10 @@
 .Link>ul>li>span {
 	height: 4px;
 	width: 4px;
-	background: url("../img/nav/arrow.png");
+	background: url("../../img/nav/arrow.png");
 	text-indent: -9999px;
 }
 
 .Link>ul>li:first-child a {
-	background: url("../img/nav/home.svg") no-repeat scroll center center transparent;
+	background: url("../../img/nav/home.svg") no-repeat scroll center center transparent;
 }

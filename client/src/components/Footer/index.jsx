@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Information from '../components/Information';
-import Relation from '../components/Relation';
+import Information from '../Information';
+import Relation from '../Relation';
 
 
 export default class Footer extends Component {

@@ -1,6 +1,6 @@
 import React from 'react'
 import './MovieGroup.css'
-import MovieItem from './MovieItem';
+import MovieItem from '../MovieItem';
 
 export default class MovieGroup extends React.Component {
 

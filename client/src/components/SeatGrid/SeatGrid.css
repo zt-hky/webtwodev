@@ -1,0 +1,127 @@
+
+.Main .Enable,
+.Main .Main_Seat_Content_Note_Available>span,
+.Main .Main_Seat_Content_Map_State>ul .Available>span,
+.Main_Seat_Content_Map_State>ul .Main .Available>span {
+	display: block;
+	height: 18px;
+	width: 18px;
+	background-color: #c6c6c6;
+}
+
+.Main .Chosed,
+.Main .Main_Seat_Content_Note_Selected>span,
+.Main .Main_Seat_Content_Map_State>ul .Selected>span,
+.Main_Seat_Content_Map_State>ul .Main .Selected>span {
+	display: block;
+	height: 18px;
+	width: 18px;
+	background-color: #56d800;
+}
+
+.Main .Disabled,
+.Main .Main_Seat_Content_Note_Block>span,
+.Main .Main_Seat_Content_Map_State>ul .Block>span,
+.Main_Seat_Content_Map_State>ul .Main .Block>span {
+	display: block;
+	height: 18px;
+	width: 18px;
+	background: #bdb7bd;
+	background: linear-gradient(135deg, #bdb7bd 0%, #4d4d4d 35%, black 50%, #292929 61%, #dbdbdb 100%);
+}
+
+.Main_Seat {
+	width: 70%;
+	padding-left: 2rem;
+}
+
+.Main_Seat h3 {
+	text-align: center;
+}
+
+.Main_Seat_Content {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.Main_Seat_Content_Note {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.Main_Seat_Content_Note>article {
+	width: 10rem;
+	display: flex;
+	align-items: center;
+}
+
+.Main_Seat_Content_Note>article P {
+	margin: 0;
+	padding-left: 0.5rem;
+}
+
+.Main_Seat_Content_Map {
+	display: flex;
+	flex-direction: row;
+}
+
+.Main_Seat_Content_Map_Column {
+	width: 5%;
+	align-items: flex-end;
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
+}
+
+.Main_Seat_Content_Map_Column>ul>li {
+	line-height: 1.62rem;
+	padding: 0.3rem 0;
+}
+
+.Main_Seat_Content_Map_State {
+	margin-top: 2rem;
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Main_Seat_Content_Map_State>h3 {
+	margin-top: 1.5rem;
+	display: block;
+	width: 40%;
+	background-color: #c6c6c6;
+	font-size: 1.2rem;
+	text-align: center;
+	padding: 0.1rem 0;
+	margin: 0 auto;
+	margin-bottom: 4rem;
+}
+
+.Main_Seat_Content_Map_State>ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.Main_Seat_Content_Map_State>ul>li {
+	padding: 0.3rem 0.3rem;
+}
+
+.Main_Seat_Content_Map_State>ul>li>span {
+	width: 1.6rem !important;
+	height: 1.6rem !important;
+	cursor: pointer;
+}
+
+.Main_Seat_Content_Map_State>ul .Available>span:hover {
+	background-color: #5bcd0e;
+	transition: 0.3s;
+}
+
+.Main_Seat_Content_Map_State>ul .Block>span {
+	cursor: no-drop;
+}

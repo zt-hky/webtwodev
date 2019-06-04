@@ -1,7 +1,7 @@
 import React from 'react'
 import './Booking.css'
 import MovieInfo from '../components/MovieInfo';
-import BookInfo from '../components/BookInfo';
+import BookingInfo from '../components/BookingInfo';
 
 export default class Booking extends React.Component {
 
@@ -10,7 +10,7 @@ export default class Booking extends React.Component {
             <main>
                 <section className="container Main">
                     <MovieInfo></MovieInfo>
-                    <BookInfo></BookInfo>
+                    <BookingInfo></BookingInfo>
                 </section>
             </main>
 

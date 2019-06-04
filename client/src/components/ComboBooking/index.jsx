@@ -16,13 +16,13 @@ export default class ComboBooking extends React.Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <td><img src={require("../img/comboo.png")} alt /><label htmlFor>Combo 1</label> </td>
+                            <td><img src={require("../../img/comboo.png")} alt /><label htmlFor>Combo 1</label> </td>
                             <td><input type="number" /></td>
                             <td>70.0000</td>
                             <td>140.000</td>
                         </tr>
                         <tr>
-                            <td><img src={require("../img/comboo.png")} alt /><label htmlFor>Combo 2</label></td>
+                            <td><img src={require("../../img/comboo.png")} alt /><label htmlFor>Combo 2</label></td>
                             <td><input type="number" /></td>
                             <td>90.000</td>
                             <td>270.000</td>

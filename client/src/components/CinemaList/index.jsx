@@ -1,6 +1,6 @@
 import React from 'react';
 import './CinemaList.css'
-import Cinema from './Cinema';
+import Cinema from '../Cinema';
 export default class CinemaList extends React.Component {
     render() {
         return (

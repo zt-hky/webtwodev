@@ -1,10 +1,8 @@
 import React from 'react'
-import './BookInfo.css'
-import TicketBooking from './TicketBooking';
-import ComboBooking from './ComboBooking';
-export default class BookInfo extends React.Component {
-
-
+import './BookingInfo.css'
+import TicketBooking from '../TicketBooking';
+import ComboBooking from '../ComboBooking';
+export default class BookingInfo extends React.Component {
     render() {
         return (
             <section className="Main_Booking">

@@ -1,5 +1,5 @@
 import React from 'react'
-import MoviePresentItem from './MoviePresentItem';
+import MoviePresentItem from '../MoviePresentItem';
 
 export default class MoviePresentList extends React.Component{
     render(){
