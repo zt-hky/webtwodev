@@ -1,6 +1,6 @@
-import React, {Component}from "react"
+import React, { Component } from "react"
 import './App.css';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavMaster from "./components/NavMaster"
 import Menu from "./components/Menu"
@@ -10,6 +10,7 @@ import { MenuData } from "./data_example"
 import ListMoviePresent from "./pages/ListMoviePresent";
 import ListMovieFuture from "./pages/ListMovieFuture";
 import Movie from "./pages/Movie";
+import Booking from "./pages/Booking";
 export default class App extends Component {
     render() {
         return (
@@ -20,8 +21,9 @@ export default class App extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/phim-dang-chieu" component={ListMoviePresent} />
                     <Route path="/phim-sap-chieu" component={ListMovieFuture} />
-                    <Route path="/chi-tiet/:movieId" component={Movie}/>
-                    <Route path="/dang-phat-trien" render={()=><h1 style={{textAlign:"center", color:"red"}}>Đang phát triển</h1>} />
+                    <Route path="/mua-ve" component={Booking} />
+                    <Route path="/chi-tiet/:movieId" component={Movie} />
+                    <Route path="/dang-phat-trien" render={() => <h1 style={{ textAlign: "center", color: "red" }}>Đang phát triển</h1>} />
                     <Footer></Footer>
                 </div>
             </Router>

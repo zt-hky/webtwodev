@@ -88,7 +88,7 @@ export const MenuData = [
     },
     {
         main: { title: "MUA VÉ", href: "/mua-ve" },
-        subItems: [{ title: "item 1", href: "dang-phat-trien" }, { title: "item 2", href: "dang-phat-trien" }, { title: "item 3", href: "dang-phat-trien" }]
+        subItems: [{ title: "Booking", href: "mua-ve" }, { title: "item 2", href: "dang-phat-trien" }, { title: "item 3", href: "dang-phat-trien" }]
     },
     {
         main: { title: "THÀNH VIÊN", href: "/thanh-vien" },
