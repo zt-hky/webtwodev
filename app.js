@@ -8,6 +8,8 @@ var api = require('./routes/api_v1');
 
 var app = express();
 
+var db = require('./models/index');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -16,5 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/', api);
+
+
+db.sequelize.sync();
 
 module.exports = app;
