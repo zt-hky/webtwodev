@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         // associations can be defined here
         models.ThreatreSet.belongsTo(models.City);
         models.ThreatreSet.hasMany(models.Threatre);
+        
     };
     return ThreatreSet;
 };
