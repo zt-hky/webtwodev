@@ -20,6 +20,8 @@ app.use('/', indexRouter);
 app.use('/api/', api);
 
 
-db.sequelize.sync();
+db.sequelize.sync({
+    force:true
+});
 
 module.exports = app;

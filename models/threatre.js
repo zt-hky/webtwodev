@@ -1,0 +1,18 @@
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const Threatre = sequelize.define('Threatre', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
+    name: DataTypes.STRING,
+    row : DataTypes.INTEGER,
+    column : DataTypes.INTEGER,
+  }, {});
+  Threatre.associate = function(models) {
+    // associations can be defined here
+    models.Threatre.belongsTo(models.ThreatreType);
+    models.Threatre.belongsTo(models.ThreatreSet);
+  };
+  return Threatre;
+};

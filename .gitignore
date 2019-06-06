@@ -1,4 +1,5 @@
 .DS_STORE
+migrations/
 node_modules
 scripts/flow/*/.flowconfig
 scripts/rollup/results.json
