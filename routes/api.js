@@ -3,22 +3,26 @@ var router = express.Router();
 var controller = require('../controllers/index');
 
 
+// More require
+
+const bcrypt = require('bcrypt');
+const models = require("../models/index.js");
+
+// End
+
 /* GET users listing. */
 router.post('/user/login', controller.user.login);
 
-router.post('user/register',controller.user.register);
+router.post('/user/signUp',controller.user.signUp);
 
-router.post('user/logout',controller.user.logout);
+router.post('/user/logout',controller.user.logout);
 
-
-router.post('writeApi/inHere/dontExcute', (req,res,next) => {
-    
-    const {username, email, password, phone} = req.body;
-
+// where write controller
+router.post('/test', async (req,res,next) => {
     
 
+    
 
-
-})
+});
 
 module.exports = router;

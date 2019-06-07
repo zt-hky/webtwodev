@@ -10,22 +10,27 @@ var app = express();
 var db = require('./models/index');
 
 app.use(logger('dev'));
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Use bodyParser
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
 
 
 
 app.use('/api/', api);
 
 
-db.sequelize.sync({
-    force:true
-});
+// db.sequelize.sync({
+//     force:true
+// });
 
 module.exports = app;
