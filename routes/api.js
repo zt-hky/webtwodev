@@ -11,11 +11,11 @@ const models = require("../models/index.js");
 // End
 
 /* GET users listing. */
-router.post('/user/login', controller.user.login);
+router.post('/user/signIn', controller.user.signIn);
 
 router.post('/user/signUp',controller.user.signUp);
 
-router.post('/user/logout',controller.user.logout);
+router.post('/user/signOut',controller.user.signOut);
 
 // where write controller
 router.post('/test', async (req,res,next) => {

@@ -13,3 +13,8 @@
 ## Template
 
 - [Designrevision](https://designrevision.com/)
+
+## Auth
+
+- [JWT scotch.io](https://scotch.io/@devGson/api-authentication-with-json-web-tokensjwt-and-passport#toc-signing-the-jwt)
+- [viblo.asia auth nodejs with JWT](https://viblo.asia/p/authentication-nodejs-with-jwt-vyDZOQY95wj)

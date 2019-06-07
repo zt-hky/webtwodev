@@ -5,17 +5,15 @@ const bcrypt = require('bcrypt');
 
 let user = {}
 
-user.login = (req, res, next) => {
+user.signIn = async (req, res, next) => {
     res.status(200);
     res.setHeader('Content-Type','')
     res.json({
         success: 'true',
         message: 'test'
     });
-
-    
+   
 };
-
 
 user.signUp = async (req,res,next) => {
 
@@ -86,7 +84,7 @@ user.signUp = async (req,res,next) => {
     
 }
 
-user.logout = () => {
+user.signOut = (req,res,next) => {
 
 }
 
