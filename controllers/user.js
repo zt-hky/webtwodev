@@ -1,10 +1,10 @@
 'use strict';
 
-import db from '../models/index.js';
+const db = require("../models/index.js");
 
-let controller = {}
+let user = {}
 
-controller.login = (req, res, next) => {
+user.login = (req, res, next) => {
     res.status(200);
     res.setHeader('Content-Type','')
     res.send({
@@ -16,12 +16,12 @@ controller.login = (req, res, next) => {
 };
 
 
-controller.register = (req,res,next) => {
+user.register = (req,res,next) => {
 }
 
-controller.logout = () => {
+user.logout = () => {
 
 }
 
 
-export default controller;
+module.exports =  user;

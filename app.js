@@ -24,8 +24,8 @@ app.use(bodyParser.json())
 app.use('/api/', api);
 
 
-// db.sequelize.sync({
-//     force:false
-// });
+db.sequelize.sync({
+    force:true
+});
 
 module.exports = app;
