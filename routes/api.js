@@ -19,9 +19,6 @@ router.post('/user/signOut',controller.user.signOut);
 
 // where write controller
 router.post('/test', async (req,res,next) => {
-    
-
-    
 
 });
 

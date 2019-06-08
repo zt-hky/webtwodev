@@ -1,8 +1,13 @@
 import React from 'react'
 import './MovieGroup.css'
 import MovieItem from '../MovieItem';
+import axios from 'axios';
 
 export default class MovieGroup extends React.Component {
+
+    componentDidMount() {
+        
+    }
 
     render() {
         var elements = null;
