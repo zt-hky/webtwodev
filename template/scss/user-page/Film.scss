@@ -1,5 +1,4 @@
 @import '../master/user-master.scss';
-
 h3 {
     font-size: 1.5rem;
     font-weight: bold;
@@ -13,60 +12,44 @@ h3 {
     display: flex;
     flex-direction: row;
     width: 100%;
-
     &_Img {
         position: relative;
         width: 35%;
-
         img {
             width: 100%;
             height: 100%;
         }
     }
-
     justify-content: space-between;
-
     &_Info {
-
         padding-left: 2.5rem;
         display: flex;
         width: 65%;
         flex-direction: column;
-
         h1 {
             font-weight: bold;
             text-align: center;
         }
-
         &_Detail {
             font-size: 1.2rem;
-
             b {
                 color: hsl(180, 1%, 48%);
             }
-
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-
             &_Voting {
                 display: flex;
-
                 p {
                     align-self: center;
                     margin: 0;
                 }
-
                 flex-direction: row;
-
                 >section {
-
                     padding-left: 1.5rem;
-
                     >i {
                         font-size: 30px;
                         color: #ccc;
-
                         &:hover {
                             cursor: pointer;
                             font-size: 30px;
@@ -76,17 +59,14 @@ h3 {
                 }
             }
         }
-
         &_Des {
             h3 {
                 width: 7rem;
             }
-
             p {
                 margin: 0;
                 padding-left: 0.5rem;
             }
-
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -98,31 +78,24 @@ h3 {
     background-color: hsl(60, 3%, 86%);
     border-bottom: 1px solid #a1a19d;
     padding: 2px 0;
-
     >ul {
         padding: 0 10%;
         margin: 0;
-
         font-size: 1rem;
         display: flex;
         flex-direction: row;
         list-style-type: none;
-
         >li {
             cursor: pointer;
-
             >a {
                 color: #636363;
             }
-
             >span {
                 height: 4px;
                 width: 4px;
                 background: url("../../img/nav/arrow.png");
                 text-indent: -9999px;
-
             }
-
             &:first-child {
                 a {
                     background: url("../../img/nav/Home.svg")no-repeat scroll center center transparent;
@@ -134,7 +107,6 @@ h3 {
 
 main {
     margin-top: 1.5rem;
-
     >h2 {
         padding-bottom: 0.4rem;
         border-bottom: 2px solid rgb(6, 6, 8);
@@ -149,53 +121,43 @@ main {
     display: flex;
     flex-direction: row;
     margin-top: 2.4rem;
-
     .Theater {
         margin-right: 2rem;
         width: 80%;
-
         &_Calendar {
             margin: 1.6rem 0;
-
             ul {
                 list-style-type: none;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
                 flex-wrap: wrap;
-
                 li {
                     margin-bottom: 0.4rem;
-
                     &:hover {
                         cursor: pointer;
-
                         @extend .active-Calendar;
                     }
-
                     position: relative;
                     height: 3.3rem;
                     width: 5.1rem;
                     border-radius: 8px;
-                    border: 2px solid hsl(0, 0%, 91%);
-
+                    border: 2px solid hsl(0,
+                    0%,
+                    91%);
                     * {
                         color: rgb(90, 90, 90);
                         position: absolute;
                         font-size: 1rem;
                     }
-
                     span {
                         top: 5%;
                         left: 5%;
-
                     }
-
                     em {
                         bottom: 5%;
                         left: 5%;
                     }
-
                     strong {
                         font-size: 2rem;
                         right: 5%;
@@ -203,14 +165,11 @@ main {
                     }
                 }
             }
-
             &_Addr {
                 display: flex;
                 flex-direction: row;
-
                 * {
                     width: 40%;
-
                     select {
                         cursor: pointer;
                         font-size: 1.2rem;
@@ -219,22 +178,17 @@ main {
                         padding-left: 0.5rem;
                         color: rgb(83, 83, 82);
                         border: 1px solid #d3d3d3;
-
                         &-option {
                             cursor: pointer;
                             transition: 1s linear;
                         }
                     }
                 }
-
-
             }
-
             &_List {
                 margin-top: 2rem;
-
                 &_Theater {
-                    margin-top:2rem;
+                    margin-top: 2rem;
                     h4 {
                         font-size: 1.25rem;
                         margin: 0;
@@ -245,7 +199,6 @@ main {
                         padding-left: 0.6rem;
                         border-left: 0.7rem solid rgb(73, 29, 0);
                     }
-
                     &_Ticket {
                         border: 1px solid #8b8b8b;
                         display: flex;
@@ -257,26 +210,23 @@ main {
                             padding-left: 5%;
                             width: 30%;
                         }
-
                         &_ListTime {
-                            padding:auto 0; 
+                            padding: auto 0;
                             width: 70%;
-                            >article{
+                            >article {
                                 width: auto;
                                 height: 100%;
-                               margin-bottom: 0.15rem;
-                               margin-top: 0.14rem;
-                               margin-left: 1vw;
+                                margin-bottom: 0.15rem;
+                                margin-top: 0.14rem;
+                                margin-left: 1vw;
                                 border: 1px solid #8b8b8b;
-                                
-                                &:hover{
-
+                                &:hover {
                                     border: 1px solid rgb(245, 145, 14);
                                 }
-                                &:hover >a{
+                                &:hover>a {
                                     color: rgb(245, 145, 14);
                                 }
-                                >a{
+                                >a {
                                     color: #8b8b8b;
                                     height: 100%;
                                     padding: 2px 6px;
@@ -285,7 +235,6 @@ main {
                                 max-width: 6rem;
                                 min-width: 4rem;
                             }
-                            
                             display: flex;
                             flex-direction: row;
                             justify-content: flex-start;
@@ -296,39 +245,34 @@ main {
             }
         }
     }
-
     .Present {
         h3 {
             font-size: 1.2rem;
             width: 100%;
         }
-
         margin-left: 4rem;
-        &_Film{
+        &_Film {
             margin-top: 2rem;
-            &_Detail{
+            &_Detail {
                 height: 100%;
                 position: relative;
                 width: 100%;
-               
-                &:hover > img{
+                &:hover>img {
                     transition: 0.3s;
                     opacity: 0.7;
                 }
-                &:hover{
+                &:hover {
                     cursor: pointer;
                 }
-                &:hover > section{
-                  display: block;
-                  transition: 0.8s;
+                &:hover>section {
+                    display: block;
+                    transition: 0.8s;
                 }
-                img{
-           
+                img {
                     height: 100%;
                     width: 14rem;
                 }
-               
-                &_Item{
+                &_Item {
                     width: 100%;
                     text-align: center;
                     z-index: 2;
@@ -337,28 +281,25 @@ main {
                     bottom: 2vw;
                     padding: 0 auto;
                     margin: 0 auto;
-                    button{
+                    button {
                         transition: 0.3s;
                         border-radius: 5px;
                         color: white;
                         border: 0;
                         background-color: #B50505;
-                        
-                            &:hover{
-                                background-color: rgb(117, 5, 5);
-                            }
-                            &:active{
-                                color: #B50505;
-                                background-color: rgb(73, 73, 73);
-                                border: 0;
-                            }
-        
+                        &:hover {
+                            background-color: rgb(117, 5, 5);
+                        }
+                        &:active {
+                            color: #B50505;
+                            background-color: rgb(73, 73, 73);
+                            border: 0;
+                        }
                     }
                 }
             }
-            h4{
-               
-                padding-top:0.5rem;
+            h4 {
+                padding-top: 0.5rem;
                 font-size: 1.2rem;
             }
         }

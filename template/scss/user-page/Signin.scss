@@ -1,22 +1,21 @@
 @import '../master/user-master.scss';
-.Content{
+.Content {
     padding: 3rem 0;
     display: flex;
     flex-direction: row;
-    
-    h3{
+    h3 {
         text-align: center;
     }
-    &_Img{
+    &_Img {
         border: 3px solid #E38312;
         width: 55%;
     }
-    &_Form{
+    &_Form {
         background-color: #F5F0F0;
-        padding:0 3.5rem;
+        padding: 0 3.5rem;
         width: 45%;
-        &_Info{
-            >input{
+        &_Info {
+            >input {
                 font-weight: bold;
                 border-radius: 4px;
                 background-color: #D9F8EE;
@@ -26,31 +25,29 @@
                 padding-left: 1.8rem;
                 outline: none;
                 transition: 0.5s;
-                &:focus{
+                &:focus {
                     border: 1.5px solid #E38312;
                     box-shadow: 0 0px 2px rgb(167, 90, 3);
                 }
-    
             }
         }
-       
-        label{
+        label {
             cursor: pointer;
         }
-        input[type=checkbox]{
+        input[type=checkbox] {
             cursor: pointer;
         }
-        button{
-           border: none;
-           border-radius: 6px;
-           background-color: #F37603;
+        button {
+            border: none;
+            border-radius: 6px;
+            background-color: #F37603;
             display: block;
             text-align: center;
             margin: 0 auto;
             margin-top: 1.2rem;
         }
-        &_Check{
-            input{
+        &_Check {
+            input {
                 height: 1rem;
                 width: 1rem;
             }
