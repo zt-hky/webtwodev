@@ -1,5 +1,6 @@
 import React from 'react'
 import './Menu.css'
+import {Link} from 'react-router-dom';
 
 
 export default class Menu extends React.Component {
@@ -8,10 +9,10 @@ export default class Menu extends React.Component {
         if (this.props.items) {
             menuItemElements = this.props.items.map((mainItem, index1) =>
                 <li className="nav-item dropdown" key={index1}>
-                    <a className="nav-link dropdown-toggle" href={mainItem.main.href} id="navbardrop" data-toggle="dropdown">{mainItem.main.title}</a>
+                    <Link className="nav-link dropdown-toggle" to={mainItem.main.href} id="navbardrop" data-toggle="dropdown">{mainItem.main.title}</Link>
                     <div className="dropdown-menu">
                         {mainItem.subItems.map((subItem, index2) =>
-                            <a key={index2} href={subItem.href} className="dropdown-item"><i>{subItem.title}</i></a>)
+                            <Link key={index2} to={subItem.href} className="dropdown-item"><i>{subItem.title}</i></Link>)
                         }
                     </div>
                 </li>

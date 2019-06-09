@@ -1,27 +1,28 @@
 import React from 'react'
 import './NavMaster.css'
+import { Link } from 'react-router-dom';
 
 export default class NavMaster extends React.Component {
     render() {
         return (
             <nav className="nav_master">
                 <section className="nav_master_sec">
-                    <img src="../img/Star.svg" alt ="#"/>
+                    <img src="../img/Star.svg" alt="#" />
                     <h1>{this.props.brandName}</h1>
                 </section>
                 <nav className="navbar navbar-expand-sm  nav_master_nav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link" href="/">Trang chủ</a>
+                            <Link className="nav-link" to="/">Trang chủ</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/dang-nhap">Đăng nhập</a>
+                            <Link className="nav-link" to="/dang-nhap">Đăng nhập</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/dang-ky">Đăng ký</a>
+                            <Link className="nav-link" to="/dang-ky">Đăng ký</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/lien-he">Liên hệ</a>
+                            <Link className="nav-link" to="/lien-he">Liên hệ</Link>
                         </li>
                     </ul>
                 </nav>

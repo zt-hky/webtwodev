@@ -14,7 +14,7 @@
 	height: 80%;
 }
 
-.ListFilm_Item:hover>.ListFilm_Item_Button {
+.ListFilm_Item:hover >.ListFilm_Item_Button {
 	display: block;
 }
 
@@ -45,13 +45,14 @@
 	position: relative;
 }
 
-.ListFilm_Item_Button button {
+.ListFilm_Item_Button .link button {
+	color: white;
 	margin: 10px;
 	border-radius: 5px;
-	color: white;
 	border: 0;
 	background-color: #B50505;
 }
+
 
 .ListFilm_Item_Button button:hover {
 	background-color: #750505;

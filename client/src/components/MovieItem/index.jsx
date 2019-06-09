@@ -1,7 +1,6 @@
 import React from 'react'
 import './MovieItem.css'
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 export default class MovieItem extends React.Component {
 
@@ -13,7 +12,7 @@ export default class MovieItem extends React.Component {
 
     componentDidMount() {
 
-       
+
     }
 
     btnChiTiet_CLick(e) {
@@ -21,7 +20,7 @@ export default class MovieItem extends React.Component {
     }
 
     btnMuaVe_CLick(e) {
-        alert("Go to movie detail page!");
+        //alert("Go to movie detail page!");
 
     }
 
@@ -40,10 +39,11 @@ export default class MovieItem extends React.Component {
 
         return (
             <article className="ListFilm_Item">
+
                 <img src={this.props.imgUrl} alt="#" />
                 <section className="ListFilm_Item_Button">
-                    <button onClick={this.btnChiTiet_CLick}><Link to={"/chi-tiet/" + this.props.movieId} >Chi Tiết</Link></button>
-                    <button onClick={this.btnMuaVe_CLick} >Mua vé</button>
+                    <Link className="link" to={"/chi-tiet/" + this.props.movieId} > <button>Chi tiết</button></Link>
+                    <Link className="link" to={"/mua-ve/"}><button>Mua vé</button></Link>
                 </section>
                 <section className="ListFilm_Item_Info">
                     <h4>{this.props.title}</h4>
