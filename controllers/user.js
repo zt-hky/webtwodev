@@ -2,16 +2,52 @@
 
 const models = require("../models/index.js");
 const bcrypt = require('bcrypt');
+const secret = process.env.SECRET || 'the default secret';
+const jwt = require('jsonwebtoken');
+
 
 let user = {}
 
 user.signIn = async(req, res, next) => {
-    res.status(200);
-    res.setHeader('Content-Type', '')
-    res.json({
-        success: 'true',
-        message: 'test'
+
+    const {username, password } = req.body;
+
+    var user =  await models.User.findOne({
+        where: {id:username}
     });
+
+    if(user && bcrypt.compareSync(user.password,password) ){
+        const payload = {
+            id: user.username,
+            email: user.email
+        }
+        jwt.sign(payload,secret, {expiresIn: 24*60*60}, (err,token) => {
+            if(err){
+                res.status(500),
+                res.json({
+                    err: true,
+                    message: "Error signing token",
+                    raw: err
+                });
+            }
+            else{
+                res.status(200),
+                res.json({
+                    token: token,
+                    message: "Successfuly"
+                })
+            }
+        } );
+    }
+    else{
+        res.status(400);
+        res.json({
+            error : true,
+            message: "username or password is incorrect",
+        })
+    }
+
+
 
 };
 

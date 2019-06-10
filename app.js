@@ -3,11 +3,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-var api = require('./routes/api');
-
 var app = express();
 
 var db = require('./models/index');
+
+require('dotenv').config();
 
 app.use(logger('dev'));
 
@@ -29,8 +29,8 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/api/', api);
-
+app.use('/api/', require('./routes/api'));
+app.use('/api/', require('./routes/apiAdmin'));
 
 // db.sequelize.sync({
 //     force:true
