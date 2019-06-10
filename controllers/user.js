@@ -4,7 +4,8 @@ const models = require("../models/index.js");
 const bcrypt = require('bcrypt');
 const secret = process.env.SECRET || 'the default secret';
 const jwt = require('jsonwebtoken');
-const sendMail = require('./utils')
+const uuidv4 = require('uuid/v4');
+const utils = require('../utils/index.js');
 
 let user = {}
 
@@ -101,13 +102,19 @@ user.signUp = async(req, res, next) => {
     }
 
     var passwordBcrypt = bcrypt.hashSync(password, 10);
+    var uuid = uuidv4();
+
+    // Send Email 
+    utils.mail.send(email, username, uuid);
 
     models.User.create({
         id: username,
         password: passwordBcrypt,
         name,
         email,
-        phone
+        phone,
+        val : false,
+        uuid,
     }).
     then((result) => {
             res.status(200);
@@ -123,20 +130,10 @@ user.signUp = async(req, res, next) => {
                 error: e
             })
         })
-
 }
 
 user.signOut = (req, res, next) => {
 
-}
-
-user.sendConfirmationEmail = (req, res, next) => {
-    const { email } = req.body;
-    const mailSubject = 'Mail Kích hoạt tài khoản'
-    const content = '<a href="http://localhost:3000">Click vào đây để kích hoạt tài khoản.</a>'
-    const result = sendMail([email], mailSubject, content)
-    console.log(result);
-    res.send(result);
 }
 
 module.exports = user;

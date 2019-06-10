@@ -18,7 +18,7 @@ router.post('/user/signUp', controller.user.signUp);
 router.post('/user/signOut', controller.user.signOut);
 
 // test send email
-router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
+//router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
 // where write controller
 router.post('/test', async(req, res, next) => {
