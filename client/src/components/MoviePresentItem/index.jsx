@@ -1,5 +1,5 @@
 import React from 'react';
-import './MoviePresentItem.css'
+import './MoviePresentItem.scss';
 export default class MoviePresentItem extends React.Component {
 
     constructor(props){

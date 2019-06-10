@@ -12,6 +12,8 @@ import ListMovieFuture from "./pages/ListMovieFuture";
 import Movie from "./pages/Movie";
 import Booking from "./pages/Booking";
 import Seat from "./pages/Seat";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 export default class App extends Component {
     render() {
         return (
@@ -20,6 +22,8 @@ export default class App extends Component {
                     <NavMaster brandName="WEB_TWO"></NavMaster>
                     <Menu items={MenuData}></Menu>
                     <Route exact path="/" component={Home} />
+                    <Route exact path="/dang-nhap" component={SignIn} />
+                    <Route exact path="/dang-ky" component={SignUp} />
                     <Route path="/phim-dang-chieu" component={ListMoviePresent} />
                     <Route path="/phim-sap-chieu" component={ListMovieFuture} />
                     <Route path="/mua-ve" component={Booking} />

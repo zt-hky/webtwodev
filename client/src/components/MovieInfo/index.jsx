@@ -1,5 +1,5 @@
 import React from 'react'
-import './MovieInfo.css'
+import './MovieInfo.scss'
 
 export default class MovieInfo extends React.Component {
     render() {

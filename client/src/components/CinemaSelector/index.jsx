@@ -1,5 +1,5 @@
 import React from 'react';
-import './CinemaSelector.css'
+import './CinemaSelector.scss';
 export default class CinemaSelector extends React.Component {
     render() {
         return (

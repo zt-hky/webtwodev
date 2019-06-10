@@ -1,7 +1,7 @@
 import React from 'react';
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
-import './MovieDetail.css'
+import './MovieDetail.scss'
 
 export default class MovieDetail extends React.Component {
     render() {

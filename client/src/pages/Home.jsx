@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Home.css';
 import Carousel from '../components/Carousel';
 import MovieGroup from '../components/MovieGroup';
+import './Home.scss';
 
 
 import { MovieData, BannerData } from '../data_example'

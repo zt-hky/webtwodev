@@ -13,6 +13,7 @@
 ## Template
 
 - [Designrevision](https://designrevision.com/)
+- [Admin template ](https://github.com/rafaelhz/react-material-admin-template)
 
 ## Auth
 

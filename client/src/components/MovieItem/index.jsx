@@ -1,7 +1,6 @@
 import React from 'react'
-import './MovieItem.css'
 import { Link } from 'react-router-dom';
-
+import './MovieItem.scss'
 export default class MovieItem extends React.Component {
 
     constructor(props) {

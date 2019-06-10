@@ -1,5 +1,5 @@
 import React from 'react';
-import './BreadCrumb.css'
+import './BreadCrumb.scss'
 
 export default class BreadCrumb extends React.Component {
     render() {

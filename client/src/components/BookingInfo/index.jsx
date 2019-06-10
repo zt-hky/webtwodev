@@ -1,5 +1,5 @@
 import React from 'react'
-import './BookingInfo.css'
+import './BookingInfo.scss'
 import TicketBooking from '../TicketBooking';
 import ComboBooking from '../ComboBooking';
 export default class BookingInfo extends React.Component {

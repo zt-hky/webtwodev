@@ -1,0 +1,56 @@
+@import'../../styles/scss/variables.scss';
+.active-Calendar {
+    border: 2px solid #80d33c;
+}
+
+.Content {
+    .Theater_Calendar ul li:hover {
+        border: 2px solid #80d33c;
+    }
+    display: flex;
+    flex-direction: row;
+    margin-top: 2.4rem;
+    .Theater {
+        margin-right: 2rem;
+        width: 80%;
+    }
+    .Theater_Calendar {
+        margin: 1.6rem 0;
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            li {
+                margin-bottom: 0.4rem;
+                position: relative;
+                height: 3.3rem;
+                width: 5.1rem;
+                border-radius: 8px;
+                border: 2px solid #e8e8e8;
+                &:hover {
+                    cursor: pointer;
+                }
+                * {
+                    color: #5a5a5a;
+                    position: absolute;
+                    font-size: 1rem;
+                }
+                span {
+                    top: 5%;
+                    left: 5%;
+                }
+                em {
+                    bottom: 5%;
+                    left: 5%;
+                }
+                strong {
+                    font-size: 2rem;
+                    right: 5%;
+                    margin: auto 0;
+                }
+            }
+        }
+    }
+}

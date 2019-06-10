@@ -1,6 +1,5 @@
 import React from 'react'
-import './Relation.css'
-
+import './Relation.scss';
 export default class Relation extends React.Component {
     render() {
         return (

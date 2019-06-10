@@ -1,0 +1,31 @@
+@import'../../styles/scss/variables.scss';
+.Link {
+    background-color: #dcdcda;
+    border-bottom: 1px solid #a1a19d;
+    padding: 2px 0;
+    >ul {
+        padding: 0 10%;
+        margin: 0;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        >li {
+            cursor: pointer;
+            > {
+                a {
+                    color: #636363;
+                }
+                span {
+                    height: 4px;
+                    width: 4px;
+                    background: url("../../img/nav/arrow.png");
+                    text-indent: -9999px;
+                }
+            }
+            &:first-child a {
+                background: url("../../img/nav/home.svg") no-repeat scroll center center transparent;
+            }
+        }
+    }
+}

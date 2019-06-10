@@ -1,0 +1,11 @@
+@import'../../styles/scss/variables.scss';
+.ListFilm {
+    padding: 0 1.4srem;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: auto;
+    margin: 0 auto;
+}

@@ -13,12 +13,15 @@ const models = require("../models/index.js");
 /* GET users listing. */
 router.post('/user/signIn', controller.user.signIn);
 
-router.post('/user/signUp',controller.user.signUp);
+router.post('/user/signUp', controller.user.signUp);
 
-router.post('/user/signOut',controller.user.signOut);
+router.post('/user/signOut', controller.user.signOut);
+
+// test send email
+router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
 // where write controller
-router.post('/test', async (req,res,next) => {
+router.post('/test', async(req, res, next) => {
 
 });
 

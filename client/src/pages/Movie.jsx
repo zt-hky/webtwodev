@@ -1,11 +1,11 @@
 import React from 'react';
-import './Movie.css'
 import BreadCrumb from '../components/BreadCrumb';
 import MovieDetail from '../components/MovieDetail';
 import Calender from '../components/Calender';
 import CinemaSelector from '../components/CinemaSelector';
 import CinemaList from '../components/CinemaList';
 import MoviePresentList from '../components/MoviePresentList';
+import './Movie.scss';
 export default class Movie extends React.Component {
 
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cinema.css'
+import './Cinema.scss'
 export default class Cinema extends React.Component{
     render(){
         return(

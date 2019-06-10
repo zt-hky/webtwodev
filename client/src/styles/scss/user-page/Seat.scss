@@ -1,0 +1,222 @@
+@import '../master/user-master.scss';
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    padding: 0;
+    margin: 0;
+}
+
+.Main {
+    margin-top: 2.4rem;
+    display: flex;
+    justify-content: center;
+    &_Info {
+        align-self: flex-start;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        img {
+            margin: 0 auto;
+            display: block;
+            width: 80%;
+        }
+        &_Detail {
+            margin-top: 1.4rem;
+            position: relative;
+            height: 17rem;
+            h3 {
+                top: 0;
+                background-color: #f5a81b;
+                border: 2px solid #868585;
+                box-shadow: 2px 3px 8px rgb(114, 114, 114);
+                position: absolute;
+                text-align: center;
+                z-index: 1;
+                height: 15%;
+                left: 0;
+                margin: 0;
+                padding: 0;
+            }
+            >section {
+                height: 85%;
+                position: absolute;
+                background-color: hsl(220, 18%, 97%);
+                top: 7.5%;
+                max-width: 100%;
+                ul {
+                    margin-top: 7.5%;
+                    margin-bottom: 7.5%;
+                    list-style-type: none;
+                    padding: 0;
+                    >li {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        font-size: 1.1rem;
+                        text-overflow: ellipsis;
+                        padding: 0.4rem 1rem;
+                        border-bottom: 2px solid #d3d2d2;
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+            button {
+                position: absolute;
+                right: 0;
+                color: rgb(255, 255, 255);
+                bottom: 0;
+                //   padding: 0.3rem 0.5rem;
+                border: none;
+                height: 15%;
+                border-radius: 4px;
+                background-color: hsl(207, 80%, 53%);
+                &:hover {
+                    background-color: hsl(207, 89%, 30%);
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
+    @mixin sp {
+        display: block;
+        height: 18px;
+        width: 18px;
+    }
+    .Enable {
+        @include sp;
+        background-color: #c6c6c6;
+    }
+    .Chosed {
+        @include sp;
+        background-color: #56d800;
+    }
+    .Disabled {
+        @include sp;
+        background: rgba(189, 183, 189, 1);
+        background: linear-gradient(135deg, rgba(189, 183, 189, 1) 0%, rgba(77, 77, 77, 1) 35%, rgba(0, 0, 0, 1) 50%, rgba(41, 41, 41, 1) 61%, rgba(219, 219, 219, 1) 100%);
+    }
+    &_Seat {
+        width: 70%;
+        padding-left: 2rem;
+        h3 {
+            text-align: center;
+        }
+        &_Content {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            &_Note {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                >article {
+                    width: 10rem;
+                    P {
+                        margin: 0;
+                        padding-left: 0.5rem;
+                    }
+                    display: flex;
+                    align-items: center;
+                }
+                &_Selected {
+                    >span {
+                        @extend .Chosed;
+                    }
+                }
+                &_Available {
+                    >span {
+                        @extend .Enable;
+                    }
+                }
+                &_Block {
+                    >span {
+                        @extend .Disabled;
+                    }
+                }
+            }
+            &_Map {
+                display: flex;
+                flex-direction: row;
+                &_Column {
+                    width: 5%;
+                    align-items: flex-end;
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: row;
+                    >ul {
+                        >li {
+                            line-height: 1.62rem;
+                            padding: 0.3rem 0;
+                        }
+                    }
+                }
+                &_State {
+                    margin-top: 2rem;
+                    >h3 {
+                        margin-top: 1.5rem;
+                        display: block;
+                        width: 40%;
+                        background-color: #c6c6c6;
+                        font-size: 1.2rem;
+                        text-align: center;
+                        padding: 0.1rem 0;
+                        margin: 0 auto;
+                        margin-bottom: 4rem;
+                    }
+                    width: 95%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    >ul {
+                        >li {
+                            padding: 0.3rem 0.3rem;
+                            >span {
+                                width: 1.6rem !important;
+                                height: 1.6rem !important;
+                                cursor: pointer;
+                            }
+                        }
+                        display:flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        .Available {
+                            >span {
+                                &:hover {
+                                    background-color: hsl(96, 87%, 43%);
+                                    transition: 0.3s;
+                                }
+                                @extend .Enable;
+                            }
+                        }
+                        .Selected {
+                            >span {
+                                @extend .Chosed;
+                            }
+                        }
+                        .Block {
+                            >span {
+                                @extend .Disabled;
+                                cursor: no-drop;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

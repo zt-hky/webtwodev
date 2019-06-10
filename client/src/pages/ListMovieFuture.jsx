@@ -1,8 +1,7 @@
 import React from 'react';
-import './ListMovieFuture.css'
 import { MovieData, } from '../data_example'
 import MovieGroup from '../components/MovieGroup';
-
+import './ListMovieFuture.scss';
 export default class ListMovieFuture extends React.Component {
     render() {
         return (

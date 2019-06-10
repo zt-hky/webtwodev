@@ -1,0 +1,16 @@
+@import'../../styles/scss/variables.scss';
+footer .relation {
+    text-align: center;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    section {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    img {
+        margin: 0.5rem 0.1rem;
+        width: 30%;
+        height: auto;
+    }
+}

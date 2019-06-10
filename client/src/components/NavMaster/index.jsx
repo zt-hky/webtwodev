@@ -1,7 +1,6 @@
 import React from 'react'
-import './NavMaster.css'
 import { Link } from 'react-router-dom';
-
+import './NavMaster.scss';
 export default class NavMaster extends React.Component {
     render() {
         return (

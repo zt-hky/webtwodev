@@ -1,5 +1,5 @@
 import React from 'react';
-import './SeatGrid.css'
+import './SeatGrid.scss';
 export default class SeatGrid extends React.Component{
 
     render(){

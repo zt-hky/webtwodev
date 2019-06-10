@@ -1,0 +1,67 @@
+@import'../styles/scss/variables.scss';
+main {
+    height: auto;
+    margin: 0 3.5rem;
+}
+
+.poster_content img {
+    width: 100%;
+    height: auto;
+}
+
+.active {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.HightLightFilm {
+    margin-bottom: 3rem;
+    h2 {
+        text-shadow: 0 0 8PX #0D0C0C;
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: bold;
+        color: red;
+        font-family: 'Rammetto_One';
+    }
+    h3 {
+        font-weight: bold;
+        font-size: 1.4rem;
+        margin-left: 4%;
+        border-bottom: 1px solid black;
+        margin-bottom: 2rem;
+    }
+}
+
+footer {
+    background-color: #c4c4c4;
+    border-top: 1px solid black;
+    display: flex;
+    padding: 2rem 4rem;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+    .blog {
+        width: 20vw;
+        h5 {
+            padding-bottom: 0.5rem;
+        }
+        div {
+            margin-top: 0.7rem;
+        }
+        a {
+            color: #0D0C0C;
+        }
+    }
+    .blog_2 {
+        background-color: #728180;
+        a {
+            color: white;
+        }
+    }
+}
+
+.Film {
+    margin-top: 1.6rem;
+}
