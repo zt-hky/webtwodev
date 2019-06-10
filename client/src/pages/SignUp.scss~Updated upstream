@@ -13,7 +13,7 @@ main {
 
 @font-face {
     font-family: Rammetto_One;
-    src: url("$font") format("truetype");
+    src: url($font) format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -168,26 +168,16 @@ footer {
     }
 }
 
-.Theater h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 5px 0;
-    width: 10rem;
-    border-bottom: 2.8px solid #dd890b;
-}
-
-main {
-    margin-top: 1.5rem;
-    >h2 {
-        padding-bottom: 0.4rem;
-        border-bottom: 2px solid #060608;
-    }
-}
-
-.Content .Present {
-    margin-left: 4rem;
+.Content {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: row;
     h3 {
-        font-size: 1.2rem;
-        width: 100%;
+        text-align: center;
     }
+}
+
+.Content_Img {
+    border: 3px solid #E38312;
+    width: 55%;
 }

@@ -1,17 +1,17 @@
+@import'./styles/scss/variables.scss';
 body {
-	font-family: 'Times New Roman', Times, serif;
-	font-size: 19px;
-	background-color: #D4DCDB;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    background-color: #D4DCDB;
 }
 
 @font-face {
-	font-family: Rammetto_One;
-	src: url("./font/RammettoOne-Regular.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+    font-family: Rammetto_One;
+    src: url($font) format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

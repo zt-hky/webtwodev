@@ -1,553 +1,553 @@
 body {
-	font-family: 'Times New Roman', Times, serif;
-	font-size: 19px;
-	background-color: #ffffff;
-	color: #43464b;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    background-color: #ffffff;
+    color: #43464b;
 }
 
 main {
-	height: auto;
-	margin: 0 3.5rem;
+    height: auto;
+    margin: 0 3.5rem;
 }
 
 @font-face {
-	font-family: Rammetto_One;
-	src: url("/template/font/RammettoOne-Regular.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+    font-family: Rammetto_One;
+    src: url("$font") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 .nav_master {
-	top: 0;
-	opacity: 0.7;
-	position: fixed;
-	z-index: 1;
-	width: 100%;
-	background-color: #D4DCDB;
-	height: 3rem;
-	display: flex;
-	flex-direction: row;
+    top: 0;
+    opacity: 0.7;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: #D4DCDB;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
 }
 
 .nav_master_sec {
-	width: auto;
-	width: 40%;
-	position: relative;
+    width: auto;
+    width: 40%;
+    position: relative;
 }
 
 .nav_master_sec h1 {
-	width: auto;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-weight: 800;
-	color: red;
-	font-family: Rammetto_One;
-	font-size: 2vw;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 800;
+    color: red;
+    font-family: Rammetto_One;
+    font-size: 2vw;
 }
 
 .nav_master_sec img {
-	position: absolute;
-	top: 26%;
-	left: 75%;
-	transform: translate(-50%, -50%);
+    position: absolute;
+    top: 26%;
+    left: 75%;
+    transform: translate(-50%, -50%);
 }
 
 .nav_master_nav {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .nav_master_nav ul {
-	padding-left: 20%;
-	padding-bottom: 2rem;
-	width: 100%;
+    padding-left: 20%;
+    padding-bottom: 2rem;
+    width: 100%;
 }
 
 .nav_master_nav ul li {
-	padding-top: 1rem;
-	padding-right: 2.5rem;
+    padding-top: 1rem;
+    padding-right: 2.5rem;
 }
 
 .nav_master_nav ul li a {
-	color: black;
+    color: black;
 }
 
 .nav_master_nav ul li a:hover {
-	color: #FB0505;
+    color: #FB0505;
 }
 
 .nav_menu {
-	padding: 0;
-	margin-top: 3rem;
-	background-color: #0D0C0C;
+    padding: 0;
+    margin-top: 3rem;
+    background-color: #0D0C0C;
 }
 
 .nav_menu ul {
-	width: auto;
-	padding: 0.6rem 0;
-	margin: 0rem auto;
+    width: auto;
+    padding: 0.6rem 0;
+    margin: 0rem auto;
 }
 
 .nav_menu ul .dropdown:hover>.dropdown-menu {
-	display: block;
+    display: block;
 }
 
 .nav_menu ul li {
-	padding: 0rem 2rem;
-	width: auto;
-	border-right: 2px solid #FDF9F9;
+    padding: 0rem 2rem;
+    width: auto;
+    border-right: 2px solid #FDF9F9;
 }
 
 .nav_menu ul li .dropdown-menu {
-	margin: 0 !important;
-	background-color: #1e1c1c;
+    margin: 0 !important;
+    background-color: #1e1c1c;
 }
 
 .nav_menu ul li .dropdown-menu a {
-	padding: 0.3rem 0;
-	color: #FF810d;
-	text-shadow: 0 0 10px #ffec80;
+    padding: 0.3rem 0;
+    color: #FF810d;
+    text-shadow: 0 0 10px #ffec80;
 }
 
 .nav_menu ul li .dropdown-menu a:hover {
-	background-color: #1e1c1c;
-	color: #ffd724;
+    background-color: #1e1c1c;
+    color: #ffd724;
 }
 
 .nav_menu ul li .dropdown-menu a:focus {
-	color: #FF810d;
+    color: #FF810d;
 }
 
 .nav_menu ul li a {
-	padding: 0;
-	text-align: center;
-	color: #DFD9D9;
+    padding: 0;
+    text-align: center;
+    color: #DFD9D9;
 }
 
 .nav_menu ul li a:hover {
-	color: #FB0505;
+    color: #FB0505;
 }
 
 .nav_menu ul li :last-child {
-	border-right: unset;
+    border-right: unset;
 }
 
 footer {
-	background-color: #c4c4c4;
-	border-top: 1px solid black;
-	display: flex;
-	padding: 2rem 4rem;
-	flex-direction: row;
-	justify-content: center;
-	text-align: center;
-	margin-top: 2rem;
+    background-color: #c4c4c4;
+    border-top: 1px solid black;
+    display: flex;
+    padding: 2rem 4rem;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
 }
 
 footer .blog {
-	width: 20vw;
+    width: 20vw;
 }
 
 footer .blog h5 {
-	padding-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 footer .blog div {
-	margin-top: 0.7rem;
+    margin-top: 0.7rem;
 }
 
 footer .blog a {
-	color: #0D0C0C;
+    color: #0D0C0C;
 }
 
 footer .blog_2 {
-	background-color: #728180;
+    background-color: #728180;
 }
 
 footer .blog_2 a {
-	color: white;
+    color: white;
 }
 
 footer .relation {
-	text-align: center;
-	width: 30vw;
-	display: flex;
-	flex-direction: column;
+    text-align: center;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
 }
 
 footer .relation section {
-	display: flex;
-	flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 footer .relation img {
-	margin: 0.5rem 0.1rem;
-	width: 30%;
-	height: auto;
+    margin: 0.5rem 0.1rem;
+    width: 30%;
+    height: auto;
 }
 
 footer .intro {
-	padding-left: 2rem;
-	font-size: 0.9rem;
-	width: 100%;
+    padding-left: 2rem;
+    font-size: 0.9rem;
+    width: 100%;
 }
 
 h3 {
-	font-size: 1.5rem;
-	font-weight: bold;
-	padding: 5px 0;
-	width: 10rem;
-	border-bottom: 2.8px solid #dd890b;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px 0;
+    width: 10rem;
+    border-bottom: 2.8px solid #dd890b;
 }
 
 .Current {
-	margin-top: 2.4rem;
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	justify-content: space-between;
+    margin-top: 2.4rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .Current_Img {
-	position: relative;
-	width: 35%;
+    position: relative;
+    width: 35%;
 }
 
 .Current_Img img {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .Current_Info {
-	padding-left: 2.5rem;
-	display: flex;
-	width: 65%;
-	flex-direction: column;
+    padding-left: 2.5rem;
+    display: flex;
+    width: 65%;
+    flex-direction: column;
 }
 
 .Current_Info h1 {
-	font-weight: bold;
-	text-align: center;
+    font-weight: bold;
+    text-align: center;
 }
 
 .Current_Info_Detail {
-	font-size: 1.2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .Current_Info_Detail b {
-	color: #797c7c;
+    color: #797c7c;
 }
 
 .Current_Info_Detail_Voting {
-	display: flex;
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .Current_Info_Detail_Voting p {
-	align-self: center;
-	margin: 0;
+    align-self: center;
+    margin: 0;
 }
 
 .Current_Info_Detail_Voting>section {
-	padding-left: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 .Current_Info_Detail_Voting>section>i {
-	font-size: 30px;
-	color: #ccc;
+    font-size: 30px;
+    color: #ccc;
 }
 
 .Current_Info_Detail_Voting>section>i:hover {
-	cursor: pointer;
-	font-size: 30px;
-	color: #f5dd06;
+    cursor: pointer;
+    font-size: 30px;
+    color: #f5dd06;
 }
 
 .Current_Info_Des {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .Current_Info_Des h3 {
-	width: 7rem;
+    width: 7rem;
 }
 
 .Current_Info_Des p {
-	margin: 0;
-	padding-left: 0.5rem;
+    margin: 0;
+    padding-left: 0.5rem;
 }
 
 .Link {
-	background-color: #dcdcda;
-	border-bottom: 1px solid #a1a19d;
-	padding: 2px 0;
+    background-color: #dcdcda;
+    border-bottom: 1px solid #a1a19d;
+    padding: 2px 0;
 }
 
 .Link>ul {
-	padding: 0 10%;
-	margin: 0;
-	font-size: 1rem;
-	display: flex;
-	flex-direction: row;
-	list-style-type: none;
+    padding: 0 10%;
+    margin: 0;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
 }
 
 .Link>ul>li {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .Link>ul>li>a {
-	color: #636363;
+    color: #636363;
 }
 
 .Link>ul>li>span {
-	height: 4px;
-	width: 4px;
-	background: url("../../img/nav/arrow.png");
-	text-indent: -9999px;
+    height: 4px;
+    width: 4px;
+    background: url("../../img/nav/arrow.png");
+    text-indent: -9999px;
 }
 
 .Link>ul>li:first-child a {
-	background: url("../../img/nav/Home.svg") no-repeat scroll center center transparent;
+    background: url("../../img/nav/Home.svg") no-repeat scroll center center transparent;
 }
 
 main {
-	margin-top: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 main>h2 {
-	padding-bottom: 0.4rem;
-	border-bottom: 2px solid #060608;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #060608;
 }
 
 .active-Calendar,
 .Content .Theater_Calendar ul li:hover {
-	border: 2px solid #80d33c;
+    border: 2px solid #80d33c;
 }
 
 .Content {
-	display: flex;
-	flex-direction: row;
-	margin-top: 2.4rem;
+    display: flex;
+    flex-direction: row;
+    margin-top: 2.4rem;
 }
 
 .Content .Theater {
-	margin-right: 2rem;
-	width: 80%;
+    margin-right: 2rem;
+    width: 80%;
 }
 
 .Content .Theater_Calendar {
-	margin: 1.6rem 0;
+    margin: 1.6rem 0;
 }
 
 .Content .Theater_Calendar ul {
-	list-style-type: none;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	flex-wrap: wrap;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .Content .Theater_Calendar ul li {
-	margin-bottom: 0.4rem;
-	position: relative;
-	height: 3.3rem;
-	width: 5.1rem;
-	border-radius: 8px;
-	border: 2px solid #e8e8e8;
+    margin-bottom: 0.4rem;
+    position: relative;
+    height: 3.3rem;
+    width: 5.1rem;
+    border-radius: 8px;
+    border: 2px solid #e8e8e8;
 }
 
 .Content .Theater_Calendar ul li:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .Content .Theater_Calendar ul li * {
-	color: #5a5a5a;
-	position: absolute;
-	font-size: 1rem;
+    color: #5a5a5a;
+    position: absolute;
+    font-size: 1rem;
 }
 
 .Content .Theater_Calendar ul li span {
-	top: 5%;
-	left: 5%;
+    top: 5%;
+    left: 5%;
 }
 
 .Content .Theater_Calendar ul li em {
-	bottom: 5%;
-	left: 5%;
+    bottom: 5%;
+    left: 5%;
 }
 
 .Content .Theater_Calendar ul li strong {
-	font-size: 2rem;
-	right: 5%;
-	margin: auto 0;
+    font-size: 2rem;
+    right: 5%;
+    margin: auto 0;
 }
 
 .Content .Theater_Calendar_Addr {
-	display: flex;
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .Content .Theater_Calendar_Addr * {
-	width: 40%;
+    width: 40%;
 }
 
 .Content .Theater_Calendar_Addr * select {
-	cursor: pointer;
-	font-size: 1.2rem;
-	width: 80%;
-	height: 2rem;
-	padding-left: 0.5rem;
-	color: #535352;
-	border: 1px solid #d3d3d3;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 80%;
+    height: 2rem;
+    padding-left: 0.5rem;
+    color: #535352;
+    border: 1px solid #d3d3d3;
 }
 
 .Content .Theater_Calendar_Addr * select-option {
-	cursor: pointer;
-	transition: 1s linear;
+    cursor: pointer;
+    transition: 1s linear;
 }
 
 .Content .Theater_Calendar_List {
-	margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 .Content .Theater_Calendar_List_Theater {
-	margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 .Content .Theater_Calendar_List_Theater h4 {
-	font-size: 1.25rem;
-	margin: 0;
-	margin-right: 60%;
-	padding: 0.4rem 0;
-	background-color: #f26b38;
-	color: white;
-	padding-left: 0.6rem;
-	border-left: 0.7rem solid #491d00;
+    font-size: 1.25rem;
+    margin: 0;
+    margin-right: 60%;
+    padding: 0.4rem 0;
+    background-color: #f26b38;
+    color: white;
+    padding-left: 0.6rem;
+    border-left: 0.7rem solid #491d00;
 }
 
 .Content .Theater_Calendar_List_Theater_Ticket {
-	border: 1px solid #8b8b8b;
-	display: flex;
-	flex-direction: row;
-	height: 6rem;
-	padding: 0 1.2rem;
-	align-items: center;
+    border: 1px solid #8b8b8b;
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+    padding: 0 1.2rem;
+    align-items: center;
 }
 
 .Content .Theater_Calendar_List_Theater_Ticket h5 {
-	padding-left: 5%;
-	width: 30%;
+    padding-left: 5%;
+    width: 30%;
 }
 
 .Content .Theater_Calendar_List_Theater_Ticket_ListTime {
-	padding: auto 0;
-	width: 70%;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	flex-wrap: wrap;
+    padding: auto 0;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .Content .Theater_Calendar_List_Theater_Ticket_ListTime>article {
-	width: auto;
-	height: 100%;
-	margin-bottom: 0.15rem;
-	margin-top: 0.14rem;
-	margin-left: 1vw;
-	border: 1px solid #8b8b8b;
-	max-width: 6rem;
-	min-width: 4rem;
+    width: auto;
+    height: 100%;
+    margin-bottom: 0.15rem;
+    margin-top: 0.14rem;
+    margin-left: 1vw;
+    border: 1px solid #8b8b8b;
+    max-width: 6rem;
+    min-width: 4rem;
 }
 
 .Content .Theater_Calendar_List_Theater_Ticket_ListTime>article:hover {
-	border: 1px solid #f5910e;
+    border: 1px solid #f5910e;
 }
 
 .Content .Theater_Calendar_List_Theater_Ticket_ListTime>article:hover>a {
-	color: #f5910e;
+    color: #f5910e;
 }
 
 .Content .Theater_Calendar_List_Theater_Ticket_ListTime>article>a {
-	color: #8b8b8b;
-	height: 100%;
-	padding: 2px 6px;
-	text-decoration: none;
+    color: #8b8b8b;
+    height: 100%;
+    padding: 2px 6px;
+    text-decoration: none;
 }
 
 .Content .Present {
-	margin-left: 4rem;
+    margin-left: 4rem;
 }
 
 .Content .Present h3 {
-	font-size: 1.2rem;
-	width: 100%;
+    font-size: 1.2rem;
+    width: 100%;
 }
 
 .Content .Present_Film {
-	margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 .Content .Present_Film_Detail {
-	height: 100%;
-	position: relative;
-	width: 100%;
+    height: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .Content .Present_Film_Detail:hover>img {
-	transition: 0.3s;
-	opacity: 0.7;
+    transition: 0.3s;
+    opacity: 0.7;
 }
 
 .Content .Present_Film_Detail:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .Content .Present_Film_Detail:hover>section {
-	display: block;
-	transition: 0.8s;
+    display: block;
+    transition: 0.8s;
 }
 
 .Content .Present_Film_Detail img {
-	height: 100%;
-	width: 14rem;
+    height: 100%;
+    width: 14rem;
 }
 
 .Content .Present_Film_Detail_Item {
-	width: 100%;
-	text-align: center;
-	z-index: 2;
-	display: none;
-	position: absolute;
-	bottom: 2vw;
-	padding: 0 auto;
-	margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    bottom: 2vw;
+    padding: 0 auto;
+    margin: 0 auto;
 }
 
 .Content .Present_Film_Detail_Item button {
-	transition: 0.3s;
-	border-radius: 5px;
-	color: white;
-	border: 0;
-	background-color: #B50505;
+    transition: 0.3s;
+    border-radius: 5px;
+    color: white;
+    border: 0;
+    background-color: #B50505;
 }
 
 .Content .Present_Film_Detail_Item button:hover {
-	background-color: #750505;
+    background-color: #750505;
 }
 
 .Content .Present_Film_Detail_Item button:active {
-	color: #B50505;
-	background-color: #494949;
-	border: 0;
+    color: #B50505;
+    background-color: #494949;
+    border: 0;
 }
 
 .Content .Present_Film h4 {
-	padding-top: 0.5rem;
-	font-size: 1.2rem;
+    padding-top: 0.5rem;
+    font-size: 1.2rem;
 }

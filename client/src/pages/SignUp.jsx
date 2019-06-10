@@ -1,9 +1,8 @@
 import React from 'react';
-import './SignUp.css';
+import './SignUp.scss';
 import Carousel from '../components/Carousel';
 import {BannerData} from '../data_example';
 import RegisterForm from '../components/RegisterForm';
-import './SignUp.css'
 export default class SignUp extends React.Component {
 
     render() {
