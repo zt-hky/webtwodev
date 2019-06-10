@@ -18,6 +18,12 @@ user.signIn = async(req, res, next) => {
     });
 
     if (user && bcrypt.compareSync(user.password, password)) {
+        if(user.val == false){
+            res.status(200).json({
+                message : "Confirm email please",
+                error : 'mailConfirm'
+            });
+        }
         const payload = {
             id: user.username,
             email: user.email
@@ -135,5 +141,26 @@ user.signUp = async(req, res, next) => {
 user.signOut = (req, res, next) => {
 
 }
+
+user.confirmMail = async (req,res,next) => {
+    const {username, uuid} = req.params;
+
+    var user = await models.User.findOne({
+        where: {id: username}
+    });
+
+    if(user && user.uuid == uuid){
+        models.User.update(
+            {val : true},
+            {where : { id: username }}
+        )
+        res.redirect("/");
+    }
+    else{
+        res.send("URL không đúng");
+    }
+
+}
+
 
 module.exports = user;

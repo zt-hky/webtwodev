@@ -31,6 +31,7 @@ app.use(function(req, res, next) {
 
 app.use('/api/', require('./routes/api'));
 app.use('/api/', require('./routes/apiAdmin'));
+app.use('/etc/', require('./routes/etc'));
 
 // db.sequelize.sync({
 //     force:true
