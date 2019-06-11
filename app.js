@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var app = express();
-
+var passport = require('passport');
 var db = require('./models/index');
 
 require('dotenv').config();
@@ -19,8 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -29,9 +27,15 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/api/', require('./routes/api'));
-app.use('/api/', require('./routes/apiAdmin'));
+// Config passport
+app.use(passport.initialize());
+require('./middleware/client')(passport);
+
 app.use('/etc/', require('./routes/etc'));
+app.use('/api/', require('./routes/api'));
+app.use('/api/', passport.authenticate('client', { session: false }), require('./routes/apiClient'));
+app.use('/api/', require('./routes/apiAdmin'));
+
 
 // db.sequelize.sync({
 //     force:true
