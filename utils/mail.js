@@ -2,6 +2,8 @@
 let mail = {};
 
 const nodemailer = require('nodemailer');
+const pug = require('pug');
+const path = require('path');
 
 const transporter = nodemailer.createTransport({
     service: process.env.serviceMail,
@@ -11,9 +13,9 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-mail.send = async (email, id, uuid) => {
+mail.send = async(email, id, uuid) => {
     var url = process.env.DOMAIN + '/etc/confirm-mail/' + id + '/' + uuid;
-    var html = '<a href="http://' + url + '"> Click vào đây để xác nhận địa chỉ mail </a> ';
+    var html = pug.renderFile(__dirname + '/mail/confirmMail.pug', { url: url, name: "Nguyễn Văn A" });
     var mailOptions = {
         from: process.env.userMail,
         to: email,
