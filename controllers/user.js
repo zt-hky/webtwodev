@@ -111,7 +111,7 @@ user.signUp = async(req, res, next) => {
     var uuid = uuidv4();
 
     // Send Email 
-    utils.mail.send(email, username, uuid);
+    utils.mail.send(email, username, name, uuid);
 
     models.User.create({
         id: username,

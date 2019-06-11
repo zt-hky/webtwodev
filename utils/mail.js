@@ -13,9 +13,9 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-mail.send = async(email, id, uuid) => {
+mail.send = async(email, id, name, uuid) => {
     var url = process.env.DOMAIN + '/etc/confirm-mail/' + id + '/' + uuid;
-    var html = pug.renderFile(__dirname + '/mail/confirmMail.pug', { url: url, name: "Nguyễn Văn A" });
+    var html = pug.renderFile(__dirname + '/mail/confirmMail.pug', { url, name });
     var mailOptions = {
         from: process.env.userMail,
         to: email,
