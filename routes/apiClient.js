@@ -12,7 +12,7 @@ const models = require("../models/index.js");
 
 
 router.get('/test', (req, res, next) => {
-    res.send("Oke ");
+    res.json(req.user);
 })
 
 /* GET users listing. */
