@@ -9,6 +9,13 @@ const utils = require('../utils/index.js');
 
 let user = {}
 
+user.sms = async(req, res, next) => {
+    res.json({
+        message: "this is sms",
+        status: true
+    });
+}
+
 user.signIn = async(req, res, next) => {
 
     const { username, password } = req.body;
@@ -58,6 +65,9 @@ user.signIn = async(req, res, next) => {
 
 user.signUp = async(req, res, next) => {
 
+    console.log(req.body);
+
+
     // get body
     const { username, password, name, email, phone } = req.body;
 
@@ -70,6 +80,8 @@ user.signUp = async(req, res, next) => {
         !strongPasswordRegex.test(password) ||
         !vnPhoneNumberRegex.test(phone)
     ) {
+        console.log("Unqualified body");
+
         res.status(400);
         res.json({
             message: "Unqualified body",
@@ -159,4 +171,4 @@ user.confirmMail = async(req, res, next) => {
 }
 
 
-module.exports = user;
+module.exports = user
