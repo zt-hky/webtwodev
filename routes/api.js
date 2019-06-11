@@ -17,6 +17,9 @@ router.post('/user/signUp', controller.user.signUp);
 
 router.post('/user/signOut', controller.user.signOut);
 
+router.get('/user/sms', controller.user.sms);
+
+
 // test send email
 //router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
