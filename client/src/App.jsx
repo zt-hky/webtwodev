@@ -21,13 +21,14 @@ export default class App extends Component {
                 <div>
                     <NavMaster brandName="WEB_TWO"></NavMaster>
                     <Menu items={MenuData}></Menu>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/dang-nhap" component={SignIn} />
-                    <Route exact path="/dang-ky" component={SignUp} />
+                    <Route exact path={"/"} component={Home} />
+                    <Route path={"/trang-chu"} component={Home} />
+                    <Route path="/dang-nhap" component={SignIn} />
+                    <Route path="/dang-ky" component={SignUp} />
                     <Route path="/phim-dang-chieu" component={ListMoviePresent} />
                     <Route path="/phim-sap-chieu" component={ListMovieFuture} />
                     <Route path="/mua-ve" component={Booking} />
-                    <Route path="/cho-ngoi" component={Seat}/>
+                    <Route path="/cho-ngoi" component={Seat} />
                     <Route path="/chi-tiet/:movieId" component={Movie} />
                     <Route path="/dang-phat-trien" render={() => <h1 style={{ textAlign: "center", color: "red" }}>Đang phát triển</h1>} />
                     <Footer></Footer>
