@@ -6,6 +6,10 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         name: DataTypes.STRING,
+        delete: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        }
     }, {});
     City.associate = function(models) {
         // associations can be defined here

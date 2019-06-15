@@ -6,13 +6,17 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         name: DataTypes.STRING,
-        location: DataTypes.STRING
+        location: DataTypes.STRING,
+        delete: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        }
     }, {});
     ThreatreSet.associate = function(models) {
         // associations can be defined here
         models.ThreatreSet.belongsTo(models.City);
         models.ThreatreSet.hasMany(models.Threatre);
-        
+
     };
     return ThreatreSet;
 };

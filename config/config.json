@@ -4,20 +4,23 @@
         "password": "l1kLR5ycNv32_eP0YsjH2YqUbfy_My5Z",
         "database": "rmhnmbob",
         "host": "john.db.elephantsql.com",
-        "dialect": "postgres"
+        "dialect": "postgres",
+        "timezone": "+07:00"
     },
     "test": {
         "username": "rmhnmbob",
         "password": "l1kLR5ycNv32_eP0YsjH2YqUbfy_My5Z",
         "database": "rmhnmbob",
         "host": "john.db.elephantsql.com",
-        "dialect": "postgres"
+        "dialect": "postgres",
+        "timezone": "+7"
     },
     "production": {
         "username": "rmhnmbob",
         "password": "l1kLR5ycNv32_eP0YsjH2YqUbfy_My5Z",
         "database": "rmhnmbob",
         "host": "john.db.elephantsql.com",
-        "dialect": "postgres"
+        "dialect": "postgres",
+        "timezone": "+7"
     }
 }
