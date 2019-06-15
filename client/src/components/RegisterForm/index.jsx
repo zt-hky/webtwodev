@@ -63,7 +63,7 @@ export default class RegisterForm extends React.Component {
         const value = event.target.value;
         this.setState({ emailError: '', });
         if (value && !this.state.emailRegex.test(value)) {
-            this.setState({ emailError: "email chưa hợp lệ" })
+            this.setState({ emailError: "Email chưa hợp lệ" })
         }
         this.setState({ email: value })
     }
@@ -73,7 +73,7 @@ export default class RegisterForm extends React.Component {
         if (!this.state.username || !this.state.password || !this.state.email || !this.state.name || !this.state.phone) {
             this.frmRegisterValidate();
         } else if (this.state.email && !this.state.emailRegex.test(this.state.email)) {
-            this.setState({ emailError: "email chưa hợp lệ" })
+            this.setState({ emailError: "Email chưa hợp lệ" })
         } else if (this.state.password && !this.state.strongPasswordRegex.test(this.state.password)) {
             this.setState({ passwordError: 'Mật khẩu bao gồm ký tự đặc biệt, [a-z], [A-Z] và [0-9]' });
         } else if (this.state.phone && !this.state.vnPhoneNumberRegex.test(this.state.phone)) {
@@ -131,7 +131,7 @@ export default class RegisterForm extends React.Component {
                         <h6 className="text-danger">{this.state.phoneError}</h6>
                         <input style={{ border: this.state.phoneError ? '2px solid red' : '' }} name="phone" id="txtPhone" onChange={this.txtPhone_onChange} value={this.state.phone} type="tel" placeholder="Số điện thoại" />
                     </section>
-                    <button>đăng ký</button>
+                    <button>Đăng ký</button>
                 </form>
                 {this.redirectLoginPage()}
             </section>

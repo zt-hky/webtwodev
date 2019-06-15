@@ -75,10 +75,9 @@ export default class LoginForm extends React.Component {
 
                     </section>
                     <section className="Content_Form_Check">
-                        <input id="check" type="checkbox" />
-                        <label htmlFor="check">duy trì đăng nhập</label>
+                        <a href="#" aria-controls="home" role="tab" data-toggle="tab">Quên mật khẩu ? </a>
                     </section>
-                    <button type="submit">đăng nhập</button>
+                    <button type="submit">Đăng nhập</button>
                 </form>
                 {this.goHomePage()}
             </section>
