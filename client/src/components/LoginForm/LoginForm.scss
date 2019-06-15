@@ -1,11 +1,11 @@
 @import'../../styles/scss/variables.scss';
-.Content_Form {
+.Content_Form_Register {
     background-color: #F5F0F0;
     padding: 0 3.5rem;
     width: 45%;
 }
 
-.Content_Form_Info>input {
+.Content_Form_Info form>input {
     font-weight: bold;
     border-radius: 4px;
     background-color: #D9F8EE;
@@ -21,7 +21,7 @@
     }
 }
 
-.Content_Form {
+.Content_Form_Info form {
     label,
     input[type=checkbox] {
         cursor: pointer;
@@ -37,7 +37,7 @@
     }
 }
 
-.Content_Form_Check {
+.Content_Form_Register_Check {
     display: inline;
     input {
         height: 1rem;

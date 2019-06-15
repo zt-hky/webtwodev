@@ -12,7 +12,7 @@ export default class NavMaster extends React.Component {
                 <nav className="navbar navbar-expand-sm  nav_master_nav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <Link className="nav-link" to="/">Trang chủ</Link>
+                            <Link className="nav-link" to="/trang-chu">Trang chủ</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/dang-nhap">Đăng nhập</Link>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './RegisterForm.scss';
 import { MessageBox } from '../UtilComponents';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 export default class RegisterForm extends React.Component {
@@ -23,7 +24,8 @@ export default class RegisterForm extends React.Component {
             phoneError: '',
             emailRegex: emailRegex,
             strongPasswordRegex: strongPasswordRegex,
-            vnPhoneNumberRegex: vnPhoneNumberRegex
+            vnPhoneNumberRegex: vnPhoneNumberRegex,
+            isRedirect: false
         }
     }
 
@@ -47,6 +49,8 @@ export default class RegisterForm extends React.Component {
     }
 
     txtPhone_onChange = (event) => {
+        console.log(this.state);
+
         const value = event.target.value;
         this.setState({ phoneError: '', });
         if (!this.state.vnPhoneNumberRegex.test(value)) {
@@ -59,54 +63,54 @@ export default class RegisterForm extends React.Component {
         const value = event.target.value;
         this.setState({ emailError: '', });
         if (value && !this.state.emailRegex.test(value)) {
-            this.setState({ emailError: "email chưa hợp lệ" })
+            this.setState({ emailError: "Email chưa hợp lệ" })
         }
         this.setState({ email: value })
     }
 
 
     frmRegister_onSubmit = (event) => {
-        this.frmRegisterValidate();
-        if (!(this.state.username && this.state.password && this.state.name && this.state.email && this.state.phone) ||
-            !this.state.emailRegex.test(this.state.email) ||
-            !this.state.strongPasswordRegex.test(this.state.password) ||
-            !this.state.vnPhoneNumberRegex.test(this.state.phone)) {
-            console.log('khong dung');
+        if (!this.state.username || !this.state.password || !this.state.email || !this.state.name || !this.state.phone) {
+            this.frmRegisterValidate();
+        } else if (this.state.email && !this.state.emailRegex.test(this.state.email)) {
+            this.setState({ emailError: "Email chưa hợp lệ" })
+        } else if (this.state.password && !this.state.strongPasswordRegex.test(this.state.password)) {
+            this.setState({ passwordError: 'Mật khẩu bao gồm ký tự đặc biệt, [a-z], [A-Z] và [0-9]' });
+        } else if (this.state.phone && !this.state.vnPhoneNumberRegex.test(this.state.phone)) {
+            this.setState({ phoneError: 'Phải là số điện thoại Việt Nam' });
         } else {
 
-        axios.post('http://localhost:5000/api/user/signUp',this.state,{
-            method:'POST',
-            headers:{
-                "Content-Type":'Application/json'
-            }
-        }).then((res)=>{
-            console.log(res);
-            
-        }).catch((err)=>{
-            console.log(err);
-            
-        })
-
-
-
-
-
+            axios.post('http://localhost:5000/api/user/signUp', this.state, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": 'Application/json'
+                }
+            }).then((res) => {
+                this.setState({ isRedirect: true })
+                alert("Chúng tôi đã gửi đến bạn mail kích hoạt. Vui lòng kiểm tra  mail!")
+            }).catch((err) => {
+                this.setState({ isRedirect: false })
+                alert("Tài khoản đã tồn tại.")
+            })
         }
-
-
+        console.log(this.state);
         event.preventDefault()
     }
 
     frmRegisterValidate = () => {
         const msg = "Đây là trường bắt buộc."
-        this.state.username ? this.setState({ usernameError: "" }) : this.setState({ usernameError: msg, });
-        this.state.password ? this.setState({ passwordError: "" }) : this.setState({ passwordError: msg, });
-        this.state.email ? this.setState({ emailError: "" }) : this.setState({ emailError: msg, });
-        this.state.phone ? this.setState({ phoneError: "" }) : this.setState({ phoneError: msg, });
-        this.state.name ? this.setState({ nameError: "" }) : this.setState({ nameError: msg, });
+        this.state.username ? this.setState({ usernameError: "" }) : this.setState({ usernameError: msg });
+        this.state.password ? this.setState({ passwordError: "" }) : this.setState({ passwordError: msg });
+        this.state.email ? this.setState({ emailError: "" }) : this.setState({ emailError: msg });
+        this.state.phone ? this.setState({ phoneError: "" }) : this.setState({ phoneError: msg });
+        this.state.name ? this.setState({ nameError: "" }) : this.setState({ nameError: msg });
     }
 
-
+    redirectLoginPage = () => {
+        if (this.state.isRedirect) {
+            return <Redirect to='/dang-nhap' />
+        }
+    }
     render() {
         return (
             <section className="Content_Form_Register">
@@ -127,8 +131,9 @@ export default class RegisterForm extends React.Component {
                         <h6 className="text-danger">{this.state.phoneError}</h6>
                         <input style={{ border: this.state.phoneError ? '2px solid red' : '' }} name="phone" id="txtPhone" onChange={this.txtPhone_onChange} value={this.state.phone} type="tel" placeholder="Số điện thoại" />
                     </section>
-                    <button>đăng ký</button>
+                    <button>Đăng ký</button>
                 </form>
+                {this.redirectLoginPage()}
             </section>
         );
     }

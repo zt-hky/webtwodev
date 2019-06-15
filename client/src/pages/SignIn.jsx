@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
-import {BannerData} from '../data_example'
+import { BannerData } from '../data_example'
 import LoginForm from '../components/LoginForm';
 import './SignIn.scss'
 export default class SignIn extends React.Component {
@@ -8,7 +8,10 @@ export default class SignIn extends React.Component {
         return (
             <main>
                 <section className="Content">
-                    <Carousel data = {BannerData}></Carousel>
+                    <section className="Content_Img">
+                        <Carousel data={BannerData}></Carousel>
+                    </section>
+
                     <LoginForm></LoginForm>
                 </section>
             </main>
