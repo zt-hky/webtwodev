@@ -11,9 +11,9 @@ const models = require("../models/index.js");
 // End
 
 
-router.get('/test', (req, res, next) => {
-    res.json(req.user);
-})
+// router.get('/test', (req, res, next) => {
+//     res.json(req.user);
+// })
 
 /* GET users listing. */
 

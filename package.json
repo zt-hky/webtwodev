@@ -1,35 +1,37 @@
 {
-  "name": "server",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "server": "node ./bin/www",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently -k --success first \"nodemon --exec npm run server\" \"npm run client\""
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.1.1",
-    "@material-ui/icons": "^4.2.0",
-    "bcrypt": "^3.0.6",
-    "body-parser": "^1.19.0",
-    "concurrently": "^4.1.0",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "dotenv": "^8.0.0",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "jsonwebtoken": "^8.5.1",
-    "morgan": "~1.9.0",
-    "nexmo": "^2.4.1",
-    "nodemailer": "^6.2.1",
-    "nodemon": "^1.19.1",
-    "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0",
-    "pg": "^7.11.0",
-    "pg-hstore": "^2.3.2",
-    "pug": "^2.0.3",
-    "sequelize": "^5.8.6",
-    "sequelize-auto-migrations": "^1.0.3",
-    "uuid": "^3.3.2"
-  }
+    "name": "server",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "server": "node ./bin/www",
+        "devsv": "nodemon ./bin/www",
+        "client": "yarn --cwd client start",
+        "dev": "concurrently -k --success first \"yarn devsv\" \"yarn client\""
+    },
+
+    "dependencies": {
+        "@material-ui/core": "^4.1.1",
+        "@material-ui/icons": "^4.2.0",
+        "bcrypt": "^3.0.6",
+        "body-parser": "^1.19.0",
+        "concurrently": "^4.1.0",
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "dotenv": "^8.0.0",
+        "express": "~4.16.0",
+        "http-errors": "~1.6.2",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "~1.9.0",
+        "nexmo": "^2.4.1",
+        "nodemailer": "^6.2.1",
+        "nodemon": "^1.19.1",
+        "passport": "^0.4.0",
+        "passport-jwt": "^4.0.0",
+        "pg": "^7.11.0",
+        "pg-hstore": "^2.3.2",
+        "pug": "^2.0.3",
+        "sequelize": "^5.8.6",
+        "sequelize-auto-migrations": "^1.0.3",
+        "uuid": "^3.3.2"
+    }
 }
