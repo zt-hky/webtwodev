@@ -6,7 +6,7 @@ var controller = require('../controllers/index');
 
 const bcrypt = require('bcrypt');
 const models = require("../models/index.js");
-
+const utils = require("../utils/index");
 // End
 
 /* GET users listing. */
@@ -24,52 +24,48 @@ router.get('/films', controller.film.getFilm);
 //router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
 // where write controller
-router.get('/test', async(req, res, next) => {
+router.get('/test', (req, res, next) => {
 
 
     const del = Boolean(req.query.delete)
+    var films
+    var findOptions = utils.get.FindOption(req)
 
-    var findOptions = {
-        order: []
-    };
 
-    findOptions.offset = Number(req.query.offset || 0)
-    findOptions.limit = Number(req.query.limit || 20)
-    release = req.query.release
 
-    if (sort = req.query.order) {
-        const sort = req.query.order.split(',')
-        sort.forEach(element => {
-            let field = element
-            let order = 'ASC'
-            console.log(element)
-            if (element.charAt(0) === '-') {
-                order = 'DESC'
-                field = element.substring(1)
+    models.Film.findAll(findOptions)
+        .then((item) => {
+            res.status(200);
+            res.json({
+                success: true,
+                data: item,
+                findOptions
+            })
+        })
+        .catch((err) => {
+            res.status(422);
+            res.json({
+                err: err.name
+            })
+        })
+
+    if (req.query.release) {
+        release = req.query.release
+        const Op = models.Sequelize.Op
+        var datetime = new Date();
+        if (release == "now") {
+            findOptions.where.release = {
+                lte: new Date()
             }
+        }
+        if (release == "future") {
+            findOptions.where.release = {
+                gt: datetime
+            }
+        }
 
-            findOptions.order.push([field, order])
-        });
     }
 
-
-    if (release) {
-        if (release == 'gt') {
-            findOptions.where.push()
-        }
-        if (release == 'lte') {
-
-        }
-    }
-
-    var films = await models.Film.findAll(findOptions)
-
-    res.status(200);
-    res.json({
-        success: true,
-        data: films,
-        findOptions
-    })
 
 
 });

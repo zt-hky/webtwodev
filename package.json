@@ -8,6 +8,7 @@
         "client": "yarn --cwd client start",
         "dev": "concurrently -k --success first \"yarn devsv\" \"yarn client\""
     },
+
     "dependencies": {
         "@material-ui/core": "^4.1.1",
         "@material-ui/icons": "^4.2.0",
