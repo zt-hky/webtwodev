@@ -11,8 +11,42 @@ let film = {}
 
 film.getFilm = (req, res, next) => {
 
-    const { offset, limit } = req
+    console.log("Oke controller");
+    var findOptions = utils.get.FindOption(req)
 
+    if (req.query.release) {
+        var release = req.query.release
+        const { Op } = models.Sequelize;
+        var datetime = new Date();
+        if (release == "now") {
+            findOptions.where.release = {
+                [Op.lte]: new Date()
+            }
+        }
+        if (release == "soon") {
+            findOptions.where.release = {
+                [Op.gt]: datetime
+            }
+        }
+    }
+    findOptions.include = [{
+        model: models.GenreFilm
+    }]
+    models.Film.findAll(findOptions)
+        .then((item) => {
+            res.status(200);
+            res.json({
+                success: true,
+                data: item,
+                findOptions
+            })
+        })
+        .catch((err) => {
+            res.status(422);
+            res.json({
+                err: err.name
+            })
+        })
 };
 
 module.exports = film;

@@ -4,8 +4,6 @@ var get = {}
 
 get.FindOption = (req) => {
 
-    const del = Boolean(req.query.delete)
-
     var findOptions = {
         order: [],
         where: {}
@@ -28,9 +26,13 @@ get.FindOption = (req) => {
         });
     }
 
-    if (req.query.delete) {
-        del = req.query.delete
-        if (del == 'true') {} else {
+    if (req.query.viewdel) {
+        var del = req.query.viewdel
+        if (del == 'only') {
+            findOptions.where.delete = true
+        } else if (del == 'all') {
+
+        } else {
             findOptions.where.delete = false
         }
     } else {
