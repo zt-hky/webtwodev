@@ -36,9 +36,6 @@ city.getById = (req, res, next) => {
     }
 
     findOptions.where.id = id
-    findOptions.include = {
-        model: models.ThreatreSet
-    }
 
     models.City.findAll(findOptions)
         .then(item => {

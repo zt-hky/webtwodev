@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         time: DataTypes.TIME,
+        date: DataTypes.DATEONLY,
         delete: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,

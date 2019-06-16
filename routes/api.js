@@ -30,8 +30,11 @@ router.get('/cities', controller.city.getAll)
 
 router.get('/cities/:id', controller.city.getById)
 
-// test send email
-//router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
+router.get('/cities/:id/threatreSet', controller.threatreSet.getbyCityId)
+
+router.get('/showTime', controller.showTime.getAll)
+    // test send email
+    //router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
 // where write controller
 router.get('/test', (req, res, next) => {
