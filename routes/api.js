@@ -16,6 +16,10 @@ router.post('/user/signUp', controller.user.signUp);
 
 router.post('/user/signOut', controller.user.signOut);
 
+router.post('/user/forget', controller.user.forget);
+
+router.post('/user/changePassForget', controller.user.changePassForget);
+
 router.get('/user/sms', controller.user.sms);
 
 router.get('/films', controller.film.getFilm);

@@ -26,4 +26,17 @@ mail.send = async(email, name, uuid) => {
     await transporter.sendMail(mailOptions);
 }
 
+mail.sendTemplate = async(template, object) => {
+
+    var html = pug.renderFile(__dirname + '/mail/' + template + '.pug', object.content);
+    var mailOptions = {
+        from: process.env.userMail,
+        to: object.to,
+        subject: object.subject,
+        text: object.txt,
+        html
+    };
+    await transporter.sendMail(mailOptions);
+}
+
 module.exports = mail;

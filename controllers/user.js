@@ -154,5 +154,74 @@ user.confirmMail = async(req, res, next) => {
 
 }
 
+user.forget = async(req, res, next) => {
+
+    const { email } = req.body
+
+    var user = await models.User.findOne({ where: { email } });
+
+    if (user) {
+
+        var uuid = uuidv4();
+        user.uuid = uuid
+        await user.save();
+        var url = process.env.URLFORGETPASS + '?email=' + email + '&uuid=' + uuid
+        await utils.mail.sendTemplate('forget', {
+            to: user.email,
+            subject: 'Đặt lại mật khẩu',
+            txt: 'Đặt lại mật khẩu' + url,
+            content: {
+                url
+            }
+        })
+
+        res.status(200)
+        res.json({
+            success: true
+        })
+    } else {
+        res.status(400)
+        res.json({
+            err: "user not exist"
+        })
+    }
+
+}
+
+user.changePassForget = async(req, res, next) => {
+
+    const { email, password, uuid } = req.body
+    var strongPasswordRegex = /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
+
+    if (!(password && email && uuid) ||
+        !strongPasswordRegex.test(password)
+    ) {
+        res.status(400);
+        res.json({
+            message: "Unqualified body",
+            error: true
+        });
+    } else {
+        var user = await models.User.findOne({ where: { email } })
+        if (user) {
+
+            var passwordBcrypt = bcrypt.hashSync(password, 10)
+            user.password = passwordBcrypt
+            await user.save()
+            res.status(200)
+            res.json({
+                success: true,
+                message: "Password change successfully"
+            })
+
+        } else {
+            res.status(401);
+            res.json({
+                error: true,
+                message: "User is not exist"
+            })
+        }
+    }
+}
 
 module.exports = user
