@@ -42,19 +42,19 @@ class RegisterForm extends React.Component {
                     <section className="Content_Form_Register_Info">
                         {/* Email */}
                         <h6 className="text-danger">{this.props.emailError}</h6>
-                        <input style={{ border: this.props.emailError ? '2px solid red' : '' }} name="email" id="txtEmail" onChange={this.props.inputChanged} value={this.props.email} name="email" type="email" placeholder="Email" />
+                        <input style={{ border: this.props.emailError ? '2px solid red' : '' }} name="email" onChange={this.props.inputChanged} value={this.props.email}  type="email" placeholder="Email" />
 
                         {/* Name */}
                         <h6 className="text-danger"> {this.props.nameError}</h6>
-                        <input style={{ border: this.props.nameError ? '2px solid red' : '' }} name="name" id="txtName" onChange={this.props.inputChanged} value={this.props.name} name="name" type="text" placeholder="Tên đầy đủ" />
+                        <input style={{ border: this.props.nameError ? '2px solid red' : '' }} name="name"  onChange={this.props.inputChanged} value={this.props.name} type="text" placeholder="Tên đầy đủ" />
 
                         {/* Password */}
                         <h6 className="text-danger">{this.props.passwordError}</h6>
-                        <input style={{ border: this.props.passwordError ? '2px solid red' : '' }} name="password" id="txtPassword" onChange={this.props.inputChanged} value={this.props.password} name="password" type="password" placeholder="Mật khẩu" />
+                        <input style={{ border: this.props.passwordError ? '2px solid red' : '' }} name="password"  onChange={this.props.inputChanged} value={this.props.password} type="password" placeholder="Mật khẩu" />
 
                         {/* Phone */}
                         <h6 className="text-danger">{this.props.phoneError}</h6>
-                        <input style={{ border: this.props.phoneError ? '2px solid red' : '' }} name="phone" id="txtPhone" onChange={this.props.inputChanged} value={this.props.phone} name="phone" type="tel" placeholder="Số điện thoại" />
+                        <input style={{ border: this.props.phoneError ? '2px solid red' : '' }} name="phone" id="txtPhone" onChange={this.props.inputChanged} value={this.props.phone} type="tel" placeholder="Số điện thoại" />
                     </section>
                     <button>Đăng ký</button>
                 </form>

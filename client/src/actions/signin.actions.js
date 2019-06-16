@@ -1,5 +1,5 @@
 import ActionTypes from './actionTypes';
-import AxiosInstance,{endPoint} from '../utils/api';
+import AxiosInstance, { endPoint } from '../utils/api';
 const signIn = (state) => {
   const { email, password } = state;
   const data = { email, password }
@@ -28,22 +28,26 @@ const signIn = (state) => {
         dispatch(onFailure(failureState))
       } else {
         console.log(res.data.token);
-        
+
         localStorage.setItem('token', res.data.token)
-        const successState = Object.assign({}, data,{ message: 'Chào mừng bạn đến với WEB_TWO MOVIE', isRedirect: true })
+        const successState = Object.assign({}, data, { message: 'Chào mừng bạn đến với WEB_TWO MOVIE', isRedirect: true })
         dispatch(onSuccess(successState))
       }
     }).catch((err) => {
-     failureState = Object.assign(failureState, { message: 'Tài khoản hoặc mật khẩu không đúng!' })
+      failureState = Object.assign(failureState, { message: 'Tài khoản hoặc mật khẩu không đúng!' })
       dispatch(onFailure(failureState))
     })
   };
 }
 
-const forgotPassword=(state)=>{
-  return {
-    type: "ahihi",
-    text :'ahihi'
+const forgotPassword = (state) => {
+  const { email } = state;
+  return (dispatch) => {
+    return AxiosInstance.post(endPoint.forgotPassword, email).then((res) => {
+      dispatch(onForgetPassSuccess({ forgotPassMessage: `Chúng tôi đã gửi đến ${email} 1 email khôi phục mật khẩu.` }))
+    }).catch((err) => {
+      dispatch(onForgetPassFailure({ forgotPassMessageError: "Email không đúng." }))
+    })
   }
 }
 
@@ -53,7 +57,21 @@ const inputChanged = (event) => {
   const value = event.target.value;
   return {
     type: ActionTypes.SIGNIN_INPUT_CHANGED,
-    payload: { [key]: value, [errorKey]: '', message:'' }
+    payload: { [key]: value, [errorKey]: '', message: '' }
+  }
+}
+
+const onForgetPassSuccess = (state) => {
+  return {
+    type: ActionTypes.FORGOT_PASSWORD_SUCCESS,
+    payload: state
+  }
+}
+
+const onForgetPassFailure = (state) => {
+  return {
+    type: ActionTypes.FORGOT_PASSWORD_FAILURE,
+    payload: state
   }
 }
 
@@ -78,10 +96,10 @@ const onWaitting = (state) => {
   }
 }
 
-const clearProps = (state) =>{
+const clearProps = (state) => {
   return {
-      type: ActionTypes.SIGNIN_CLEAR_PROPS,
-      payload: state
+    type: ActionTypes.SIGNIN_CLEAR_PROPS,
+    payload: state
   }
 }
 
@@ -90,7 +108,9 @@ const clearProps = (state) =>{
 const SignInActions = {
   inputChanged,
   signIn,
-  clearProps
+  clearProps,
+  onWaitting,
+  forgotPassword
 }
 
 export default SignInActions;

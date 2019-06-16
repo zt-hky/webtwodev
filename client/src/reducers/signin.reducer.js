@@ -5,22 +5,23 @@ const initState = {
     emailError: "",
     passwordError: "",
     message: "",
+    forgotPassMessageError:"",
+    forgotPassMessage:"",
     isAuthenticating: false,
     isRedirect: false
 }
 const SignInReducer = (state = initState, action) => {
     switch (action.type) {
-        case ActionTypes.SIGNIN_CLEAR_PROPS: 
-            return Object.assign({}, state, action.payload)
+        case ActionTypes.SIGNIN_CLEAR_PROPS:
         case ActionTypes.SIGNIN_INPUT_CHANGED:
-            return Object.assign({}, state, action.payload)
         case ActionTypes.SIGNIN_FAILURE:
-            return Object.assign({}, state, action.payload)
         case ActionTypes.SIGNIN_SUCCESS:
+        case ActionTypes.FORGOT_PASSWORD:
+        case ActionTypes.FORGOT_PASSWORD_SUCCESS:
+        case ActionTypes.FORGOT_PASSWORD_FAILURE:
             return Object.assign({}, state, action.payload)
         default:
             return state;
     }
-    return state;
 }
 export default SignInReducer;
