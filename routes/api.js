@@ -24,7 +24,7 @@ router.get('/user/sms', controller.user.sms);
 
 router.get('/films', controller.film.getFilm);
 
-//router.get('/films/:id', controller.films.getFilmbyId);
+router.get('/films/:id', controller.film.getFilmbyId);
 
 // test send email
 //router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
