@@ -1,5 +1,6 @@
-import LoginActions from './login';
+import SignInActions from './signin.actions';
+import SignUpActions from './signup.actions';
 let ActionCreator = {
-  LoginActions
+  SignInActions,SignUpActions
 }
 export default ActionCreator;
