@@ -5,7 +5,6 @@ var get = {}
 get.FindOption = (req) => {
 
     var findOptions = {
-        order: [],
         where: {}
     };
 
@@ -21,7 +20,9 @@ get.FindOption = (req) => {
                 order = 'DESC'
                 field = element.substring(1)
             }
-
+            if (!findOptions.order) {
+                findOptions.order = []
+            }
             findOptions.order.push([field, order])
         });
     }

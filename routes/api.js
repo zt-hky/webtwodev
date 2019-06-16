@@ -26,6 +26,10 @@ router.get('/films', controller.film.getFilm);
 
 router.get('/films/:id', controller.film.getFilmbyId);
 
+router.get('/cities', controller.city.getAll)
+
+router.get('/cities/:id', controller.city.getById)
+
 // test send email
 //router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
