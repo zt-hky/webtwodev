@@ -1,12 +1,11 @@
 @import'../../styles/scss/variables.scss';
-.Content_Form_Register {
+.Content_Form_Profile {
     background-color: #F5F0F0;
     padding: 0 3.5rem;
     width: 45%;
 }
 
-.Content_Form_Register_Info>input {
-    padding: 5px;
+.Content_Form_Profile_Info>input {
     font-weight: bold;
     border-radius: 4px;
     background-color: #D9F8EE;
@@ -22,14 +21,13 @@
     }
 }
 
-.Content_Form_Register {
+.Content_Form_Profile {
     label,
     input[type=checkbox] {
         cursor: pointer;
     }
     button {
         border: none;
-        padding: 5px 50px;
         border-radius: 6px;
         background-color: #F37603;
         display: block;
@@ -39,7 +37,7 @@
     }
 }
 
-.Content_Form_Register_Check {
+.Content_Form_Profile_Check {
     display: inline;
     input {
         height: 1rem;

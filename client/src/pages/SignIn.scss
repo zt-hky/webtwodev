@@ -6,9 +6,10 @@
     flex-direction: row;
     h3 {
         text-align: center;
+        color: rgb(247, 45, 45);
     }
     &_Img {
-        border: 3px solid #E38312;
+        //border: 3px solid #E38312;
         width: 55%;
     }
     &_Form {
@@ -17,12 +18,13 @@
         width: 45%;
         &_Info {
             >input {
+                padding: 5px;
                 font-weight: bold;
                 border-radius: 4px;
                 background-color: #D9F8EE;
                 width: 100%;
                 margin: 0.4rem 0;
-                border: 1px solid #E38312;
+                border: 2px solid #E38312;
                 padding-left: 1.8rem;
                 outline: none;
                 transition: 0.5s;
@@ -39,7 +41,9 @@
             cursor: pointer;
         }
         button {
+           // float: right;
             border: none;
+            padding: 5px 50px;
             border-radius: 6px;
             background-color: #F37603;
             display: block;

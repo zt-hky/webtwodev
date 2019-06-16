@@ -9,7 +9,7 @@ export default class SignUp extends React.Component {
         return (
             <main>
                 <section className="Content">
-                    <section className="Content_Img">
+                    <section className="Content_Img_SignUp">
                     <Carousel data ={BannerData}></Carousel>
                     </section>
                    <RegisterForm></RegisterForm>

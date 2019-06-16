@@ -21,11 +21,16 @@ export default class NavMaster extends React.Component {
                             <Link className="nav-link" to="/dang-ky">Đăng ký</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/lien-he">Liên hệ</Link>
+                            <Link className="nav-link" to="/trang-ca-nhan">Trang Cá Nhân </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/logout"> Đăng Xuất </Link>
+                        </li>
+
                     </ul>
                 </nav>
             </nav>
+            
 
         );
     }
