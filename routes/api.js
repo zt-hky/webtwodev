@@ -20,46 +20,14 @@ router.get('/user/sms', controller.user.sms);
 
 router.get('/films', controller.film.getFilm);
 
+//router.get('/films/:id', controller.films.getFilmbyId);
+
 // test send email
 //router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
 // where write controller
 router.get('/test', (req, res, next) => {
 
-    console.log("Oke-----------------");
-    var findOptions = utils.get.FindOption(req)
-
-    if (req.query.release) {
-        release = req.query.release
-        const { Op } = models.Sequelize;
-        var datetime = new Date();
-        if (release == "now") {
-            findOptions.where.release = {
-                [Op.lte]: new Date()
-            }
-        }
-        if (release == "soon") {
-            findOptions.where.release = {
-                [Op.gt]: datetime
-            }
-        }
-
-        models.Film.findAll(findOptions)
-            .then((item) => {
-                res.status(200);
-                res.json({
-                    success: true,
-                    data: item,
-                    findOptions
-                })
-            })
-            .catch((err) => {
-                res.status(422);
-                res.json({
-                    err: err.name
-                })
-            })
-    }
 
 
 

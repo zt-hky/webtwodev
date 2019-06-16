@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         poster: DataTypes.STRING,
         content: DataTypes.TEXT,
         release: DataTypes.DATEONLY,
-        runtime: DataTypes.INTEGER,
+        duration: DataTypes.INTEGER,
         studio: DataTypes.STRING,
         delete: {
             type: DataTypes.BOOLEAN,

@@ -30,7 +30,8 @@ film.getFilm = (req, res, next) => {
         }
     }
     findOptions.include = [{
-        model: models.GenreFilm
+        model: models.GenreFilm,
+        a
     }]
     models.Film.findAll(findOptions)
         .then((item) => {
@@ -48,5 +49,10 @@ film.getFilm = (req, res, next) => {
             })
         })
 };
+
+
+film.getFilmbyId = (req, res, next) => {
+
+}
 
 module.exports = film;

@@ -18,10 +18,10 @@ user.sms = async(req, res, next) => {
 
 user.signIn = async(req, res, next) => {
 
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     var user = await models.User.findOne({
-        where: { id: username }
+        where: { email }
     });
 
     if (user && bcrypt.compareSync(password, user.password)) {
@@ -32,7 +32,6 @@ user.signIn = async(req, res, next) => {
             });
         }
         const payload = {
-            id: user.username,
             email: user.email
         }
         jwt.sign(payload, secret, { expiresIn: 24 * 60 * 60 }, (err, token) => {
@@ -55,7 +54,7 @@ user.signIn = async(req, res, next) => {
         res.status(400);
         res.json({
             error: true,
-            message: "username or password is incorrect",
+            message: "email or password is incorrect",
         })
     }
 
@@ -69,13 +68,13 @@ user.signUp = async(req, res, next) => {
 
 
     // get body
-    const { username, password, name, email, phone } = req.body;
+    const { password, name, email, phone } = req.body;
 
     var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var strongPasswordRegex = /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
     var vnPhoneNumberRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
 
-    if (!(username && password && name && email && phone) ||
+    if (!(password && name && email && phone) ||
         !emailRegex.test(email) ||
         !strongPasswordRegex.test(password) ||
         !vnPhoneNumberRegex.test(phone)
@@ -90,20 +89,6 @@ user.signUp = async(req, res, next) => {
         return;
     }
 
-
-    // check exists username
-    var users = await models.User.findOne({
-        where: { id: username }
-    });
-
-    if (users) {
-        res.status(400);
-        res.json({
-            message: "Username is exists",
-            error: "username"
-        });
-        return;
-    }
 
     // check email
     var users = await models.User.findOne({
@@ -123,13 +108,12 @@ user.signUp = async(req, res, next) => {
     var uuid = uuidv4();
 
     // Send Email 
-    utils.mail.send(email, username, name, uuid);
+    utils.mail.send(email, name, uuid);
 
     models.User.create({
-        id: username,
+        email,
         password: passwordBcrypt,
         name,
-        email,
         phone,
         val: false,
         uuid,
@@ -155,14 +139,14 @@ user.signOut = (req, res, next) => {
 }
 
 user.confirmMail = async(req, res, next) => {
-    const { username, uuid } = req.params;
+    const { email, uuid } = req.params;
 
     var user = await models.User.findOne({
-        where: { id: username }
+        where: { email }
     });
 
     if (user && user.uuid == uuid) {
-        models.User.update({ val: true }, { where: { id: username } })
+        models.User.update({ val: true }, { where: { email } })
         res.redirect("/");
     } else {
         res.send("URL không đúng");

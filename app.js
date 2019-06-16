@@ -38,7 +38,7 @@ app.use('/api/', require('./routes/apiAdmin'));
 
 
 // db.sequelize.sync({
-//     force: false,
+//     force: true,
 // });
 
 

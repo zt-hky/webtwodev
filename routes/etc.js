@@ -6,7 +6,7 @@ const Nexmo = require('nexmo');
 
 // More require
 
-router.get('/confirm-mail/:username/:uuid', controller.user.confirmMail);
+router.get('/confirm-mail/:email/:uuid', controller.user.confirmMail);
 // End
 
 router.post('/sendSMS', (req, res, next) => {
