@@ -30,9 +30,9 @@ app.use('/api/', passport.authenticate('client', { session: false }), require('.
 app.use('/api/', require('./routes/apiAdmin'));
 
 
-// db.sequelize.sync({
-//     force: true,
-// });
+// // db.sequelize.sync({
+// //     force: true,
+// // });
 
 
 

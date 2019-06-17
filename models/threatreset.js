@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     const ThreatreSet = sequelize.define('ThreatreSet', {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true,
         },
         name: DataTypes.STRING,
         location: DataTypes.STRING,
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false,
         }
     }, {});
-    ThreatreSet.associate = function(models) {
+    ThreatreSet.associate = function (models) {
         // associations can be defined here
         models.ThreatreSet.belongsTo(models.City);
         models.ThreatreSet.hasMany(models.Threatre);

@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     const ShowTime = sequelize.define('ShowTime', {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true,
         },
         time: DataTypes.TIME,
         date: DataTypes.DATEONLY,
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false,
         }
     }, {});
-    ShowTime.associate = function(models) {
+    ShowTime.associate = function (models) {
         // associations can be defined here
         models.ShowTime.hasMany(models.Ticket);
         models.ShowTime.hasMany(models.Booking);

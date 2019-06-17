@@ -9,14 +9,14 @@ const utils = require('../utils/index.js');
 
 let user = {}
 
-user.sms = async(req, res, next) => {
+user.sms = async (req, res, next) => {
     res.json({
         message: "this is sms",
         status: true
     });
 }
 
-user.signIn = async(req, res, next) => {
+user.signIn = async (req, res, next) => {
 
     const { email, password } = req.body;
 
@@ -46,7 +46,7 @@ user.signIn = async(req, res, next) => {
                 res.status(200),
                     res.json({
                         token: token,
-                        message: "Successfuly"
+                        message: "Successfuly",
                     })
             }
         });
@@ -62,7 +62,7 @@ user.signIn = async(req, res, next) => {
 
 };
 
-user.signUp = async(req, res, next) => {
+user.signUp = async (req, res, next) => {
 
     console.log(req.body);
 
@@ -118,7 +118,7 @@ user.signUp = async(req, res, next) => {
         val: false,
         uuid,
     }).
-    then((result) => {
+        then((result) => {
             res.status(200);
             res.json({
                 message: "SignUp successful",
@@ -138,7 +138,7 @@ user.signOut = (req, res, next) => {
 
 }
 
-user.confirmMail = async(req, res, next) => {
+user.confirmMail = async (req, res, next) => {
     const { email, uuid } = req.params;
 
     var user = await models.User.findOne({
@@ -146,7 +146,9 @@ user.confirmMail = async(req, res, next) => {
     });
 
     if (user && user.uuid == uuid) {
-        models.User.update({ val: true }, { where: { email } })
+        user.val = true
+        user.uuid = ""
+        await user.save()
         res.redirect("/");
     } else {
         res.send("URL không đúng");
@@ -154,7 +156,7 @@ user.confirmMail = async(req, res, next) => {
 
 }
 
-user.forget = async(req, res, next) => {
+user.forget = async (req, res, next) => {
 
     const { email } = req.body
 
@@ -188,13 +190,14 @@ user.forget = async(req, res, next) => {
 
 }
 
-user.changePassForget = async(req, res, next) => {
+user.changePassForget = async (req, res, next) => {
 
     const { email, password, uuid } = req.body
     var strongPasswordRegex = /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
 
     if (!(password && email && uuid) ||
-        !strongPasswordRegex.test(password)
+        !strongPasswordRegex.test(password) ||
+        uuid == ""
     ) {
         res.status(400);
         res.json({
@@ -207,6 +210,7 @@ user.changePassForget = async(req, res, next) => {
 
             var passwordBcrypt = bcrypt.hashSync(password, 10)
             user.password = passwordBcrypt
+            user.uuid = ""
             await user.save()
             res.status(200)
             res.json({

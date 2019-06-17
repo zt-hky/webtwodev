@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     const Film = sequelize.define('Film', {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true,
         },
         name: DataTypes.STRING,
         poster: DataTypes.STRING,
@@ -16,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false,
         }
     }, {});
-    Film.associate = function(models) {
+    Film.associate = function (models) {
         // associations can be defined here
         models.Film.belongsTo(models.GenreFilm),
             models.Film.hasMany(models.ShowTime)

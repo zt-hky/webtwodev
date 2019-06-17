@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     const City = sequelize.define('City', {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true,
         },
         name: DataTypes.STRING,
         delete: {

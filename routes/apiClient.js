@@ -15,8 +15,16 @@ const models = require("../models/index.js");
 //     res.json(req.user);
 // })
 
-router.get('/ShowTimes/:id/Booking', controller.booking.getByShowTimeId)
+router.get('/ShowTimes/:ShowTimeId/Ticket', controller.ticket.getByShowTimeId)
 
+router.post('/Booking', controller.booking.book)
+
+router.get('/testABC', (req, res, next) => {
+    res.status(200)
+    res.json({
+        user: req.user
+    })
+})
 /* GET users listing. */
 
 // where write controller
