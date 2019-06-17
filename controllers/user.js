@@ -155,7 +155,6 @@ user.confirmMail = async(req, res, next) => {
 }
 
 user.forget = async(req, res, next) => {
-
     const { email } = req.body
 
     var user = await models.User.findOne({ where: { email } });

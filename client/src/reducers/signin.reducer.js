@@ -7,10 +7,13 @@ const initState = {
     message: "",
     forgotPassMessageError:"",
     forgotPassMessage:"",
-    isAuthenticating: false,
+    isWaitting: false,
+    isForgotPassWaitting: false,
     isRedirect: false
 }
 const SignInReducer = (state = initState, action) => {
+   // console.log(action);
+    
     switch (action.type) {
         case ActionTypes.SIGNIN_CLEAR_PROPS:
         case ActionTypes.SIGNIN_INPUT_CHANGED:

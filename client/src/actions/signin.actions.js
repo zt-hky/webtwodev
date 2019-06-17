@@ -3,7 +3,7 @@ import AxiosInstance, { endPoint } from '../utils/api';
 const signIn = (state) => {
   const { email, password } = state;
   const data = { email, password }
-  let failureState = { data }
+  let failureState = { data, isWaitting: false }
   return (dispatch) => {
     let errorFlag = false;
 
@@ -12,7 +12,6 @@ const signIn = (state) => {
       errorFlag = true;
       failureState = Object.assign(failureState, state, { emailError: "Đây là thông tin bắt buộc." });
     }
-
     // check password
     if (!password) {
       errorFlag = true;
@@ -24,16 +23,17 @@ const signIn = (state) => {
     // send request
     return AxiosInstance.post(endPoint.login, data).then((res) => {
       if (res.data.error) {
+
         failureState = Object.assign(failureState, { message: 'Tài khoản của bạn chưa được kích hoạt. Vui lòng kiểm tra mail' })
         dispatch(onFailure(failureState))
       } else {
-        console.log(res.data.token);
 
         localStorage.setItem('token', res.data.token)
         const successState = Object.assign({}, data, { message: 'Chào mừng bạn đến với WEB_TWO MOVIE', isRedirect: true })
         dispatch(onSuccess(successState))
       }
     }).catch((err) => {
+
       failureState = Object.assign(failureState, { message: 'Tài khoản hoặc mật khẩu không đúng!' })
       dispatch(onFailure(failureState))
     })
@@ -43,7 +43,7 @@ const signIn = (state) => {
 const forgotPassword = (state) => {
   const { email } = state;
   return (dispatch) => {
-    return AxiosInstance.post(endPoint.forgotPassword, email).then((res) => {
+    return AxiosInstance.post(endPoint.forgotPassword, { email }).then((res) => {
       dispatch(onForgetPassSuccess({ forgotPassMessage: `Chúng tôi đã gửi đến ${email} 1 email khôi phục mật khẩu.` }))
     }).catch((err) => {
       dispatch(onForgetPassFailure({ forgotPassMessageError: "Email không đúng." }))
@@ -83,6 +83,7 @@ const onSuccess = (state) => {
 }
 
 const onFailure = (state) => {
+  // finish waitting mode
   return {
     type: ActionTypes.SIGNIN_FAILURE,
     payload: state
