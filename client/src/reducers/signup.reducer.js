@@ -16,13 +16,9 @@ const initState = {
 const SignUpReducer = (state = initState, action) => {
     switch (action.type) {
         case ActionTypes.SIGNUP_INPUT_CHANGED:
-            return Object.assign({}, state, action.payload)
         case ActionTypes.SIGNUP_SUCCESS:
-            return Object.assign({}, state, action.payload)
         case ActionTypes.SIGNUP_FAILURE:
-            return Object.assign({}, state, action.payload)
         case ActionTypes.SIGNUP_CLEAR_PROPS:
-            console.log("do toi xoa roif");
             return Object.assign({}, state, action.payload);
         default:
             return state;

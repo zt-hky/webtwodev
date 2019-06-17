@@ -4,13 +4,18 @@ import { Grid, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ActionCreators from '../../actions';
-import { Redirect } from 'react-router-dom';
 
 
 class ForgetPassForm extends React.Component {
 
-    componentDidMount = () => {
+    constructor(props) {
+        super(props);
         this.state = {url: window.location.href}
+    }
+    
+
+    componentDidMount = () => {
+       
     }
 
     input_onChanged = (event) => {

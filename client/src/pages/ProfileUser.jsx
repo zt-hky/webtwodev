@@ -1,7 +1,5 @@
 import React from 'react';
 import './ProfileUser.scss';
-import Carousel from '../components/Carousel';
-import {BannerData} from '../data_example';
 import Profile from '../components/Profile';
 export default class ProfileUser extends React.Component {
     onChange(e) {

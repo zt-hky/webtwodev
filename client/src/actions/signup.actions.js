@@ -84,13 +84,6 @@ const onFailure = (state) => {
     }
 }
 
-const onWaitting = (state) => {
-    return {
-        type: ActionTypes.SIGNUP_WAITTING,
-        payload: state
-    }
-}
-
 const clearProps = (state) => {
     return {
         type: ActionTypes.SIGNUP_CLEAR_PROPS,

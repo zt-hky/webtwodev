@@ -1,5 +1,4 @@
 import React from 'react';
-import { MovieData } from '../data_example'
 import MovieGroup from '../components/MovieGroup';
 import './ListMoviePresent.scss';
 import { bindActionCreators } from 'redux';

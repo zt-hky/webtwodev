@@ -13,6 +13,7 @@
         "react-bootstrap-dialog": "^0.11.0",
         "react-bootstrap-star-rating": "^3.5.5-alpha.0.3",
         "react-dom": "^16.8.6",
+        "react-history": "^0.18.2",
         "react-rater": "^5.1.0",
         "react-redux": "^7.1.0",
         "react-router-dom": "^5.0.0",

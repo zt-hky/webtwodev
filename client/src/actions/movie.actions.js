@@ -1,4 +1,4 @@
-import AxiosInstance, { endPoint, params } from "../utils/api";
+import AxiosInstance, { endPoint} from "../utils/api";
 import ActionTypes from "./actionTypes";
 
 const getMoviesComingSoon = ({ offset, limit }) => {
@@ -12,8 +12,6 @@ const getMoviesComingSoon = ({ offset, limit }) => {
                 release: 'soon'
             },
         }).then((res) => {
-            console.log(res.data.data);
-
             dispatch(onGetMoivesComingSoonSuccess({ moviesComingSoon: res.data.data }))
         }).catch((err) => {
             dispatch(onGetMoivesComingSoonFailure({ errorMovieComing: "Không thể lấy thêm phim" }))
@@ -32,8 +30,6 @@ const getMoviesNowShowing = ({ offset, limit }) => {
                 release: 'now'
             },
         }).then((res) => {
-            console.log(res.data.data);
-
             dispatch(onGetMoivesComingSoonSuccess({ moviesNowShowing: res.data.data }))
         }).catch((err) => {
             dispatch(onGetMoivesComingSoonFailure({ errorMovieComing: "Không thể lấy thêm phim" }))

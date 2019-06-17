@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Carousel from '../components/Carousel';
 import MovieGroup from '../components/MovieGroup';
 import './Home.scss';
-import { MovieData, BannerData } from '../data_example'
+import { BannerData } from '../data_example'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ActionCreator from '../actions';
@@ -19,13 +19,9 @@ class Home extends Component {
 
     handleClick = (offset) => {
         this.setState({ offset });
-        console.log(offset);
     }
 
     render() {
-        console.log("props");
-
-        console.log(this.props);
         return (
             <div>
                 <Carousel data={BannerData} ></Carousel>

@@ -11,7 +11,6 @@ const initState = {
 }
 
 const ChangePassowrdReducer = (state = initState, action) => {
-    console.log(action);
     switch (action.type) {
         case ActionTypes.CHANGE_PASS_INPUT_CHANGE:
         case ActionTypes.CHANGE_PASS_FAILURE:

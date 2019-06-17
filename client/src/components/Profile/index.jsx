@@ -1,6 +1,5 @@
 import React from 'react';
 import './Profile.scss';
-import { MessageBox } from '../UtilComponents';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 

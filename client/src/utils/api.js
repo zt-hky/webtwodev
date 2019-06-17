@@ -12,16 +12,8 @@ export const endPoint = {
     forgotPassword: "/user/forget",
     changePassForget: "/user/changePassForget",
     getAllMovie: '/films',
-    getMovieById: '/films/'
+    getMovieById: '/films/',
+    getAllCities: '/cities'
 }
-
-export const params = {
-    getMoviesComingSoon: {
-        viewdel: 'false',
-        order: '-release',
-        release: 'now'
-    },
-}
-
 
 export default AxiosInstance;

@@ -8,7 +8,7 @@ import ActionCreator from '../../actions';
 import AlertDialog from '../AlertDialog';
 import {
     Button, TextField, Dialog, CircularProgress,
-    DialogActions, DialogContent, DialogTitle, DialogContentText
+    DialogActions, DialogContent, DialogTitle, DialogContentText, Link
 } from '@material-ui/core';
 
 class LoginForm extends React.Component {
@@ -58,7 +58,6 @@ class LoginForm extends React.Component {
     }
 
     frmForgotPassword_onChange = (event) => {
-        console.log("tao change");
         this.props.clearProps({ forgotPassMessage: '', forgotPassMessageError: '' })
     }
     render() {
@@ -94,9 +93,9 @@ class LoginForm extends React.Component {
                         <h6 className="text-danger">{this.props.passwordError}</h6>
                     </section>
                     <section className="Content_Form_Check">
-                        <a onClick={() => {
+                        <Link onClick={() => {
                             this.setState({ open: true })
-                        }} aria-controls="home" role="tab" data-toggle="tab">Quên mật khẩu ? </a>
+                        }} aria-controls="home" role="tab" data-toggle="tab">Quên mật khẩu ? </Link>
                     </section>
                     <button className="loginBtn" type="submit">{this.state.isSignInWaitting ? <CircularProgress size={24} color="inherit">Đăng nhập</CircularProgress> : "Đăng nhập"} </button>
                 </form>
@@ -107,8 +106,6 @@ class LoginForm extends React.Component {
 }
 
 function mapStateToProp(state) {
-    console.log(state);
-
     return state.signIn;
 }
 

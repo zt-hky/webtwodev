@@ -11,7 +11,6 @@ export default class SignIn extends React.Component {
                     <section className="Content_Img">
                         <Carousel data={BannerData}></Carousel>
                     </section>
-
                     <LoginForm></LoginForm>
                 </section>
             </main>

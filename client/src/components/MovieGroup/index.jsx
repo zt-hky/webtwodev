@@ -16,6 +16,10 @@ export default class MovieGroup extends React.Component {
     }
 
     render() {
+        // console.log("ahuhu");
+        // console.log(this.props);
+        
+        
         var elements = null;
         if (this.props.items) {
             elements = this.props.items.map((item, index) =>
