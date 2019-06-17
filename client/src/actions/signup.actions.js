@@ -1,6 +1,6 @@
 import ActionTypes from './actionTypes';
 import AxiosInstance, { endPoint } from '../utils/api';
-import { strongPasswordRegex, vnPhoneNumberRegex, emailRegex } from '../utils/Constants';
+import { strongPasswordRegex, vnPhoneNumberRegex, emailRegex } from '../utils/constants';
 
 const signUp = (state) => {
     const { email, password, name, phone } = state;

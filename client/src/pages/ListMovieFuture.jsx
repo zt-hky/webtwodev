@@ -2,14 +2,22 @@ import React from 'react';
 import { MovieData, } from '../data_example'
 import MovieGroup from '../components/MovieGroup';
 import './ListMovieFuture.scss';
-export default class ListMovieFuture extends React.Component {
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import ActionCreator from '../actions';
+class ListMovieFuture extends React.Component {
+
+    componentDidMount = () => {   
+        this.props.getMoviesComingSoon({ offset: 0, limit: 8 })
+    }
+
     render() {
         return (
             <main>
                 <section className="HightLightFilm">
                     <h2>* MOVIE *</h2>
                     <MovieGroup groupName="PHIM SẮP CHIẾU" status="Present"
-                        items={MovieData}
+                        items={this.props.moviesComingSoonData}
                     ></MovieGroup>
                 </section>
                 <section className="container">
@@ -31,3 +39,15 @@ export default class ListMovieFuture extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return state.movie;
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        getMoviesComingSoon: ActionCreator.MovieActions.getMoviesComingSoon
+    }, dispatch)
+}
+const ListMovieFutureContainer = connect(mapStateToProps, mapDispatchToProps)(ListMovieFuture)
+export default ListMovieFutureContainer

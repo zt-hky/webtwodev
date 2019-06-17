@@ -1,11 +1,20 @@
 import ActionTypes from "./actionTypes";
-import { strongPasswordRegex } from "../utils/Constants";
+import { strongPasswordRegex } from "../utils/constants";
+import AxiosInstance, { endPoint } from "../utils/api";
 const changePassword = (state) => {
-    const { password, repeatPassword } = state;
+    //, password, repeatPassword 
+    console.log("chgange");
+    console.log(state);
+    
+    
+    const { email, uuid, password, repeatPassword} = state;
+    const data = { email, uuid };
     let failureState = {};
     return (dispatch) => {
+
         let errorFlag = false;
-        // check new password
+
+        //check new password
         if (!password) {
             errorFlag = true;
             failureState = Object.assign(failureState, { passwordError: 'Hãy đặt mật khẩu mới.' })
@@ -28,20 +37,23 @@ const changePassword = (state) => {
         if (errorFlag) return dispatch(onChangePasswordFailure(failureState));
 
 
-        return null;
+        // return AxiosInstance.post(endPoint.changePassForget, data).then((res) => {
+        //     dispatch(onChangePasswordSuccess({ message: 'Đã đổi mật khẩu thành công!', isRedirect: true }))
+        // }).catch((err) => {
+        //     dispatch(onChangePasswordFailure({ message: 'Xãy ra lỗi ngoài ý muốn vui lòng. vui lòng báo quên mật khẩu.' }))
+        // })
     }
 
 
 
 }
 
-const inputChanged = (event) => {
-    const key = event.target.name;
-    const keyError = key + 'Error';
-    const value = event.target.value;
+const inputChanged = (state) => {
+
     return {
         type: ActionTypes.CHANGE_PASS_INPUT_CHANGE,
-        payload: { [key]: value, [keyError]: '' }
+        payload: state
+
     }
 }
 

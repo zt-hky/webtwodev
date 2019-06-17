@@ -1,14 +1,17 @@
 import ActionTypes from "../actions/actionTypes";
 
 const initState = {
+    email:'',
+    uuid:'',
     password: '',
     repeatPassword: '',
     passwordError: '',
-    repeatPasswordError: ''
+    repeatPasswordError: '',
+    isRedirect: false
 }
 
 const ChangePassowrdReducer = (state = initState, action) => {
-    console.log(action.type);
+    console.log(action);
     switch (action.type) {
         case ActionTypes.CHANGE_PASS_INPUT_CHANGE:
         case ActionTypes.CHANGE_PASS_FAILURE:

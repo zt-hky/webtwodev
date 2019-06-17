@@ -33,7 +33,6 @@ const signIn = (state) => {
         dispatch(onSuccess(successState))
       }
     }).catch((err) => {
-
       failureState = Object.assign(failureState, { message: 'Tài khoản hoặc mật khẩu không đúng!' })
       dispatch(onFailure(failureState))
     })

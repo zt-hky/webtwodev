@@ -2,14 +2,20 @@ import React from 'react';
 import { MovieData } from '../data_example'
 import MovieGroup from '../components/MovieGroup';
 import './ListMoviePresent.scss';
-export default class ListMoviePresent extends React.Component {
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import ActionCreator from '../actions';
+class ListMoviePresent extends React.Component {
+    componentDidMount = () => {   
+        this.props.getMoviesNowShowing({ offset: 0, limit: 4 })
+    }
     render() {
         return (
             <main>
                 <section className="HightLightFilm">
                     <h2>* MOVIE *</h2>
                     <MovieGroup groupName="PHIM ĐANG CHIẾU" status="Present"
-                        items={MovieData}
+                        items={this.props.moviesNowShowing}
                     ></MovieGroup>
                 </section>
                 <section className="container">
@@ -30,3 +36,19 @@ export default class ListMoviePresent extends React.Component {
         );
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        moviesNowShowing: state.movie.moviesNowShowing,
+        errorNowShowing: state.movie.errorNowShowing
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        getMoviesNowShowing: ActionCreator.MovieActions.getMoviesNowShowing
+    }, dispatch)
+}
+const ListMoviePresentContainer = connect(mapStateToProps, mapDispatchToProps)(ListMoviePresent)
+export default ListMoviePresentContainer

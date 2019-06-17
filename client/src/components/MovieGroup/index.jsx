@@ -13,18 +13,17 @@ export default class MovieGroup extends React.Component {
     handleClick = (offset) => {
         this.setState({ offset });
         console.log(offset);
-
     }
 
     render() {
         var elements = null;
         if (this.props.items) {
             elements = this.props.items.map((item, index) =>
-                <MovieItem key={index} movieId={item.id} title={item.title}
-                    imgUrl={item.imgUrl}
+                <MovieItem key={index} movieId={item.id} title={item.name}
+                    imgUrl={item.poster}
                     duration={item.duration}
-                    debut={item.debut}
-                    genres={item.genres}></MovieItem>
+                    debut={item.release}
+                    genre={item.GenreFilm.name}></MovieItem>
             );
         } else {
             elements = "";
@@ -38,9 +37,9 @@ export default class MovieGroup extends React.Component {
                 </section>
 
                 <Pagination
-                    limit={10}
+                    limit={1}
                     offset={this.state.offset}
-                    total={100}
+                    total={10}
                     onClick={(e, offset) => this.handleClick(offset)}
                 />
             </article>
