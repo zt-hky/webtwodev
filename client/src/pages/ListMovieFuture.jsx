@@ -39,15 +39,3 @@ class ListMovieFuture extends React.Component {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    return state.movie;
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        getMoviesComingSoon: ActionCreator.MovieActions.getMoviesComingSoon
-    }, dispatch)
-}
-const ListMovieFutureContainer = connect(mapStateToProps, mapDispatchToProps)(ListMovieFuture)
-export default ListMovieFutureContainer
