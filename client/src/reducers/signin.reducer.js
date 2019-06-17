@@ -7,8 +7,6 @@ const initState = {
     message: "",
     forgotPassMessageError:"",
     forgotPassMessage:"",
-    isWaitting: false,
-    isForgotPassWaitting: false,
     isRedirect: false
 }
 const SignInReducer = (state = initState, action) => {

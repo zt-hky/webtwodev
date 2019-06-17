@@ -15,6 +15,7 @@ import Seat from "./pages/Seat";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/ProfileUser"
+import Forget from "./pages/Forget";
 export default class App extends Component {
     render() {
         return (
@@ -32,6 +33,7 @@ export default class App extends Component {
                     <Route path="/cho-ngoi" component={Seat} />
                     <Route path="/chi-tiet/:movieId" component={Movie} />
                     <Route path="/trang-ca-nhan" component={Profile} />
+                    <Route path="/forget" component={Forget} />
                     <Route path="/dang-phat-trien" render={() => <h1 style={{ textAlign: "center", color: "red" }}>Đang phát triển</h1>} />
                     <Footer></Footer>
                 </div>

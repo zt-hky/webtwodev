@@ -90,13 +90,6 @@ const onFailure = (state) => {
   }
 }
 
-const onWaitting = (state) => {
-  return {
-    type: ActionTypes.SIGNIN_WAITTING,
-    payload: state
-  }
-}
-
 const clearProps = (state) => {
   return {
     type: ActionTypes.SIGNIN_CLEAR_PROPS,
@@ -110,7 +103,6 @@ const SignInActions = {
   inputChanged,
   signIn,
   clearProps,
-  onWaitting,
   forgotPassword
 }
 
