@@ -1,9 +1,6 @@
 import ActionTypes from './actionTypes';
 import AxiosInstance, { endPoint } from '../utils/api';
-
-const emailRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-const strongPasswordRegex = new RegExp(/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/);
-const vnPhoneNumberRegex = new RegExp(/^(0[3|5|7|8|9])+([0-9]{8})$/);
+import { strongPasswordRegex, vnPhoneNumberRegex, emailRegex } from '../utils/Constants';
 
 const signUp = (state) => {
     const { email, password, name, phone } = state;
@@ -54,7 +51,7 @@ const signUp = (state) => {
             var successState = Object.assign({}, data, { isRedirect: true, message: 'Chúng tôi đã gửi đến bạn mail kích hoạt. Vui lòng kiểm tra  mail!' })
             dispatch(onSuccess(successState))
         }).catch((err) => {
-            failureState = Object.assign({},{ message: 'Email đã được sử dụng!' })
+            failureState = Object.assign({}, { message: 'Email đã được sử dụng!' })
             dispatch(onFailure(failureState))
         })
     }
@@ -94,7 +91,7 @@ const onWaitting = (state) => {
     }
 }
 
-const clearProps = (state) =>{
+const clearProps = (state) => {
     return {
         type: ActionTypes.SIGNUP_CLEAR_PROPS,
         payload: state
