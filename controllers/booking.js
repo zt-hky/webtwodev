@@ -117,7 +117,8 @@ booking.book = async (req, res, next) => {
 
 
         var cost = lstSeat.length * InfoThreatre.ThreatreType.price
-        var booking = await models.Booking.create(
+        var booking
+        await models.Booking.create(
             {
                 cost,
                 UserEmail: user.email,
@@ -125,22 +126,27 @@ booking.book = async (req, res, next) => {
             },
             { transaction: t }
         )
-
+            .then(item => {
+                booking = item
+            })
+            .catch(e => {
+                throw new Error(e)
+            })
         // if (!booking) {
         //     throw new Error("Khong tao duoc booking");
         //     return
         // }
 
-        await lstSeat.forEach(async seat => {
-            var row = seat.charCodeAt(0)
+        for (var i = 0; i < lstSeat.length; i++) {
+            var seat = lstSeat[i]
+            var row = seat.charAt(0)
             var column = parseInt(seat.substr(1, 2))
             await models.Ticket.create(
                 { row, column, ShowTimeId, BookingId: booking.id },
                 { transaction: t })
+        }
 
-        })
 
-        return booking
     })
         .then(result => {
             res.status(200)
@@ -151,7 +157,7 @@ booking.book = async (req, res, next) => {
         .catch(err => {
             res.status(406)
             res.json({
-                error: err.name
+                error: err
             })
         })
 
