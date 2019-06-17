@@ -31,7 +31,12 @@ showTime.getByDateFilmThreatreSet = (req, res, next) => {
                 data: item
             })
         })
-        .catch
+        .catch((err) => {
+            res.status(422);
+            res.json({
+                error: err.name
+            })
+        })
 }
 
 showTime.getAll = (req, res, next) => {

@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var passport = require('passport');
 var db = require('./models/index');
-
+var cors = require('cors');
 require('dotenv').config();
 
 app.use(logger('dev'));
@@ -18,13 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-
-app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', "*");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
+app.use(cors())
 
 // Config passport
 app.use(passport.initialize());

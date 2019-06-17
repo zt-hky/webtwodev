@@ -15,6 +15,8 @@ const models = require("../models/index.js");
 //     res.json(req.user);
 // })
 
+router.get('/ShowTimes/:id/Booking', controller.booking.getByShowTimeId)
+
 /* GET users listing. */
 
 // where write controller
