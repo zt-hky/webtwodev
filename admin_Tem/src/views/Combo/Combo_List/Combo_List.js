@@ -88,7 +88,10 @@ class Forms extends Component {
                
                </Row>
               </CardBody>
-           
+              <CardFooter>
+                <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Lưu dữ liệu</Button>
+                <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Tạo lại</Button>
+              </CardFooter>
             </Card>
             
           </Col>
