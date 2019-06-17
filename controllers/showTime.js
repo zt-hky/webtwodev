@@ -5,6 +5,35 @@ const utils = require('../utils/index.js');
 
 let showTime = {}
 
+showTime.getByDateFilmThreatreSet = (req, res, next) => {
+    var { date, FilmId, ThreatreSetId } = req.query
+
+    if (!date) {
+        date = new Date()
+    }
+
+    var findOptions = {
+        where: {
+            FilmId
+        },
+        include: {
+            model: models.Threatre,
+            where: { ThreatreSetId },
+            attributes: ['ThreatreTypeId']
+        },
+        order: [['time', 'ASC']]
+    }
+
+    models.ShowTime.findAll(findOptions)
+        .then(item => {
+            res.status(200)
+            res.json({
+                data: item
+            })
+        })
+        .catch
+}
+
 showTime.getAll = (req, res, next) => {
 
     var { date, film } = req.query
@@ -47,10 +76,7 @@ showTime.getAll = (req, res, next) => {
                 res.status(422)
                 res.json({ error: err })
             })
-
-
     }
-
 }
 
 
