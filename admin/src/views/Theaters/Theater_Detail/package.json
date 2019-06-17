@@ -1,0 +1,6 @@
+{
+  "name": "Theaters_Detail",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Theaters_Detail.js"
+}
