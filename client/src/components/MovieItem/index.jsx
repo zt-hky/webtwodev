@@ -26,9 +26,10 @@ export default class MovieItem extends React.Component {
 
 
     render() {
+        console.log(this.props);
+        
         return (
             <article className="ListFilm_Item">
-
                 <img src={this.props.imgUrl} alt={defaultValue} />
                 <section className="ListFilm_Item_Button">
                     <Link className="link" to={"/chi-tiet/" + this.props.movieId} > <button>Chi tiết</button></Link>

@@ -8,7 +8,7 @@ import ActionCreator from '../actions';
 class ListMovieFuture extends React.Component {
 
     componentDidMount = () => {   
-        this.props.getMoviesComingSoon({ offset: 0, limit: 8 })
+        this.props.getMoviesComingSoon({ offset: 0, limit: 4 })
     }
 
     render() {
@@ -17,7 +17,7 @@ class ListMovieFuture extends React.Component {
                 <section className="HightLightFilm">
                     <h2>* MOVIE *</h2>
                     <MovieGroup groupName="PHIM SẮP CHIẾU" status="Present"
-                        items={this.props.moviesComingSoonData}
+                        items={this.props.moviesComingSoon}
                     ></MovieGroup>
                 </section>
                 <section className="container">
@@ -39,3 +39,18 @@ class ListMovieFuture extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        moviesComingSoon: state.movie.moviesComingSoon,
+        errorMoviesComingSoon: state.errorMoviesComingSoon
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        getMoviesComingSoon: ActionCreator.MovieActions.getMoviesComingSoon
+    }, dispatch)
+}
+const ListMovieFutureContainer = connect(mapStateToProps, mapDispatchToProps)(ListMovieFuture)
+export default ListMovieFutureContainer
