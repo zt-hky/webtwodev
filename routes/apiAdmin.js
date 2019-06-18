@@ -7,6 +7,8 @@ var controller = require('../controllers/index');
 
 
 router.get('/threatreSets', controller.threatreSet.getAll)
+
+router.post('/threatreSets', controller.threatreSet.post)
     // End
 
 /* GET users listing. */

@@ -51,5 +51,24 @@ threatreSet.getAll = (req, res, next) => {
         })
 }
 
+threatreSet.post = (req, res, next) => {
+
+    const { name, location, CityId } = req.body
+
+    if (name && location && CityId) {
+        models.ThreatreSet.create({ name, location, CityId })
+            .then(e => {
+                res.status(200)
+                res.end()
+            })
+            .catch(e => {
+                res.status(402)
+                res.json({ e })
+            })
+    } else {
+        res.status(400)
+        res.end()
+    }
+}
 
 module.exports = threatreSet
