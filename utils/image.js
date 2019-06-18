@@ -4,22 +4,22 @@ var models = require('../models/index')
 
 let image = {};
 
-image.load = (id) => {
+image.load = async(id) => {
 
     await models.Image.findOne({ where: { id } })
         .then(image => {
             if (image) {
                 return image.data
             } else {
-
+                return false
             }
         })
         .catch(e => {
-            res.j
+            return false
         })
 }
 
-image.save = (id, file) = {
+image.save = (id, file) => {
 
 }
 
