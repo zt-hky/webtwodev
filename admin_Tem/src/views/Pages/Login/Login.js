@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import LoginAction from '../../../action/login.action';
 
 class Login extends Component {
+
+  frm_onSubmit = (event) => {
+   this.props.login({username:this.props.username, password:this.props.password})
+  }
+
   render() {
+    console.log(this.props);
+    
     return (
       <div className="app flex-row align-items-center">
         <Container>
@@ -11,7 +21,7 @@ class Login extends Component {
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form>
+                    <Form onSubmit = {this.frm_onSubmit}>
                       <h1>Login</h1>
                       <p className="text-muted">Sign In to your account</p>
                       <InputGroup className="mb-3">
@@ -20,7 +30,8 @@ class Login extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
+                        <Input name="username" value={this.props.username} onChange ={this.props.inputChanged} type="text" placeholder="Username" autoComplete="username" />
+
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -28,7 +39,7 @@ class Login extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
+                        <Input name='password' onChange = {this.props.inputChanged} type="password" placeholder="Password" autoComplete="current-password" />
                       </InputGroup>
                       <Row>
                         <Col xs="6">
@@ -50,5 +61,17 @@ class Login extends Component {
     );
   }
 }
+function MapStatetoProp(State){
 
-export default Login;
+  return State.Login;
+}
+
+function MapDisPatchtoProp(DisPatch){
+
+  return bindActionCreators({
+    inputChanged: LoginAction.inputChanged,
+    login: LoginAction.login
+  },DisPatch);
+}
+
+export default connect(MapStatetoProp, MapDisPatchtoProp)(Login);
