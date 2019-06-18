@@ -12,7 +12,7 @@ var utils = require('../utils/index')
 // })
 
 
-router.get('/images/:id.jpg', async(req, res, next) => {
+router.get('/images/:id', async(req, res, next) => {
 
         const { id } = req.params
         var image = await utils.image.load(id)
