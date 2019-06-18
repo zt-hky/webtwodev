@@ -1,37 +1,26 @@
 import ActionTypes from './ActionTypes';
-import AxiosInstance, {
-  endPoint
-} from '../uitls/api';
+import AxiosInstance, { endPoint } from '../uitls/api';
 
 
-const login = ({
-  username,
-  password
+const TheatersForm = ({
+  TheatersName,Address,Description,DateFound,isActive,
 }) => {
 
   return (dispatch) => {
     return AxiosInstance.post(endPoint.login, {
-      username: username,
-      password: password
+      params: {
+        TheatersName,Address,Description,DateFound,isActive,
+      }
     }).then((res) => {
-      localStorage.setItem('token', res.data.token)
-      dispatch(onLoginSuccess({message: 'Dang nhap thanh cong'}))
-    }).catch((err) => {
-      console.log('======================');
+      console.log(res);
 
+    }).catch((err) => {
       console.log(err);
 
     })
   }
-}
 
 
-const onLoginSuccess = (state)=>{
-  return {
-    type: ActionTypes.SIGNIN_SUCCESS,
-    payload: state
-
-  }
 }
 
 const inputChanged = (event) => {
@@ -57,7 +46,7 @@ const inputChanged = (event) => {
 
 const LoginAction = {
   inputChanged,
-  login
+  TheatersForm
 
 }
 export default LoginAction;

@@ -7,13 +7,8 @@ const AxiosInstance = axios.create({
 });
 
 export const endPoint = {
-    createNewAccount: "/user/signUp",
-    login: "/user/signIn",
-    forgotPassword: "/user/forget",
-    changePassForget: "/user/changePassForget",
-    getAllMovie: '/films',
-    getMovieById: '/films/',
-    getAllCities: '/cities'
+    login: "/admin/signIn",
+   
 }
 
 export default AxiosInstance;

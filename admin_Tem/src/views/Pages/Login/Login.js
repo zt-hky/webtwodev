@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import LoginAction from '../../../action/login.action';
-
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {Redirect} from 'react-router-dom';
 class Login extends Component {
 
   frm_onSubmit = (event) => {
    this.props.login({username:this.props.username, password:this.props.password})
+   event.preventDefault()
+  }
+
+  goToHome = () =>{
+    if(localStorage.getItem('token')){
+      return <Redirect to="/Home"></Redirect>
+    }
   }
 
   render() {
@@ -57,6 +65,7 @@ class Login extends Component {
             </Col>
           </Row>
         </Container>
+        {this.goToHome()}
       </div>
     );
   }
