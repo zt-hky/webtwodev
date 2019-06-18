@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import  Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+
+import TheatersFormAction from '../../../action/TheatersForm.action';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {
   Button,
   Card,
@@ -36,7 +40,11 @@ class Theaters_Form extends Component {
   toggleFade() {
     this.setState((prevState) => { return { fadeIn: !prevState }});
   }
-
+  frm_onSubmit = (event) => {
+    this.props.TheatersForm({TheatersName:this.props.TheatersName, Address: this.props.Address, Description: this.props.Description,
+      DateFound: this.props.DateFound , isActive : this.isActive,
+    })
+   }
   render() {
     return (
       <div className="animated fadeIn">
@@ -54,7 +62,7 @@ class Theaters_Form extends Component {
                       <Label>Tên Cụm rạp</Label>
                     </Col>
                     <Col xs="12" md="9">
-                    <Input type="text" id="text-input" name="text-input" placeholder="Nhập tên cụm rạp" />
+                    <Input type="text" id="text-input" name="TheatersName" placeholder="Nhập tên cụm rạp" />
                     <FormText color="muted"></FormText>
                     </Col>
                   </FormGroup>
@@ -63,7 +71,7 @@ class Theaters_Form extends Component {
                       <Label htmlFor="text-input">Địa chỉ</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="text" id="text-input" name="text-input" placeholder="Nhập địa chỉ" />
+                      <Input type="text" id="text-input" name="Address" placeholder="Nhập địa chỉ" />
                       <FormText color="muted"></FormText>
                     </Col>
                   </FormGroup>
@@ -72,7 +80,7 @@ class Theaters_Form extends Component {
                     <Label htmlFor="textarea-input">Mô tả</Label>
                   </Col>
                   <Col xs="12" md="9">
-                    <Input type="textarea" name="textarea-input" id="textarea-input" rows="9"
+                    <Input type="textarea" name="Description" id="textarea-input" rows="9"
                            placeholder="Content..." />
                   </Col>
                 </FormGroup>
@@ -82,7 +90,7 @@ class Theaters_Form extends Component {
                       <Label htmlFor="date-input">Ngày thành lập</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="date" id="date-input" name="date-input" placeholder="date" />
+                      <Input type="date" id="date-input" name="DateFound" placeholder="date" />
                     </Col>
                   </FormGroup>
                  
@@ -93,7 +101,7 @@ class Theaters_Form extends Component {
                     <Col xs="12" md="9">
                     <FormControlLabel
         control={
-          <Switch  value="checkedB"  color="primary"   />
+          <Switch  value="checkedB"  color="primary" name='isActive'  />
            }
       />
                     </Col>
@@ -115,4 +123,17 @@ class Theaters_Form extends Component {
   }
 }
 
-export default Theaters_Form;
+function MapStatetoProp(State){
+
+  return State.Login;
+}
+
+function MapDisPatchtoProp(DisPatch){
+
+  return bindActionCreators({
+    inputChanged: TheatersFormAction.inputChanged,
+    TheatersForm: TheatersFormAction.TheatersForm
+  },DisPatch);
+}
+
+export default connect(MapStatetoProp, MapDisPatchtoProp)(Theaters_Form);

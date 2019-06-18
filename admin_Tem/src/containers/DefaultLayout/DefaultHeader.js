@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink,Redirect } from 'react-router-dom';
 import { Badge, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -14,11 +14,30 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
+constructor(props) {
+  super(props)
+  this.state = {
+    isLogout : false
+  }
+}
+
+  logout = () =>{
+      localStorage.removeItem('token');
+     this.setState({isLogout: true})
+  }
+
+  goToHome = ()=>{
+    if(this.state.isLogout){
+      return <Redirect to="/login"></Redirect>
+    }
+  }
+
   render() {
 
     // eslint-disable-next-line
     const { children, ...attributes } = this.props;
-
+   
+  
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
@@ -50,11 +69,11 @@ class DefaultHeader extends Component {
               <DropdownItem><i className="fa fa-usd"></i> Thanh Toán<Badge color="secondary">42</Badge></DropdownItem>
               <DropdownItem><i className="fa fa-file"></i> Lịch sử xử lí<Badge color="primary">42</Badge></DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={e => this.props.onLogout(e)}><i className="fa fa-lock"></i> Logout</DropdownItem>
+              <DropdownItem onClick={this.logout}><i className="fa fa-lock"></i> Logout</DropdownItem>
             </DropdownMenu>
           </AppHeaderDropdown>
         </Nav>
-  
+  {this.goToHome()}
       </React.Fragment>
     );
   }
