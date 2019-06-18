@@ -2,15 +2,28 @@ import React from 'react';
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './MovieDetail.scss'
+import { IMG_PLACEHOLDER } from '../../utils/constants';
 
 export default class MovieDetail extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { loadImgError: false }
+    }
+
+
+
+    img_onError = () => {
+        this.setState({ loadImgError: true })
+    }
+
     render() {
         return (
             <header className="Current">
                 {this.props.movieItem ?
                     <header className="Current">
                         <section className="Current_Img">
-                            <img src={this.props.movieItem.poster} alt="ahihi" />
+                            <img onError={this.img_onError} src={this.state.loadImgError? IMG_PLACEHOLDER: this.props.movieItem.poster} alt="ahihi" />
                         </section>
                         <section className="Current_Info">
                             <h1>{this.props.movieItem.name}</h1>

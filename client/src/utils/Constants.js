@@ -3,3 +3,5 @@ export const emailRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,
 export const strongPasswordRegex = new RegExp(/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/);
 export const vnPhoneNumberRegex = new RegExp(/^(0[3|5|7|8|9])+([0-9]{8})$/);
 export const BASE_URL_IMAGE = ''
+export const IMG_PLACEHOLDER = require('../img/broken-image.svg')
+//https://image.flaticon.com/icons/svg/565/565777.svg
