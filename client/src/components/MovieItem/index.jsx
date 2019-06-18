@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './MovieItem.scss'
-import { defaultValue } from '../../utils/constants';
-import { BrowserRouter } from 'react-router-dom';
-import {IMG_PLACEHOLDER} from '../../utils/constants';;
+import { IMG_PLACEHOLDER,defaultValue, BASE_URL_IMAGE } from '../../utils/constants';
 export default class MovieItem extends React.Component {
 
     constructor(props) {
@@ -26,15 +24,15 @@ export default class MovieItem extends React.Component {
 
 
     img_onError = () => {
+        
         this.setState({ loadImgError: true })
     }
 
     render() {
-        console.log(this.state);
-        
+        console.log(this.props);
         return (
             <article className="ListFilm_Item">
-                <img onError={this.img_onError} src={ this.state.loadImgError? IMG_PLACEHOLDER : this.props.imgUrl} alt={defaultValue} />
+                <img onError={this.img_onError} src={ this.state.loadImgError? IMG_PLACEHOLDER : BASE_URL_IMAGE+ this.props.imgUrl} alt={defaultValue} />
                 <section className="ListFilm_Item_Button">
                     <Link className="link" to={`/chi-tiet/${this.props.movieId}`} > <button>Chi tiết</button></Link>
                     <Link className="link" to={"/mua-ve/"}><button>Mua vé</button></Link>
