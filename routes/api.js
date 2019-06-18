@@ -32,12 +32,18 @@ router.get('/cities/:id', controller.city.getById)
 
 router.get('/cities/:id/threatreSet', controller.threatreSet.getbyCityId)
 
+// Login admin
+
+router.post('/admin/signIn', controller.admin.signIn);
+
 router.get('/showTimesDFS', controller.showTime.getByDateFilmThreatreSet)
-// test send email
-//router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
+    // test send email
+    //router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
 // where write controller
 router.get('/test', (req, res, next) => {
+
+
 
 
 
