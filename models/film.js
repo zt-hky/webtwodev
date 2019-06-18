@@ -12,12 +12,13 @@ module.exports = (sequelize, DataTypes) => {
         release: DataTypes.DATEONLY,
         duration: DataTypes.INTEGER,
         studio: DataTypes.STRING,
+        trailer: DataTypes.STRING,
         delete: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         }
     }, {});
-    Film.associate = function (models) {
+    Film.associate = function(models) {
         // associations can be defined here
         models.Film.belongsTo(models.GenreFilm),
             models.Film.hasMany(models.ShowTime)

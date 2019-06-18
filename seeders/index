@@ -1,0 +1,13 @@
+'use strict';
+const excelToJson = require('convert-excel-to-json');
+
+var result = excelToJson({
+    sourceFile: 'Data_WEB_TWO.xlsx',
+    range: 'A2:Z1000',
+    columnToKey: {
+        '*': '{{columnHeader}}'
+    }
+})
+
+
+console.log(result)
