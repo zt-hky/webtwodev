@@ -2,7 +2,7 @@ import React from 'react';
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './MovieDetail.scss'
-import { IMG_PLACEHOLDER } from '../../utils/constants';
+import { IMG_PLACEHOLDER, BASE_URL_IMAGE, } from '../../utils/constants';
 
 export default class MovieDetail extends React.Component {
 
@@ -23,7 +23,7 @@ export default class MovieDetail extends React.Component {
                 {this.props.movieItem ?
                     <header className="Current">
                         <section className="Current_Img">
-                            <img onError={this.img_onError} src={this.state.loadImgError? IMG_PLACEHOLDER: this.props.movieItem.poster} alt="ahihi" />
+                            <img onError={this.img_onError} src={this.state.loadImgError? IMG_PLACEHOLDER: BASE_URL_IMAGE+this.props.movieItem.poster} alt="ahihi" />
                         </section>
                         <section className="Current_Info">
                             <h1>{this.props.movieItem.name}</h1>
