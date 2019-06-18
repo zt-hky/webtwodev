@@ -1,26 +1,26 @@
 {
     "development": {
-        "username": "rmhnmbob",
-        "password": "l1kLR5ycNv32_eP0YsjH2YqUbfy_My5Z",
-        "database": "rmhnmbob",
-        "host": "john.db.elephantsql.com",
+        "username": "ippjtrxvmfgjax",
+        "password": "9abdf2cf6e02be0be95c5b2fed7635b243b331e9b2ec79f5e6ba8d90fadcb71d",
+        "database": "d2tujr4bthgaol",
+        "host": "ec2-75-101-128-10.compute-1.amazonaws.com",
         "dialect": "postgres",
         "timezone": "+07:00"
     },
     "test": {
-        "username": "rmhnmbob",
-        "password": "l1kLR5ycNv32_eP0YsjH2YqUbfy_My5Z",
-        "database": "rmhnmbob",
-        "host": "john.db.elephantsql.com",
+        "username": "ippjtrxvmfgjax",
+        "password": "9abdf2cf6e02be0be95c5b2fed7635b243b331e9b2ec79f5e6ba8d90fadcb71d",
+        "database": "d2tujr4bthgaol",
+        "host": "ec2-75-101-128-10.compute-1.amazonaws.com",
         "dialect": "postgres",
-        "timezone": "+7"
+        "timezone": "+07:00"
     },
     "production": {
-        "username": "rmhnmbob",
-        "password": "l1kLR5ycNv32_eP0YsjH2YqUbfy_My5Z",
-        "database": "rmhnmbob",
-        "host": "john.db.elephantsql.com",
+        "username": "ippjtrxvmfgjax",
+        "password": "9abdf2cf6e02be0be95c5b2fed7635b243b331e9b2ec79f5e6ba8d90fadcb71d",
+        "database": "d2tujr4bthgaol",
+        "host": "ec2-75-101-128-10.compute-1.amazonaws.com",
         "dialect": "postgres",
-        "timezone": "+7"
+        "timezone": "+07:00"
     }
 }
