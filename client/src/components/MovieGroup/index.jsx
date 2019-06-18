@@ -39,13 +39,19 @@ export default class MovieGroup extends React.Component {
                 <section className="ListFilm">
                     {elements}
                 </section>
+            
+            <div className="Style">
+                <center>
+                    <Pagination
+                            limit={1}
+                            offset={this.state.offset}
+                            total={10}
+                            onClick={(e, offset) => this.handleClick(offset)}
+                        />  
+                </center>
 
-                <Pagination
-                    limit={1}
-                    offset={this.state.offset}
-                    total={10}
-                    onClick={(e, offset) => this.handleClick(offset)}
-                />
+            </div>
+
             </article>
 
 

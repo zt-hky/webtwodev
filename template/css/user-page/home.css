@@ -222,6 +222,7 @@ footer .intro {
     margin-left: 4%;
     border-bottom: 1px solid black;
     margin-bottom: 2rem;
+    align-content: center;
 }
 
 .ListFilm {

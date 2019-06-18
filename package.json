@@ -6,12 +6,12 @@
         "server": "node ./bin/www",
         "devsv": "nodemon ./bin/www",
         "client": "yarn --cwd client start",
-        "dev": "concurrently -k --success first \"yarn devsv\" \"yarn client\""
+        "admin": "yarn --cwd admin_Tem start",
+        "dev": "concurrently -k --success first \"yarn devsv\" \"yarn client\" \"yarn admin\" "
     },
     "dependencies": {
-        "@material-ui/core": "^4.1.1",
-        "@material-ui/icons": "^4.2.0",
         "bcrypt": "^3.0.6",
+        "bluebird": "^3.5.5",
         "body-parser": "^1.19.0",
         "bootstrap": "^4.3.1",
         "concurrently": "^4.1.0",

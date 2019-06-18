@@ -12,13 +12,11 @@ var utils = require('../utils/index')
 // })
 
 
-
-router.get('/images/:id.jpg', (req, res, next) => {
+router.get('/images/:id', async(req, res, next) => {
 
         const { id } = req.params
-
-        var image = utils.image.load(id)
-
+        var image = await utils.image.load(id)
+        console.log(image)
         if (image) {
             res.writeHead(200, { 'Content-Type': 'image/jpeg' });
             res.end(image, 'binary');
