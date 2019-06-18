@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false,
         }
     }, {});
-    Booking.associate = function (models) {
+    Booking.associate = function(models) {
         // associations can be defined here
-        models.Booking.belongsTo(models.User),
-            models.Booking.belongsTo(models.ShowTime),
-            models.Booking.hasMany(models.Ticket)
+        models.Booking.belongsTo(models.User)
+        models.Booking.belongsTo(models.ShowTime)
+        models.Booking.hasMany(models.Ticket)
     };
     return Booking;
 };
