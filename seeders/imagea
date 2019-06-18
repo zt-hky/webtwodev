@@ -1,0 +1,23 @@
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const Promise = require('bluebird');
+const utils = require('../utils/index');
+Promise.promisifyAll(fs);
+
+
+
+var lst = fs
+    .readdirSync(__dirname + '/image/')
+    .filter(file => {
+        return (file.indexOf('.') !== 0)
+    })
+
+Promise.each(lst, async file => {
+    var id_key = file.split('.')[0]
+
+    var path = __dirname + '\\image\\' + file
+
+    await utils.image.save(path, id_key)
+})
