@@ -7,7 +7,7 @@ opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = process.env.SECRET;
 
 module.exports = passport => {
-    passport.use('client', new JwtStrategy(opts, function(jwt_payload, done) {
+    passport.use('admin', new JwtStrategy(opts, function(jwt_payload, done) {
         Models.Admin.findOne({ where: { username: jwt_payload.username } })
             .then(admin => {
                 if (admin) {

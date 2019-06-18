@@ -31,5 +31,25 @@ threatreSet.getbyCityId = (req, res, next) => {
 
 }
 
+threatreSet.getAll = (req, res, next) => {
+
+    var findOption = utils.get.FindOption(req)
+
+    models.ThreatreSet.findAll(findOption)
+        .then(data => {
+            res.status(200)
+            res.json({
+                success: true,
+                data
+            })
+        })
+        .catch(e => {
+            res.status(400)
+            res.json({
+                error: e.name
+            })
+        })
+}
+
 
 module.exports = threatreSet

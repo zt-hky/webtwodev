@@ -20,7 +20,6 @@ router.post('/user/forget', controller.user.forget);
 
 router.post('/user/changePassForget', controller.user.changePassForget);
 
-router.get('/user/sms', controller.user.sms);
 
 router.get('/films', controller.film.getFilm);
 
@@ -41,13 +40,6 @@ router.get('/showTimesDFS', controller.showTime.getByDateFilmThreatreSet)
     //router.post('/user/send-confirmation-mail', controller.user.sendConfirmationEmail)
 
 // where write controller
-router.get('/test', (req, res, next) => {
-
-
-
-
-
-
-});
+router.get('/test', (req, res, next) => {});
 
 module.exports = router;

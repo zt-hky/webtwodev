@@ -9,14 +9,8 @@ const utils = require('../utils/index.js');
 
 let user = {}
 
-user.sms = async (req, res, next) => {
-    res.json({
-        message: "this is sms",
-        status: true
-    });
-}
 
-user.signIn = async (req, res, next) => {
+user.signIn = async(req, res, next) => {
 
     const { email, password } = req.body;
 
@@ -62,7 +56,7 @@ user.signIn = async (req, res, next) => {
 
 };
 
-user.signUp = async (req, res, next) => {
+user.signUp = async(req, res, next) => {
 
     console.log(req.body);
 
@@ -118,7 +112,7 @@ user.signUp = async (req, res, next) => {
         val: false,
         uuid,
     }).
-        then((result) => {
+    then((result) => {
             res.status(200);
             res.json({
                 message: "SignUp successful",
@@ -138,7 +132,7 @@ user.signOut = (req, res, next) => {
 
 }
 
-user.confirmMail = async (req, res, next) => {
+user.confirmMail = async(req, res, next) => {
     const { email, uuid } = req.params;
 
     var user = await models.User.findOne({
@@ -156,7 +150,7 @@ user.confirmMail = async (req, res, next) => {
 
 }
 
-user.forget = async (req, res, next) => {
+user.forget = async(req, res, next) => {
 
     const { email } = req.body
 
@@ -190,7 +184,7 @@ user.forget = async (req, res, next) => {
 
 }
 
-user.changePassForget = async (req, res, next) => {
+user.changePassForget = async(req, res, next) => {
 
     const { email, password, uuid } = req.body
     var strongPasswordRegex = /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;

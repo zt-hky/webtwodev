@@ -23,12 +23,12 @@ app.use(cors())
 // Config passport
 app.use(passport.initialize());
 require('./middleware/client')(passport);
-
+require('./middleware/admin')(passport);
 app.use('/', require('./routes/root'));
 app.use('/etc/', require('./routes/etc'));
 app.use('/api/', require('./routes/api'));
 app.use('/api/', passport.authenticate('client', { session: false }), require('./routes/apiClient'));
-app.use('/api/', require('./routes/apiAdmin'));
+app.use('/apiAdmin/', passport.authenticate('admin', { session: false }), require('./routes/apiAdmin'));
 
 
 // // db.sequelize.sync({

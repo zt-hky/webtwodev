@@ -5,10 +5,9 @@ var controller = require('../controllers/index');
 
 // More require
 
-const bcrypt = require('bcrypt');
-const models = require("../models/index.js");
 
-// End
+router.get('/threatreSets', controller.threatreSet.getAll)
+    // End
 
 /* GET users listing. */
 
