@@ -43,6 +43,7 @@ class LoginForm extends React.Component {
     closeAlertBtn_onClick = () => {
         if (this.props.isRedirect) {
             this.setState({ goTo: <Redirect to='/trang-chu' /> })
+            this.forceUpdate();
         }
         this.props.clearProps({ password: "", message: "", isRedirect: false });
     }

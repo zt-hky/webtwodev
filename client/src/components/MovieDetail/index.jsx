@@ -2,13 +2,14 @@ import React from 'react';
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './MovieDetail.scss'
+import { Redirect } from 'react-router-dom';
 import { IMG_PLACEHOLDER, BASE_URL_IMAGE, } from '../../utils/constants';
 
 export default class MovieDetail extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { loadImgError: false }
+        this.state = { loadImgError: false, isRedirect: false }
     }
 
 
@@ -17,13 +18,20 @@ export default class MovieDetail extends React.Component {
         this.setState({ loadImgError: true })
     }
 
+    goToBooking = () => {
+        console.log('ahihi');
+        
+        if (this.state.isRedirect) {
+            return <Redirect to={`/mua-ve/${this.props.movieItem.id}`}></Redirect>
+        }
+    }
     render() {
         return (
             <header className="Current">
                 {this.props.movieItem ?
                     <header className="Current">
                         <section className="Current_Img">
-                            <img onError={this.img_onError} src={this.state.loadImgError? IMG_PLACEHOLDER: BASE_URL_IMAGE+this.props.movieItem.poster} alt="ahihi" />
+                            <img onError={this.img_onError} src={this.state.loadImgError ? IMG_PLACEHOLDER : BASE_URL_IMAGE + this.props.movieItem.poster} alt="ahihi" />
                         </section>
                         <section className="Current_Info">
                             <h1>{this.props.movieItem.name}</h1>
@@ -43,9 +51,11 @@ export default class MovieDetail extends React.Component {
                                 <h3>Nội dung:</h3>
                                 <p>{this.props.movieItem.content}</p>
                             </section>
-                            <button onclick="window.location.href = '#';" > MUA VÉ </button>
+                            <button onClick={() => {
+                                this.setState({ isRedirect: true })
+                            }} > MUA VÉ </button>
                         </section>
-
+                        {this.goToBooking()}
                     </header> : <h1>ĐANG CẬP NHẬT</h1>}
 
             </header>
