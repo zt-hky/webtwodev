@@ -43,6 +43,7 @@ export default class MovieDetail extends React.Component {
                                 <h3>Nội dung:</h3>
                                 <p>{this.props.movieItem.content}</p>
                             </section>
+                            <button onclick="window.location.href = '#';" > MUA VÉ </button>
                         </section>
 
                     </header> : <h1>ĐANG CẬP NHẬT</h1>}
