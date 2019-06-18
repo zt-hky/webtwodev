@@ -1,6 +1,6 @@
 @import'../../styles/scss/variables.scss';
 .Content_Form_Profile {
-    background-color: #F5F0F0;
+    background-color: rgb(236, 228, 228);
     padding: 0 3.5rem;
     width: 45%;
 }
@@ -28,6 +28,7 @@
     }
     button {
         border: none;
+        padding: 5px 50px;
         border-radius: 6px;
         background-color: #F37603;
         display: block;
