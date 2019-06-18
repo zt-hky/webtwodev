@@ -19,7 +19,7 @@ class ListMovieFuture extends React.Component {
                         items={this.props.moviesComingSoon}
                     ></MovieGroup>
                 </section>
-                <section className="container">
+                {/* <section className="container">
                     <section className="Pagination">
                         <ul>
                             <li className="prev disabled"><a href="/#">&lt;</a></li>
@@ -32,7 +32,7 @@ class ListMovieFuture extends React.Component {
                             <li className="next"><a href="/#">&gt;</a></li>
                         </ul>
                     </section>
-                </section>
+                </section> */}
             </main>
 
         );
