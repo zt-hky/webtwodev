@@ -2,7 +2,7 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 19px;
-    background-color: #D4DCDB;
+    background-color: rgb(255, 255, 255);
 }
 
 @font-face {

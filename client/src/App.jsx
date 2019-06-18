@@ -16,10 +16,6 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/ProfileUser"
 import Forget from "./pages/Forget";
-import {createBrowserHistory} from 'history';
-const history = createBrowserHistory({
-
-})
 export default class App extends Component {
     render() {
         console.log(window.location.pathname);
