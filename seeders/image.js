@@ -9,7 +9,7 @@ Promise.promisifyAll(fs);
 module.exports = {
     up: async(queryInterface, Sequelize) => {
 
-        fs
+        var lstFile = await fs
             .readdirSync(__dirname + '/image/')
             .filter(file => {
                 return (file.indexOf('.') !== 0)

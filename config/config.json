@@ -5,7 +5,12 @@
         "database": "d2tujr4bthgaol",
         "host": "ec2-75-101-128-10.compute-1.amazonaws.com",
         "dialect": "postgres",
-        "timezone": "+07:00"
+        "ssl": true,
+        "dialectOptions": {
+            "ssl": {
+                "require": true
+            }
+        }
     },
     "test": {
         "username": "ippjtrxvmfgjax",
@@ -13,7 +18,7 @@
         "database": "d2tujr4bthgaol",
         "host": "ec2-75-101-128-10.compute-1.amazonaws.com",
         "dialect": "postgres",
-        "timezone": "+07:00"
+        "ssl": true
     },
     "production": {
         "username": "ippjtrxvmfgjax",
@@ -21,6 +26,6 @@
         "database": "d2tujr4bthgaol",
         "host": "ec2-75-101-128-10.compute-1.amazonaws.com",
         "dialect": "postgres",
-        "timezone": "+07:00"
+        "ssl": true
     }
 }
