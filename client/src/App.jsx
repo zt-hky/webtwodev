@@ -32,7 +32,7 @@ export default class App extends Component {
                         <Route path="/dang-ky" component={SignUp} />
                         <Route path="/phim-dang-chieu" component={ListMoviePresent} />
                         <Route path="/phim-sap-chieu" component={ListMovieFuture} />
-                        <Route path="/mua-ve" component={Booking} />
+                        <Route path="/mua-ve/:movieId" component={Booking} />
                         <Route path="/cho-ngoi" component={Seat} />
                         <Route path="/chi-tiet/:movieId" component={Movie} />
                         <Route path="/trang-ca-nhan" component={Profile} />

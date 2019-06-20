@@ -13,18 +13,19 @@ class CinemaSelector extends React.Component {
 
     componentDidMount = () => {
         this.props.getAllCities()
+        this.props.getAllCinemaByCity(1)
     }
 
     createCityItems = () => {
         if (!this.props.error) {
-            return this.props.cities.map((city) => <option  key={city.id} value={city.id}>{city.name}</option>);
+            return this.props.cities.map((city, index) => <option key={city.id} value={city.id}>{city.name}</option>);
         }
         return <option key={0} value='null'>Empty</option>
     }
 
     createCinemaItem = () => {
         if (!this.props.errorCinema) {
-            return this.props.cinemas.map((cinema, index) => <option selected={index===0? true: false} key={cinema.id} value={cinema.id}>{cinema.name}</option>);
+            return this.props.cinemas.map((cinema, index) => <option key={cinema.id} value={cinema.id}>{cinema.name}</option>);
         }
         return <option key={0} value='null'>Empty</option>
     }
@@ -39,19 +40,29 @@ class CinemaSelector extends React.Component {
         return (
             <section className="Theater_Calendar_Addr">
                 <article>
+
                     <select onChange={this.cites_onSelect}>
-                        <option selected value='0'>Cả nước</option>
+                        <option>Chọn thành phố</option>
                         {this.createCityItems()}
                     </select>
                 </article>
                 <article>
-                    <select>
+                    <select onChange={(event) => {
+                        this.props.onItemSelected(event.target.value)
+                    }}>
+                        <option>Chọn rạp</option>
                         {this.createCinemaItem()}
                     </select>
                 </article>
             </section>
 
         );
+    }
+}
+
+CinemaSelector.defaultProps = {
+    onItemSelected: (cinemaId) => {
+        console.log("cinemaId: " + cinemaId);
     }
 }
 

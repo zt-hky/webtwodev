@@ -14,7 +14,7 @@ const getAllCities = () => {
 
 const getAllCinemaByCity = (cinemaId) => {
     return (dispatch) => {
-        return AxiosInstance.get(`/cities/${cinemaId}/threatreSet`)
+        return AxiosInstance.get(`/cities/${cinemaId}/threatreSet?order=id`)
             .then((res) => {
                 dispatch(onGetAllCinemaSuccess({ cinemas: res.data.data }))
             }).catch((err) => {

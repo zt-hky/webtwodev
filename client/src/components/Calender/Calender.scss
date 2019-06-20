@@ -22,7 +22,11 @@
             flex-direction: row;
             justify-content: flex-start;
             flex-wrap: wrap;
+            // >.active{
+            //     border: 2px solid lime
+            // }
             li {
+                margin-right: 0.8rem;
                 margin-bottom: 0.4rem;
                 position: relative;
                 height: 3.3rem;
@@ -50,6 +54,8 @@
                     right: 5%;
                     margin: auto 0;
                 }
+           
+           
             }
         }
     }

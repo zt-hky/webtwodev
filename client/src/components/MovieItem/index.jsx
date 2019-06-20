@@ -35,7 +35,7 @@ export default class MovieItem extends React.Component {
                 <img onError={this.img_onError} src={ this.state.loadImgError? IMG_PLACEHOLDER : BASE_URL_IMAGE+ this.props.imgUrl} alt={defaultValue} />
                 <section className="ListFilm_Item_Button">
                     <Link className="link" to={`/chi-tiet/${this.props.movieId}`} > <button>Chi tiết</button></Link>
-                    <Link className="link" to={"/mua-ve/"}><button>Mua vé</button></Link>
+                    <Link className="link" to={`/mua-ve/${this.props.movieId}`}><button>Mua vé</button></Link>
                 </section>
                 <section className="ListFilm_Item_Info">
                     <h4>{this.props.title ? this.props.title : defaultValue}</h4>

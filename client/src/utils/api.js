@@ -13,7 +13,8 @@ export const endPoint = {
     changePassForget: "/user/changePassForget",
     getAllMovie: '/films',
     getMovieById: '/films/',
-    getAllCities: '/cities'
+    getAllCities: '/cities?order=id',
+    getShowTimes: '/showTimesDFS'
 }
 
 export default AxiosInstance;
