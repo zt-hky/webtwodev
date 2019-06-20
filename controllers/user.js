@@ -230,5 +230,31 @@ user.myUser = (req, res, next) => {
     })
 }
 
+user.updateMyUser = (req, res, next) => {
+    const { name, phone } = req.body
+    var user = req.user
+    if (!name || !phone) {
+        res.status(400)
+        res.end()
+    } else {
+        user.name = name
+        user.phone = phone
+        user.save()
+            .then(i => {
+                res.status(200)
+                res.json({
+                    success: true
+                })
+            })
+            .catch(e => {
+                res.status(402)
+                res.json({
+                    error: e.name
+                })
+            })
+    }
+
+}
+
 
 module.exports = user

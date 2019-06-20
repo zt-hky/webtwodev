@@ -21,6 +21,9 @@ router.get('/Threatres/:id', controller.threatre.getById)
 
 router.post('/Booking', controller.booking.book)
 
+router.get('/users/', controller.user.myUser)
+
+router.put('/users', controller.user.updateMyUser)
 
 router.get('/testABC', (req, res, next) => {
         res.status(200)
