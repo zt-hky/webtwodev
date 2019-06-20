@@ -31,9 +31,9 @@ app.use('/api/', passport.authenticate('client', { session: false }), require('.
 app.use('/apiAdmin/', passport.authenticate('admin', { session: false }), require('./routes/apiAdmin'));
 
 
-db.sequelize.sync({
-    force: false,
-});
+// // db.sequelize.sync({
+// //     force: true,
+// // });
 
 
 

@@ -222,4 +222,13 @@ user.changePassForget = async(req, res, next) => {
     }
 }
 
+user.myUser = (req, res, next) => {
+    res.status(200)
+    res.json({
+        success: true,
+        data: req.user
+    })
+}
+
+
 module.exports = user
