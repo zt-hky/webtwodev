@@ -1,15 +1,14 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var controller = require('../controllers/index');
-
+var controller = require("../controllers/index");
 
 // More require
 
+router.get("/threatreSets", controller.threatreSet.getAll);
 
-router.get('/threatreSets', controller.threatreSet.getAll)
+router.post("/threatreSets", controller.threatreSet.post);
 
-router.post('/threatreSets', controller.threatreSet.post)
-    // End
+router.delete("/cities/:id", controller.city.del);
 
 /* GET users listing. */
 

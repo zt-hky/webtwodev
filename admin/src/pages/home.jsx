@@ -1,13 +1,10 @@
 import React from "react";
 
 import { Redirect } from "react-router-dom";
+import DrawBar from "containers/DrawBar";
 
 const redirect = () => {
     return <Redirect to="/login" />;
-};
-
-const homepage = () => {
-    return <h1>Đăng nhập thành công</h1>;
 };
 
 class Login extends React.Component {
@@ -16,7 +13,7 @@ class Login extends React.Component {
         if (!check) {
             return redirect();
         } else {
-            return homepage();
+            return <DrawBar />;
         }
     }
 }

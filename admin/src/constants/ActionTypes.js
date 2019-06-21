@@ -1,7 +1,15 @@
-export const ACTION_NAME = "ACTION_NAME";
+const DataTypes = {
+    ACTION_NAME: "ACTION_NAME",
 
-export const SIGNIN = "SIGNIN";
+    SIGNIN_SUBMIT: "SIGNIN_SUBMIT",
 
-export const SIGNOUT = "SIGNOUT";
+    SIGNOUT: "SIGNOUT",
 
-export const SIGNIN_INPUT_CHANGED = "SIGNIN_INPUT_CHANGED";
+    SIGNIN_INPUT_CHANGED: "SIGNIN_INPUT_CHANGED",
+
+    LOGIN_SUCCESS: "LOGIN_SUCCESS",
+
+    LOGIN_FAILURE: "LOGIN_FAILURE"
+};
+
+export default DataTypes;

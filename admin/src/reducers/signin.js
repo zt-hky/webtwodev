@@ -1,4 +1,4 @@
-import SIGNIN_INPUT_CHANGED from "constants";
+import DataTypes from "constants/ActionTypes";
 
 var initState = {
     username: "",
@@ -7,8 +7,10 @@ var initState = {
 
 const SignInReducer = (state = initState, action) => {
     switch (action.type) {
-        case SIGNIN_INPUT_CHANGED:
+        case DataTypes.SIGNIN_INPUT_CHANGED:
             return Object.assign({}, state, action.payload);
+        case DataTypes.LOGIN_SUCCESS:
+            return null;
         default:
             return state;
     }

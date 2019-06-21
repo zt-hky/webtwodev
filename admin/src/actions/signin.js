@@ -1,4 +1,4 @@
-import SIGNIN_INPUT_CHANGED from "constants";
+import DataTypes from "constants/ActionTypes";
 
 import AxiosInstance, { endPoint } from "utils/api";
 
@@ -7,7 +7,7 @@ const inputChanged = event => {
     const value = event.target.value;
 
     return {
-        type: SIGNIN_INPUT_CHANGED,
+        type: DataTypes.SIGNIN_INPUT_CHANGED,
         payload: {
             [key]: value
         }
@@ -20,8 +20,17 @@ const signinSubmit = props => {
             username: props.username,
             password: props.password
         }).then(res => {
-            console.log(res);
+            if (res.status === 200) {
+                dispatch(success(res.data));
+            }
         });
+    };
+};
+
+const success = data => {
+    localStorage.setItem("token", "bearer " + data.token);
+    return {
+        type: DataTypes.LOGIN_SUCCESS
     };
 };
 
