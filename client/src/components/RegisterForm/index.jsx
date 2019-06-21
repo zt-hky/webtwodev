@@ -5,18 +5,23 @@ import { bindActionCreators } from 'redux';
 import ActionCreator from '../../actions';
 import AlertDialog from '../AlertDialog';
 import { Redirect } from 'react-router-dom';
+import { CircularProgress } from '@material-ui/core';
 
 class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            goTo: null
+            goTo: null,
+            isWaiting:  false
         }
     }
 
     // Handle submit form
     frmRegister_onSubmit = (event) => {
-        this.props.signUp({ email: this.props.email, password: this.props.password, phone: this.props.phone, name: this.props.name })
+        this.setState({isWaiting: true})
+        this.props.signUp({ email: this.props.email, password: this.props.password, phone: this.props.phone, name: this.props.name },()=>{
+            this.setState({isWaiting: false})
+        })
         this.forceUpdate();
         event.preventDefault();
     }
@@ -56,7 +61,7 @@ class RegisterForm extends React.Component {
                         <h6 className="text-danger">{this.props.phoneError}</h6>
                         <input style={{ border: this.props.phoneError ? '2px solid red' : '' }} name="phone" id="txtPhone" onChange={this.props.inputChanged} value={this.props.phone} type="tel" placeholder="Số điện thoại" />
                     </section>
-                    <button>Đăng ký</button>
+                    <button> { this.state.isWaiting?<CircularProgress></CircularProgress>: 'Đăng ký'}</button>
                 </form>
                 {this.state.goTo}
             </section>

@@ -3,6 +3,7 @@ import './CinemaSelector.scss';
 import ActionCreator from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
 class CinemaSelector extends React.Component {
 
     constructor(props) {
@@ -48,7 +49,9 @@ class CinemaSelector extends React.Component {
                 </article>
                 <article>
                     <select onChange={(event) => {
-                        this.props.onItemSelected(event.target.value)
+                        const cinemaId = event.target.value;
+                        const cinenameName = event.target[cinemaId].text;
+                        this.props.onItemSelected(cinemaId, cinenameName);
                     }}>
                         <option>Chọn rạp</option>
                         {this.createCinemaItem()}
@@ -61,8 +64,10 @@ class CinemaSelector extends React.Component {
 }
 
 CinemaSelector.defaultProps = {
-    onItemSelected: (cinemaId) => {
+    onItemSelected: (cinemaId, cinemaName) => {
         console.log("cinemaId: " + cinemaId);
+        console.log("cinameName: " + cinemaName);
+
     }
 }
 

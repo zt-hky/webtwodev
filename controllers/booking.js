@@ -36,10 +36,9 @@ booking.getByShowTimeId = (req, res, next) => {
 }
 
 booking.book = async(req, res, next) => {
-
     const user = req.user
     const { seats, ShowTimeId } = req.body
-
+    
     var check
 
 

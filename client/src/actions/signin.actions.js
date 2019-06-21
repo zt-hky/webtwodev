@@ -1,5 +1,6 @@
 import ActionTypes from './actionTypes';
 import AxiosInstance, { endPoint } from '../utils/api';
+import history from '../utils/history';
 const signIn = (state) => {
   const { email, password } = state;
   const data = { email, password }
@@ -23,13 +24,12 @@ const signIn = (state) => {
     // send request
     return AxiosInstance.post(endPoint.login, data).then((res) => {
       if (res.data.error) {
-
         failureState = Object.assign(failureState, { message: 'Tài khoản của bạn chưa được kích hoạt. Vui lòng kiểm tra mail' })
         dispatch(onFailure(failureState))
       } else {
-
         localStorage.setItem('token', res.data.token)
         const successState = Object.assign({}, data, { message: 'Chào mừng bạn đến với WEB_TWO MOVIE', isRedirect: true })
+        history.push('/trang-chu')
         dispatch(onSuccess(successState))
       }
     }).catch((err) => {
@@ -96,13 +96,12 @@ const clearProps = (state) => {
   }
 }
 
-
-
 const SignInActions = {
   inputChanged,
   signIn,
   clearProps,
-  forgotPassword
+  forgotPassword,
+
 }
 
 export default SignInActions;

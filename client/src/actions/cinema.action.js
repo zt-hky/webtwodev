@@ -25,14 +25,14 @@ const getAllCinemaByCity = (cinemaId) => {
 
 const onGetAllCitiesSuccess = (state) => {
     return {
-        type: ActionTypes.GET_CITIES_SUCCESS,
+        type: ActionTypes.CITIES_GET_SUCCESS,
         payload: state
     }
 }
 
 const onGetAllCitiesFailure = (state) => {
     return {
-        type: ActionTypes.GET_CITIES_FAILURE,
+        type: ActionTypes.CITIES_GET_FAILURE,
         payload: state
     }
 }
@@ -40,21 +40,58 @@ const onGetAllCitiesFailure = (state) => {
 
 const onGetAllCinemaSuccess = (state) => {
     return {
-        type: ActionTypes.GET_CINEMA_SUCCESS,
+        type: ActionTypes.CINEMA_GET_SUCCESS,
         payload: state
     }
 }
 
 const onGetAllCinemaFailure = (state) => {
     return {
-        type: ActionTypes.GET_CINEMA_FAILURE,
+        type: ActionTypes.CINEMA_GET_FAILURE,
         payload: state
     }
 }
 
+const getCinemaSeatMap = (cinemaId) => {
+    return (dispatch) => {
+        return AxiosInstance.get(`/Threatres/${cinemaId}`, {
+            headers: {
+                'Authorization': "bearer " + localStorage.getItem('token')
+            }
+        }).then((res) => {
+            console.log(res);
+            return dispatch(onGetCinemaSeatMapSuccess({ cinema: res.data.data }))
+        }).catch((err) => {
+            return dispatch(onGetCinemaSeatMapFailure({ error: "Không thể lấy thông tin rạp." }))
+        })
+    }
+}
+
+const onGetCinemaSeatMapSuccess = (state)=>{
+    return {
+        type: ActionTypes.CINEMA_GET_SEAT_MAP_SUCCESS,
+        payload : state
+    }
+}
+
+const onGetCinemaSeatMapFailure = (state)=>{
+    return {
+        type: ActionTypes.CINEMA_GET_SEAT_MAP_FAILURE,
+        payload : state
+    }
+}
+const clearProps = (state) => {
+    return {
+        type: ActionTypes.CINEMA_CLEAR_PROPS,
+        payload: state
+    }
+}
 const CinemaActions = {
     getAllCities,
-    getAllCinemaByCity
+    getAllCinemaByCity,
+    getCinemaSeatMap,
+    clearProps
 }
+
 
 export default CinemaActions;

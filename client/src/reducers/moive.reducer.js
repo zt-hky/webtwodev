@@ -11,12 +11,13 @@ const initState = {
 
 const MovieReducer = (state = initState, action) => {
     switch (action.type) {
-        case ActionTypes.GET_MOVIE_DETAIL_SUCCESS:
-        case ActionTypes.GET_MOVIE_DETAIL_FAILURE:
-        case ActionTypes.GET_COMING_SOON_MOVIE_FAILURE:
-        case ActionTypes.GET_COMING_SOON_MOVIE_SUCCESS:
-        case ActionTypes.GET_NOW_SHOWING_MOVIE_FAILURE:
-        case ActionTypes.GET_NOW_SHOWING_MOVIE_SUCCESS:
+        case ActionTypes.MOVIE_GET_DETAIL_SUCCESS:
+        case ActionTypes.MOVIE_GET_DETAIL_FAILURE:
+        case ActionTypes.COMINGSOON_GET_MOVIE_FAILURE:
+        case ActionTypes.COMINGSOON_GET_MOVIE_SUCCESS:
+        case ActionTypes.NOWSHOWING_GET_MOVIE_FAILURE:
+        case ActionTypes.NOWSHOWING_GET_MOVIE_SUCCESS:
+        case ActionTypes.MOVIE_CLEAR_PROPS:
             return Object.assign({}, state, action.payload);
         default:
             return state;

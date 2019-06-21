@@ -20,6 +20,8 @@ const SignInReducer = (state = initState, action) => {
         case ActionTypes.FORGOT_PASSWORD:
         case ActionTypes.FORGOT_PASSWORD_SUCCESS:
         case ActionTypes.FORGOT_PASSWORD_FAILURE:
+        case ActionTypes.RESET_STATE:
+
             return Object.assign({}, state, action.payload)
         default:
             return state;

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ActionCreator from '../../actions';
 import AlertDialog from '../AlertDialog';
+import history from '../../utils/history';
 import {
     Button, TextField, Dialog, CircularProgress,
     DialogActions, DialogContent, DialogTitle, DialogContentText, Link
@@ -42,6 +43,7 @@ class LoginForm extends React.Component {
 
     closeAlertBtn_onClick = () => {
         if (this.props.isRedirect) {
+            history.push('/trang-chu')
             this.setState({ goTo: <Redirect to='/trang-chu' /> })
             this.forceUpdate();
         }

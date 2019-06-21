@@ -39,14 +39,14 @@ const getMoviesNowShowing = ({ offset, limit }) => {
 
 const onGetMoivesComingSoonSuccess = (state) => {
     return {
-        type: ActionTypes.GET_COMING_SOON_MOVIE_SUCCESS,
+        type: ActionTypes.COMINGSOON_GET_MOVIE_SUCCESS,
         payload: state
     }
 }
 
 const onGetMoivesComingSoonFailure = (state) => {
     return {
-        type: ActionTypes.GET_COMING_SOON_MOVIE_FAILURE,
+        type: ActionTypes.COMINGSOON_GET_MOVIE_FAILURE,
         payload: state
     }
 }
@@ -63,21 +63,28 @@ const getMovieById = (movieId) => {
 }
 const onGetMovieByIdSuccess = (state) => {
     return {
-        type: ActionTypes.GET_MOVIE_DETAIL_SUCCESS,
+        type: ActionTypes.MOVIE_GET_DETAIL_SUCCESS,
         payload: state
     }
 }
 
 const onGetMovieByIdFailure = (state) => {
     return {
-        type: ActionTypes.GET_MOVIE_DETAIL_FAILURE,
+        type: ActionTypes.MOVIE_GET_DETAIL_FAILURE,
         payload: state
     }
 }
+const cleanProps = (state) => {
+    return {
+        type: ActionTypes.MOVIE_CLEAR_PROPS,
+        payload: state
+    }
+  }
 const MovieAcitons = {
     getMovieById,
     getMoviesComingSoon,
-    getMoviesNowShowing
+    getMoviesNowShowing,
+    cleanProps
 }
 
 export default MovieAcitons;
