@@ -2,7 +2,7 @@ import ActionTypes from './actionTypes';
 import AxiosInstance, { endPoint } from '../utils/api';
 import { strongPasswordRegex, vnPhoneNumberRegex, emailRegex } from '../utils/constants';
 
-const signUp = (state) => {
+const signUp = (state, callback) => {
     const { email, password, name, phone } = state;
     const data = { email, password, name, phone }
     let flagError = false
@@ -44,13 +44,18 @@ const signUp = (state) => {
         }
 
         // return if error
-        if (flagError) return dispatch(onFailure(failureState))
+        if (flagError) {
+            callback()
+            return dispatch(onFailure(failureState))
+        }
 
         // send request
         return AxiosInstance.post(endPoint.createNewAccount, data).then((res) => {
             var successState = Object.assign({}, data, { isRedirect: true, message: 'Chúng tôi đã gửi đến bạn mail kích hoạt. Vui lòng kiểm tra  mail!' })
+            callback()
             dispatch(onSuccess(successState))
         }).catch((err) => {
+            callback()
             failureState = Object.assign({}, { message: 'Email đã được sử dụng!' })
             dispatch(onFailure(failureState))
         })
@@ -94,7 +99,7 @@ const clearProps = (state) => {
 const SignUpActions = {
     signUp,
     inputChanged,
-    clearProps
+    clearProps,
 }
 
 export default SignUpActions;

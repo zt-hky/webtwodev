@@ -1,21 +1,27 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, CircularProgress } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ActionCreators from '../../actions';
+import AlertDialog from '../AlertDialog';
+import {Redirect} from 'react-router-dom';
 
 
 class ForgetPassForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {url: window.location.href}
+        this.state = {
+            url: window.location.href,
+            isWaiting: false,
+            isRedirect: false
+        }
     }
-    
+
 
     componentDidMount = () => {
-       
+
     }
 
     input_onChanged = (event) => {
@@ -31,12 +37,31 @@ class ForgetPassForm extends React.Component {
         const curUrl = new URL(this.state.url)
         const email = curUrl.searchParams.get('email')
         const uuid = curUrl.searchParams.get('uuid')
-
-        console.log(email+'/n'+uuid);
-        this.props.changePassword({ email,uuid, password: this.props.password, repeatPassword: this.props.repeatPassword });
+        console.log(email + '/n' + uuid);
+        this.setState({ isWaiting: true })
+        this.props.changePassword({ email, uuid, password: this.props.password, repeatPassword: this.props.repeatPassword }, () => {
+            this.setState({ isWaiting: false })
+        });
         event.preventDefault()
     }
 
+    onFinish = () => {
+        if (this.props.message) {
+            return <AlertDialog open={true}
+                title="Thông báo"
+                content={this.props.message}
+                 onClose = {this.closerAlert}></AlertDialog>
+        }
+    }
+
+    closerAlert = ()=>{
+       this.setState({isRedirect: true})
+    }
+    goToHome = ()=>{
+        if(this.state.isRedirect){
+            return <Redirect to = {'/trang-chu'}></Redirect>
+        }
+    }
     render() {
         console.log('=====================');
 
@@ -55,7 +80,7 @@ class ForgetPassForm extends React.Component {
                         <TextField style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
                             name="password"
                             value={this.props.password}
-                            placeholder = {this.props.passwordError}
+                            placeholder={this.props.passwordError}
                             //label={this.props.passwordError ? this.props.passwordError : "Mật khẩu mới"}
                             error={this.props.passwordError ? true : false}
                             type="password"
@@ -66,7 +91,7 @@ class ForgetPassForm extends React.Component {
                         <TextField style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
                             name="repeatPassword"
                             value={this.props.repeatPassword}
-                            placeholder = {this.props.repeatPasswordError}
+                            placeholder={this.props.repeatPasswordError}
                             //label={this.props.repeatPasswordError ? this.props.repeatPasswordError : "Nhập lại mật khẩu"}
                             error={this.props.repeatPasswordError ? true : false}
                             type="password"
@@ -76,9 +101,12 @@ class ForgetPassForm extends React.Component {
                         />
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             {/* disabled={this.props.password === "" || this.props.repeatPassword === "" ? true : false}  */}
-                            <Button type='submit' variant="contained" color="primary">Xác nhận</Button></div>
+                            <Button type='submit' variant="contained" color="primary">
+                                { this.state.isWaiting? <CircularProgress color='secondary'></CircularProgress>:'Xác nhận'}</Button></div>
                     </Grid>
                 </form>
+                {this.onFinish()}
+                {this.goToHome()}
             </div>
 
         );

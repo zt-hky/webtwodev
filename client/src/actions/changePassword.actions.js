@@ -1,14 +1,14 @@
 import ActionTypes from "./actionTypes";
 import { strongPasswordRegex } from "../utils/constants";
 import AxiosInstance, { endPoint } from "../utils/api";
-const changePassword = (state) => {
+const changePassword = (state,callback) => {
     //, password, repeatPassword 
     console.log("chgange");
     console.log(state);
     
     
     const { email, uuid, password, repeatPassword} = state;
-    const data = { email, uuid };
+    const data = { email, uuid ,password};
     let failureState = {};
     return (dispatch) => {
 
@@ -34,14 +34,19 @@ const changePassword = (state) => {
             failureState = Object.assign(failureState, { repeatPasswordError: 'Mật khẩu không khớp.' })
         }
 
-        if (errorFlag) return dispatch(onChangePasswordFailure(failureState));
+        if (errorFlag) {
+            callback()
+            return dispatch(onChangePasswordFailure(failureState));}
 
 
-        // return AxiosInstance.post(endPoint.changePassForget, data).then((res) => {
-        //     dispatch(onChangePasswordSuccess({ message: 'Đã đổi mật khẩu thành công!', isRedirect: true }))
-        // }).catch((err) => {
-        //     dispatch(onChangePasswordFailure({ message: 'Xãy ra lỗi ngoài ý muốn vui lòng. vui lòng báo quên mật khẩu.' }))
-        // })
+        return AxiosInstance.post(endPoint.changePassForget, data).then((res) => {
+            callback()
+            dispatch(onChangePasswordSuccess({ message: 'Đã đổi mật khẩu thành công!', isRedirect: true }))
+        }).catch((err) => {
+            console.log(err);
+            callback()
+            dispatch(onChangePasswordFailure({ message: 'Xãy ra lỗi ngoài ý muốn vui lòng. vui lòng báo quên mật khẩu.' }))
+        })
     }
 
 
@@ -71,9 +76,17 @@ const onChangePasswordFailure = (state) => {
     }
 }
 
+const clearProps = (state) => {
+    return {
+        type: ActionTypes.CHANGE_PASS_CLEAR_PROPS,
+        payload: state
+    }
+}
+
 const ChangePasswordActions = {
     inputChanged,
     changePassword,
+    clearProps
 }
 
 

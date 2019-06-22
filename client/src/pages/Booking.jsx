@@ -3,85 +3,35 @@ import Calender from '../components/Calender';
 import CinemaSelector from '../components/CinemaSelector';
 import CinemaList from '../components/CinemaList';
 import MoviePresentList from '../components/MoviePresentList';
-
 import './Booking.scss';
-import AxiosInstance, { endPoint } from '../utils/api';
-import { thisExpression } from 'babel-types';
-
-export default class Booking extends React.Component {
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import ActionCreator from '../actions';
+class Booking extends React.Component {
 
 
     constructor(props) {
         super(props);
-        this.state = {
-            date: '',
-            movieId: this.props.match.params.movieId,
-            cinemaId: '',
-            data:null
-        }
+        this.props.setMovieId({ movieId: this.props.match.params.movieId })
     }
 
     calender_onSelected = (item) => {
-        console.log("date: ");
-        console.log(item);
-        this.setState({ date: `${new Date().getFullYear()}-${item.month}-${item.date}` }, () => {
-            console.log(this.state);
-            this.fetch_date()
+        this.props.setDate({ date: `${new Date().getFullYear()}-${item.month}-${item.date}` })
+        this.props.getShowTimeList({
+            date: `${new Date().getFullYear()}-${item.month}-${item.date}`,
+            movieId: this.props.movieId,
+            cinemaId: this.props.cinemaId
         })
     }
 
-    cinemaSelector_onSelected = (cinemaId) => {
-        console.log('cinemaId: ' + cinemaId);
-        this.setState({ cinemaId: cinemaId }, () => {
-            console.log(this.state);
-            this.fetch_date()
+    cinemaSelector_onSelected = (cinemaId, cinameName) => {
+        this.props.setCinemaId({ cinemaId: cinemaId, cinameName: cinameName })
+        this.props.getShowTimeList({
+            date: this.props.date,
+            movieId: this.props.movieId,
+            cinemaId: cinemaId
         })
     }
-    componentDidMount = ()=>{
-        this.fetch_date()
-    }
-
-    fetch_date = () => {
-        AxiosInstance.get(endPoint.getShowTimes, {
-            params: {
-                date: '2019-6-17',//date,
-                FilmId: 1,//movieId,
-                ThreatreSetId:1//cinemaId
-            }
-        }).then((res) => {
-           
-            this.setState({data: res.data.data})
-            
-            //this.setState()
-        }).catch((err) => {
-            console.log(err);
-
-        })
-        // const { movieId, date, cinemaId } = this.state;
-
-        // if (movieId && date && cinemaId) {
-        //     console.log('fetch');
-        //     AxiosInstance.get(endPoint.getShowTimes, {
-        //         params: {
-        //             date: '2019-6-17',//date,
-        //             FilmId: 1,//movieId,
-        //             ThreatreSetId:1//cinemaId
-        //         }
-        //     }).then((res) => {
-        //         console.log(res.data);
-                
-        //         //this.setState()
-        //     }).catch((err) => {
-        //         console.log(err);
-
-        //     })
-
-        // } else {
-        //     console.log('no ');
-
-        // }
-    }
-
     render() {
         return (
             <main>
@@ -90,7 +40,7 @@ export default class Booking extends React.Component {
                         <h3>LỊCH CHIẾU:</h3>
                         <Calender onItemSelected={this.calender_onSelected}></Calender>
                         <CinemaSelector onItemSelected={this.cinemaSelector_onSelected}></CinemaSelector>
-                        <CinemaList items = {this.state.data? this.state.data: []}></CinemaList>
+                        <CinemaList></CinemaList>
                     </section>
                     <aside className="Present">
                         <h3>PHIM ĐANG CHIẾU</h3>
@@ -106,3 +56,26 @@ export default class Booking extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        date: state.booking.date,
+        cinemaId: state.booking.cinemaId,
+        movieId: state.booking.movieId,
+        showTimesList: state.booking.showTimesList,
+        error: state.booking.error,
+        message: state.booking.message,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        setDate: ActionCreator.BookingActions.setDate,
+        setMovieId: ActionCreator.BookingActions.setMovieId,
+        setCinemaId: ActionCreator.BookingActions.setCinemaId,
+        getShowTimeList: ActionCreator.BookingActions.getShowTimeList,
+    }, dispatch)
+}
+
+const BookingContainer = connect(mapStateToProps, mapDispatchToProps)(Booking)
+export default BookingContainer;

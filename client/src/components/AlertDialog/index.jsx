@@ -5,7 +5,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
-
 export default class AlertDialog extends React.Component {
 
   constructor(props) {
@@ -24,7 +23,11 @@ export default class AlertDialog extends React.Component {
     this.setState({ open: false })
   }
 
-
+componentWillUnmount = ()=>{
+  console.log('huhurhufhur');
+  
+  
+}
 
 
   render() {
@@ -62,6 +65,6 @@ AlertDialog.defaultProps = {
   content: "this is an alert :)",
   rightButtonName:"Close",
   onClose: () => {
-    alert("closed")
+    console.log("closed");
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import './NavMaster.scss';
-export default class NavMaster extends React.Component {
+import { connect } from 'react-redux';
+class NavMaster extends React.Component {
 
     constructor(props) {
         super(props);
@@ -12,11 +13,6 @@ export default class NavMaster extends React.Component {
             return <Redirect to='/dang-nhap'></Redirect>
         }
     }
-    
-    componentDidUpdate = ()=>{
-        console.log('componentDidUpdate')
-    }
-    
 
     render() {
         return (
@@ -46,7 +42,7 @@ export default class NavMaster extends React.Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/dang-xuat" onClick={() => {
                                     localStorage.removeItem('token')
-                                    this.setState({goToSignIn: true})
+                                    this.setState({ goToSignIn: true })
                                 }}> Đăng Xuất </Link>
                             </li> : null}
                         {this.goToSignIn()}
@@ -58,3 +54,12 @@ export default class NavMaster extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    console.log(state);
+    return state;
+}
+
+const NavMasterContainner = connect(mapStateToProps)(NavMaster)
+export default NavMasterContainner;
+

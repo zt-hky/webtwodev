@@ -19,6 +19,8 @@ const SignUpReducer = (state = initState, action) => {
         case ActionTypes.SIGNUP_SUCCESS:
         case ActionTypes.SIGNUP_FAILURE:
         case ActionTypes.SIGNUP_CLEAR_PROPS:
+        case ActionTypes.RESET_STATE:
+
             return Object.assign({}, state, action.payload);
         default:
             return state;

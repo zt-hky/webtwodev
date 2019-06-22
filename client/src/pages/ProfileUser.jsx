@@ -8,18 +8,15 @@ export default class ProfileUser extends React.Component {
     render() {
         return (
             <main>
-                <section className="Content">
-                    <section className="Content_Img_Profile">    
-                    <center>
-                    <form onSubmit={this.onFormSubmit}>
-                        <h3> Cập nhật hình ảnh </h3>
-                        <input type="file" name="myImage" onChange= {this.onChange} />
-                        <button type="submit">Upload</button>
-                     </form>
-                     </center>
-                    </section>
-                   <Profile></Profile>
-                </section>
+             <div
+                style={{
+                    marginTop: '20px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    height: 'auto'
+                }}>
+               <Profile></Profile>
+               </div>
             </main>
 
         );

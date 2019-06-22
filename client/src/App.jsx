@@ -16,13 +16,11 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/ProfileUser"
 import Forget from "./pages/Forget";
+import history from './utils/history';
 export default class App extends Component {
     render() {
-        console.log(window.location.pathname);
-        
         return (
-            
-                <Router >
+                <Router history = {history}>
                     <div>
                         <NavMaster brandName="WEB_TWO"></NavMaster>
                         <Menu items={MenuData}></Menu>
@@ -33,7 +31,7 @@ export default class App extends Component {
                         <Route path="/phim-dang-chieu" component={ListMoviePresent} />
                         <Route path="/phim-sap-chieu" component={ListMovieFuture} />
                         <Route path="/mua-ve/:movieId" component={Booking} />
-                        <Route path="/cho-ngoi" component={Seat} />
+                        <Route path="/cho-ngoi/:movieId/:showTimeId" component={Seat} />
                         <Route path="/chi-tiet/:movieId" component={Movie} />
                         <Route path="/trang-ca-nhan" component={Profile} />
                         <Route path="/forget" component={Forget} />
