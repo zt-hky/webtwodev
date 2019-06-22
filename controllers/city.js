@@ -66,4 +66,46 @@ city.del = async(req, res, next) => {
     }
 };
 
+city.update = async(req, res, next) => {
+    const { id } = req.params;
+    const { name } = req.body;
+    if (!name) {
+        res.status(400);
+        res.end();
+    }
+
+    var city = await models.City.findOne({ where: { id } });
+    city.name = name;
+    city.save()
+        .then(e => {
+            res.status(200);
+            res.end();
+        })
+        .catch(e => {
+            res.status(401);
+            res.end();
+        });
+};
+
+city.add = async(req, res, next) => {
+    const { name } = req.body;
+    if (!name) {
+        res.status(400);
+        res.end();
+    }
+    var city = models.City.create({ name });
+    if (city) {
+        res.status(200);
+        res.json({
+            data: city,
+            success: true
+        });
+    } else {
+        res.status(402);
+        res.json({
+            error: true
+        });
+    }
+};
+
 module.exports = city;

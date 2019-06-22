@@ -1,9 +1,9 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 
 import Table from "react-bootstrap/Table";
 
-class TableCity extends React.Component {
+class TableFilm extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -24,9 +24,17 @@ class TableCity extends React.Component {
                 <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
+                    <td>
+                        <Image
+                            src={"http://localhost:5000/images/" + item.poster}
+                            rounded
+                        />
+                    </td>
+                    <td>{item.content}</td>
+                    <td>{item.release}</td>
+                    <td>{item.studio}</td>
+                    <td>{item.GenreFilm.name}</td>
                     <td>{item.delete ? "Đã xóa" : "Tồn tại"}</td>
-                    <td>{item.createdAt}</td>
-                    <td>{item.updatedAt}</td>
 
                     <td>
                         {item.delete ? (
@@ -57,9 +65,13 @@ class TableCity extends React.Component {
                     <tr>
                         <th>#ID</th>
                         <th>Tên</th>
+                        <th>Ảnh Poster</th>
+
+                        <th>Mô tả</th>
+                        <th>Ngày công chiếu</th>
+                        <th>Studio</th>
+                        <th>Thể loại</th>
                         <th>Trạng thái</th>
-                        <th>Thời gian tạo</th>
-                        <th>Thời gian sửa</th>
                     </tr>
                 </thead>
                 <tbody>{this.ListItem()}</tbody>
@@ -68,4 +80,4 @@ class TableCity extends React.Component {
     }
 }
 
-export default TableCity;
+export default TableFilm;

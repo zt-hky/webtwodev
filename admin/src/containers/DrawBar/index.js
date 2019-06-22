@@ -5,9 +5,15 @@ import { Route, Switch, NavLink } from "react-router-dom";
 import Booking from "containers/Booking";
 import City from "containers/City";
 import Film from "containers/Film";
+import TheLoai from "containers/TheLoai";
+import ThongKeA from "containers/ThongKeA";
+import ThongKeB from "containers/ThongKeB";
+
+import FormFilm from "components/FormFilm";
+
 import Threatres from "containers/Threatres";
 import ThreatreSet from "containers/ThreatreSet";
-
+import ShowTime from "containers/ShowTime";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
@@ -153,7 +159,10 @@ export default function DrawBar() {
                 </div>
                 <Divider />
                 <List>
-                    <NavLink to="/dashboard/City" activeClassName="selected">
+                    <NavLink
+                        to="/dashboard/City"
+                        activeClassName="selected"
+                    >
                         <ListItem button key={"City"}>
                             <ListItemIcon>
                                 <Map />
@@ -186,14 +195,77 @@ export default function DrawBar() {
                 </List>
                 <Divider />
                 <List>
-                    {["Phim", "Thể loại", "Doanh thu"].map((text, index) => (
-                        <ListItem button key={text}>
+                    <NavLink
+                        to="/dashboard/Film"
+                        activeClassName="selected"
+                    >
+                        <ListItem button key={"Film"}>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                <InboxIcon />
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={"Film"} />
                         </ListItem>
-                    ))}
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/TheLoai"
+                        activeClassName="selected"
+                    >
+                        <ListItem button key={"TheLoai"}>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Thể loại"} />
+                        </ListItem>
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/ShowTime"
+                        activeClassName="selected"
+                    >
+                        <ListItem button key={"ShowTime"}>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Xuất chiếu"} />
+                        </ListItem>
+                    </NavLink>
+                </List>
+                <Divider />
+                <List>
+                    <NavLink
+                        to="/dashboard/thongkeA"
+                        activeClassName="selected"
+                    >
+                        <ListItem button key={"ThongKeA"}>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={"Thống kê theo cụm rạp"}
+                            />
+                        </ListItem>
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/thongkeB"
+                        activeClassName="selected"
+                    >
+                        <ListItem button key={"thongkeB"}>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Thống kê theo phim"} />
+                        </ListItem>
+                    </NavLink>
+                </List>
+                <Divider />
+                <List>
+                    <NavLink to="/logout" activeClassName="Logout">
+                        <ListItem button key={"Logout"}>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Đăng xuất"} />
+                        </ListItem>
+                    </NavLink>
                 </List>
             </Drawer>
             <main className={classes.content}>
@@ -201,11 +273,29 @@ export default function DrawBar() {
                 <Switch>
                     <Route path="/dashboard/" exact component={City} />
                     <Route path="/dashboard/City" component={City} />
-                    <Route path="/dashboard/Threatres" component={Threatres} />
+                    <Route
+                        path="/dashboard/Threatres"
+                        component={Threatres}
+                    />
                     <Route
                         path="/dashboard/ThreatreSets"
                         component={ThreatreSet}
                     />
+                    <Route path="/dashboard/Film" component={Film} />
+                    <Route path="/dashboard/TheLoai" component={TheLoai} />
+                    <Route
+                        path="/dashboard/thongkeA"
+                        component={ThongKeA}
+                    />
+                    <Route
+                        path="/dashboard/thongkeB"
+                        component={ThongKeB}
+                    />
+                    <Route
+                        path="/dashboard/ShowTime"
+                        component={ShowTime}
+                    />
+                    <Route path="/dashboard/addFilm" component={FormFilm} />
                 </Switch>
             </main>
         </div>

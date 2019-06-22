@@ -1,9 +1,9 @@
 import React from "react";
-import TableThreatre from "components/TableThreatre";
+import TableGenre from "components/TableGenre";
 import AxiosInstance, { endPoint } from "utils/api";
 import _ from "lodash";
 
-class Threatres extends React.Component {
+class TheLoai extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ class Threatres extends React.Component {
     }
 
     componentDidMount() {
-        AxiosInstance.get("apiAdmin/threatres", {
+        AxiosInstance.get("apiAdmin/GenreFilms", {
             params: { viewdel: "all", order: "id" }
         }).then(res => {
             this.setState({
@@ -23,7 +23,7 @@ class Threatres extends React.Component {
     }
 
     handleDel = id => {
-        AxiosInstance.delete("apiAdmin/threatreSet/" + id).then(e => {
+        AxiosInstance.delete("apiAdmin/genre/" + id).then(e => {
             var data = this.state.data;
             _.map(data, a => {
                 return a.id === id ? (a.delete = !a.delete) : a;
@@ -38,14 +38,11 @@ class Threatres extends React.Component {
     render() {
         return (
             <div>
-                <h1>Quản lý rạp</h1>
-                <TableThreatre
-                    data={this.state.data}
-                    delItem={this.handleDel}
-                />
+                <h1>Thể loại phim</h1>
+                <TableGenre data={this.state.data} delItem={this.handleDel} />
             </div>
         );
     }
 }
 
-export default Threatres;
+export default TheLoai;

@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 import Table from "react-bootstrap/Table";
 
-class TableCity extends React.Component {
+class TableThreatre extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -24,6 +24,10 @@ class TableCity extends React.Component {
                 <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
+                    <td>{item.row}</td>
+                    <td>{item.column}</td>
+                    <td>{item.ThreatreType.name}</td>
+                    <td>{item.ThreatreSet.name}</td>
                     <td>{item.delete ? "Đã xóa" : "Tồn tại"}</td>
                     <td>{item.createdAt}</td>
                     <td>{item.updatedAt}</td>
@@ -57,9 +61,14 @@ class TableCity extends React.Component {
                     <tr>
                         <th>#ID</th>
                         <th>Tên</th>
+                        <th>Số hàng</th>
+
+                        <th>Số dẫy</th>
+                        <th>Loại</th>
+                        <th>Cụm rạp</th>
                         <th>Trạng thái</th>
                         <th>Thời gian tạo</th>
-                        <th>Thời gian sửa</th>
+                        <th>Thời gian cập nhật</th>
                     </tr>
                 </thead>
                 <tbody>{this.ListItem()}</tbody>
@@ -68,4 +77,4 @@ class TableCity extends React.Component {
     }
 }
 
-export default TableCity;
+export default TableThreatre;

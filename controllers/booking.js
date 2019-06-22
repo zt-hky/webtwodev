@@ -1,55 +1,49 @@
-'use strict';
+"use strict";
 
 const models = require("../models/index.js");
-const utils = require('../utils/index.js');
+const utils = require("../utils/index.js");
 
-let booking = {}
-
+let booking = {};
 
 booking.getByShowTimeId = (req, res, next) => {
-
-    const { ShowTimeId } = req.params
+    const { ShowTimeId } = req.params;
 
     var findOption = {
         where: {
             ShowTimeId
         }
-    }
+    };
 
     models.Booking.findAll(findOption)
         .then(item => {
             res.status(200);
             res.json({
                 success: true,
-                data: item,
-            })
+                data: item
+            });
         })
-        .catch((err) => {
+        .catch(err => {
             res.status(422);
             res.json({
                 error: err.name,
-                findOption,
-
-            })
-        })
-
-}
+                findOption
+            });
+        });
+};
 
 booking.book = async(req, res, next) => {
+    const user = req.user;
+    const { seats, ShowTimeId } = req.body;
 
-    const user = req.user
-    const { seats, ShowTimeId } = req.body
-
-    var check
-
+    var check;
 
     if (!seats || !ShowTimeId) {
-        res.status(400)
-        res.end()
-        return
+        res.status(400);
+        res.end();
+        return;
     }
 
-    const lstSeat = seats.split(',');
+    const lstSeat = seats.split(",");
 
     // Get Maximum number col and row
     const InfoThreatre = await models.Threatre.findOne({
@@ -60,117 +54,193 @@ booking.book = async(req, res, next) => {
             },
             {
                 model: models.ThreatreType,
-                attributes: ['price']
+                attributes: ["price"]
             }
-
         ],
-        attributes: ['row', 'column', 'ThreatreTypeId']
+        attributes: ["row", "column", "ThreatreTypeId"]
+    });
 
-    })
-
-    check = true
+    check = true;
     lstSeat.forEach(seat => {
-        var row = seat.charCodeAt(0) - 64
-        var col = parseInt(seat.substr(1))
+        var row = seat.charCodeAt(0) - 64;
+        var col = parseInt(seat.substr(1));
 
         console.log("Row :: " + row + "   col :: " + col);
-        if (seat == "" ||
+        if (
+            seat == "" ||
             isNaN(col) ||
-            row < 1 || col < 1 ||
+            row < 1 ||
+            col < 1 ||
             row > InfoThreatre.row ||
             col > InfoThreatre.column
         ) {
-            check = false
+            check = false;
         }
     });
 
     if (check == false) {
-        res.status(400)
-        res.end()
-        return
+        res.status(400);
+        res.end();
+        return;
     }
 
     var film = await models.ShowTime.findOne({
         include: [{
-            model: models.Film,
-            attributes: ['name']
-        }, {
-            model: models.Threatre,
-            include: {
-                model: models.ThreatreSet
+                model: models.Film,
+                attributes: ["name"]
+            },
+            {
+                model: models.Threatre,
+                include: {
+                    model: models.ThreatreSet
+                }
             }
-        }],
-        where: { id: ShowTimeId },
-    })
+        ],
+        where: { id: ShowTimeId }
+    });
 
-
-    models.sequelize.transaction(async(t) => {
-
-            check = true
+    models.sequelize
+        .transaction(async t => {
+            check = true;
 
             lstSeat.forEach(async seat => {
-                var row = seat.charAt(0)
-                var column = parseInt(seat.substr(1, 2))
+                var row = seat.charAt(0);
+                var column = parseInt(seat.substr(1, 2));
 
                 var Ticket = await models.Ticket.findOne({
                     where: { ShowTimeId, row, column },
                     transaction: t,
-                    lock: true,
-                })
+                    lock: true
+                });
 
                 if (Ticket) {
-                    check = false
+                    check = false;
                 }
-
-            })
+            });
 
             if (check == false) {
-                throw new Error("Ge da co nguoi dat")
+                throw new Error("Ge da co nguoi dat");
             }
 
-
-            var cost = lstSeat.length * InfoThreatre.ThreatreType.price
-            console.log("-----------" + cost + user.email + ShowTimeId)
+            var cost = lstSeat.length * InfoThreatre.ThreatreType.price;
+            console.log("-----------" + cost + user.email + ShowTimeId);
 
             var booking = await models.Booking.create({
                 cost,
                 UserEmail: user.email,
-                ShowTimeId,
-
-            }, { transaction: t })
-
+                ShowTimeId
+            }, { transaction: t });
 
             for (var i = 0; i < lstSeat.length; i++) {
-                var seat = lstSeat[i]
-                var row = seat.charAt(0)
-                var column = parseInt(seat.substr(1, 2))
-                var test = await models.Ticket.create({ row, column, ShowTimeId, BookingId: booking.id }, { transaction: t })
-
+                var seat = lstSeat[i];
+                var row = seat.charAt(0);
+                var column = parseInt(seat.substr(1, 2));
+                var test = await models.Ticket.create({ row, column, ShowTimeId, BookingId: booking.id }, { transaction: t });
             }
-
-
         })
         .then(async result => {
-
-
-            res.status(200)
+            res.status(200);
             res.json({
                 success: true
-            })
-            console.log('-------------------');
-
+            });
+            console.log("-------------------");
         })
         .catch(err => {
-            res.status(406)
+            res.status(406);
             res.json({
-                error: err,
-            })
-        })
-    var to = '84' + user.phone.trimLeft('0')
-    var mess = `Ban da dat ve thanh cong\nPhim: '${film.Film.name}'\nGhe: '${seats}'\nXuat:${film.time} Ngay: ${film.date}\nRap: ${film.Threatre.ThreatreSet.name}\n`
+                error: err
+            });
+        });
+    var to = "84" + user.phone.trimLeft("0");
+    var mess = `Ban da dat ve thanh cong\nPhim: '${
+        film.Film.name
+    }'\nGhe: '${seats}'\nXuat:${film.time} Ngay: ${film.date}\nRap: ${
+        film.Threatre.ThreatreSet.name
+    }\n`;
     console.log(mess);
-    utils.sms.send(to, mess)
-}
+    utils.sms.send(to, mess);
+};
 
+booking.thongkeRap = async(req, res, next) => {
+    const { dateA, dateB } = req.body;
+    const Op = models.Sequelize.Op;
+    var optionFind = {
+        attributes: [
+            "ThreatreSet.id",
+            "ThreatreSet.name", [
+                models.sequelize.fn("SUM", models.sequelize.col("cost")),
+                "DoanhThu"
+            ],
+            [models.sequelize.fn("SUM", models.sequelize.col("sl")), "SoVe"]
+        ],
+        include: [{
+            attributes: [],
+            model: models.Threatre,
+            include: [{
+                attributes: [],
+                model: models.ShowTime,
+                where: {
+                    date: {
+                        [Op.between]: [dateA, dateB]
+                    }
+                },
+                include: [{
+                    attributes: [],
+                    model: models.Booking
+                }]
+            }]
+        }],
+        group: ["ThreatreSet.id", "ThreatreSet.name"],
+        raw: true
+    };
 
-module.exports = booking
+    var data = await models.ThreatreSet.findAll(optionFind);
+
+    if (data) {
+        res.status(200);
+        res.json({
+            data
+        });
+    }
+};
+
+booking.thongkePhim = async(req, res, next) => {
+    const { dateA, dateB } = req.body;
+    const Op = models.Sequelize.Op;
+    var optionFind = {
+        attributes: [
+            "Film.id",
+            "Film.name", [
+                models.sequelize.fn("SUM", models.sequelize.col("cost")),
+                "DoanhThu"
+            ],
+            [models.sequelize.fn("SUM", models.sequelize.col("sl")), "SoVe"]
+        ],
+        include: [{
+            attributes: [],
+            model: models.ShowTime,
+            where: {
+                date: {
+                    [Op.between]: [dateA, dateB]
+                }
+            },
+            include: [{
+                attributes: [],
+                model: models.Booking
+            }]
+        }],
+        group: ["Film.id", "Film.name"],
+        raw: true
+    };
+
+    var data = await models.Film.findAll(optionFind);
+
+    if (data) {
+        res.status(200);
+        res.json({
+            data
+        });
+    }
+};
+
+module.exports = booking;

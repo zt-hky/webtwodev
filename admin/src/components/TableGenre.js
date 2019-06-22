@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 import Table from "react-bootstrap/Table";
 
-class TableCity extends React.Component {
+class TableGenre extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -57,9 +57,10 @@ class TableCity extends React.Component {
                     <tr>
                         <th>#ID</th>
                         <th>Tên</th>
+
                         <th>Trạng thái</th>
                         <th>Thời gian tạo</th>
-                        <th>Thời gian sửa</th>
+                        <th>Thời gian cập nhật</th>
                     </tr>
                 </thead>
                 <tbody>{this.ListItem()}</tbody>
@@ -68,4 +69,4 @@ class TableCity extends React.Component {
     }
 }
 
-export default TableCity;
+export default TableGenre;

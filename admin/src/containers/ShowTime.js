@@ -1,9 +1,9 @@
 import React from "react";
-import TableThreatre from "components/TableThreatre";
+import TableShowTime from "components/TableShowTime";
 import AxiosInstance, { endPoint } from "utils/api";
 import _ from "lodash";
 
-class Threatres extends React.Component {
+class ShowTime extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,8 +12,8 @@ class Threatres extends React.Component {
     }
 
     componentDidMount() {
-        AxiosInstance.get("apiAdmin/threatres", {
-            params: { viewdel: "all", order: "id" }
+        AxiosInstance.get("apiAdmin/showtime", {
+            params: { viewdel: "all", order: "-id" }
         }).then(res => {
             this.setState({
                 data: res.data.data
@@ -23,7 +23,7 @@ class Threatres extends React.Component {
     }
 
     handleDel = id => {
-        AxiosInstance.delete("apiAdmin/threatreSet/" + id).then(e => {
+        AxiosInstance.delete("apiAdmin/showTime/" + id).then(e => {
             var data = this.state.data;
             _.map(data, a => {
                 return a.id === id ? (a.delete = !a.delete) : a;
@@ -38,8 +38,8 @@ class Threatres extends React.Component {
     render() {
         return (
             <div>
-                <h1>Quản lý rạp</h1>
-                <TableThreatre
+                <h1>Quản lý lịch chiếu</h1>
+                <TableShowTime
                     data={this.state.data}
                     delItem={this.handleDel}
                 />
@@ -48,4 +48,4 @@ class Threatres extends React.Component {
     }
 }
 
-export default Threatres;
+export default ShowTime;
